@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dweq1naht4loy"]
+
+[ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://stages/car_prototype/car.gd" id="1_pt7ul"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pt7ul"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_t117t"]
+sky_material = SubResource("ProceduralSkyMaterial_pt7ul")
+
+[sub_resource type="Environment" id="Environment_orwpi"]
+background_mode = 2
+sky = SubResource("Sky_t117t")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvpx2"]
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ncaa3"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7ul"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="CarPrototypeArea" type="Node3D" unique_id=2137135937]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=130313378]
+environment = SubResource("Environment_orwpi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1373807152]
+transform = Transform3D(-0.82609826, -0.17226729, 0.53654975, 0, 0.95212936, 0.30569533, -0.5635261, 0.2525344, -0.7865524, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Car" type="Node3D" parent="." unique_id=251769178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5944996, 0)
+script = ExtResource("1_pt7ul")
+
+[node name="Sphere" type="RigidBody3D" parent="Car" unique_id=1082955329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7113662, 0)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_rvpx2")
+linear_damp = 1.0
+angular_damp = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/Sphere" unique_id=838272259]
+shape = SubResource("SphereShape3D_ncaa3")
+
+[node name="Mesh" type="Node3D" parent="Car" unique_id=1344213211]
+
+[node name="Body" type="CSGBox3D" parent="Car/Mesh" unique_id=1632016728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28294373, 0)
+size = Vector3(1, 0.78567505, 1.5700684)
+material = SubResource("StandardMaterial3D_pt7ul")
+
+[node name="RayCast3D" type="RayCast3D" parent="Car/Mesh" unique_id=1960711780]
+
+[node name="Camera3D" type="Camera3D" parent="Car/Mesh" unique_id=1693253782]
+transform = Transform3D(1, 0, 0, 0, 0.24407198, 0.96975714, 0, -0.96975714, 0.24407198, 0, 13.836945, -0.118)
+current = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(168.47632, 1, 142.41821)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1750467758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.911926, 1.8950028, 1.0222626)
+use_collision = true
+size = Vector3(1, 5.2491455, 69.74219)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1902968884]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.019291, 1.8950028, 37.080128)
+use_collision = true
+size = Vector3(1, 5.2491455, 69.74219)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1214937844]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.1934175, 1.8950028, -31.265568)
+use_collision = true
+size = Vector3(1, 5.2491455, 69.74219)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=882120684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.045708, 1.8950028, 1.9096031)
+use_collision = true
+size = Vector3(1, 5.2491455, 69.74219)

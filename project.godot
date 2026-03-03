@@ -59,6 +59,14 @@ steer_right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Object"
+3d_physics/layer_3="Terrain"
+3d_physics/layer_4="Enemy"
+3d_physics/layer_5="Floor"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

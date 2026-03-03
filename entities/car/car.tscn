@@ -9,7 +9,7 @@ bounce = 0.2
 radius = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7ul"]
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0, 1, 0, 1)
 
 [node name="Car" type="Node3D" unique_id=880996545]
 script = ExtResource("1_yotxw")
@@ -17,6 +17,7 @@ script = ExtResource("1_yotxw")
 [node name="Sphere" type="RigidBody3D" parent="." unique_id=361040030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7113662, 0)
 collision_layer = 0
+collision_mask = 20
 physics_material_override = SubResource("PhysicsMaterial_rvpx2")
 linear_damp = 1.0
 angular_damp = 20.0
@@ -28,7 +29,11 @@ shape = SubResource("SphereShape3D_ncaa3")
 
 [node name="Body" type="CSGBox3D" parent="Mesh" unique_id=77725255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28294373, 0)
+use_collision = true
+collision_layer = 2
+collision_mask = 4
 size = Vector3(1, 0.78567505, 1.5700684)
 material = SubResource("StandardMaterial3D_pt7ul")
 
 [node name="RayCast3D" type="RayCast3D" parent="Mesh" unique_id=733590555]
+collision_mask = 16

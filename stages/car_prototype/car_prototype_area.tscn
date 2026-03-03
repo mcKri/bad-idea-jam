@@ -31,6 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3883741, -4.9330616)
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
+collision_layer = 16
+collision_mask = 0
 size = Vector3(168.47632, 1, 142.41821)
 
 [node name="Walls" type="Node3D" parent="." unique_id=1695788866]
@@ -38,19 +40,27 @@ size = Vector3(168.47632, 1, 142.41821)
 [node name="CSGBox3D" type="CSGBox3D" parent="Walls" unique_id=1750467758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.911926, 1.8950028, 1.0222626)
 use_collision = true
+collision_layer = 4
+collision_mask = 0
 size = Vector3(1, 5.2491455, 69.74219)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Walls" unique_id=1902968884]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.019291, 1.8950028, 37.080128)
 use_collision = true
+collision_layer = 4
+collision_mask = 0
 size = Vector3(1, 5.2491455, 69.74219)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Walls" unique_id=1214937844]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.1934175, 1.8950028, -31.265568)
 use_collision = true
+collision_layer = 4
+collision_mask = 0
 size = Vector3(1, 5.2491455, 69.74219)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Walls" unique_id=882120684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.045708, 1.8950028, 1.9096031)
 use_collision = true
+collision_layer = 4
+collision_mask = 0
 size = Vector3(1, 5.2491455, 69.74219)

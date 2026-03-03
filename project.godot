@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Bad Idea Jam"
-run/main_scene="uid://dweq1naht4loy"
+run/main_scene="uid://bkh6s1nie1owp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+StageLoader="*uid://dmxro2o55w5nw"
+AudioManager="*uid://da20nvxd27mo0"
+Camera="*uid://b1jl55o3066mj"
 
 [display]
 

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bkh6s1nie1owp"]
+
+[ext_resource type="Script" uid="uid://8byjgxecmkff" path="res://system/game_world.gd" id="1_i084f"]
+[ext_resource type="PackedScene" uid="uid://dweq1naht4loy" path="res://stages/car_prototype/car_prototype_area.tscn" id="2_bqd4e"]
+[ext_resource type="PackedScene" uid="uid://eyiskji7g51x" path="res://entities/car/car.tscn" id="2_dsv2d"]
+
+[node name="GameWorld" type="Node3D" unique_id=548075449]
+script = ExtResource("1_i084f")
+initial_level = ExtResource("2_bqd4e")
+
+[node name="Car" parent="." unique_id=880996545 instance=ExtResource("2_dsv2d")]

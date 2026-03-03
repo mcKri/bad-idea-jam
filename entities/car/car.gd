@@ -1,3 +1,4 @@
+class_name Car
 extends Node3D
 
 @onready var sphere: RigidBody3D = $Sphere
@@ -36,7 +37,6 @@ func _process(delta):
 	#if !ground_ray.is_colliding():
 		#print("NOT ON FLOOR")
 		#return
-	
 	speed_input = 0
 	speed_input += Input.get_action_strength("accelerate")
 	speed_input -= Input.get_action_strength("brake")
@@ -53,5 +53,5 @@ func _process(delta):
 		mesh.global_basis = mesh.global_basis.slerp(new_basis, TURN_SPEED * delta)
 		mesh.global_transform = mesh.global_transform.orthonormalized()
 		
-		var t = -rotate_input * sphere.linear_velocity.length() / BODY_TILT
+		var t = - rotate_input * sphere.linear_velocity.length() / BODY_TILT
 		body.rotation.z = lerp(body.rotation.z, t, 10 * delta)

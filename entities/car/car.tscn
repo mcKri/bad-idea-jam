@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://eyiskji7g51x"]
+
+[ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvpx2"]
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ncaa3"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7ul"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Car" type="Node3D" unique_id=880996545]
+script = ExtResource("1_yotxw")
+
+[node name="Sphere" type="RigidBody3D" parent="." unique_id=361040030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7113662, 0)
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_rvpx2")
+linear_damp = 1.0
+angular_damp = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere" unique_id=1762491697]
+shape = SubResource("SphereShape3D_ncaa3")
+
+[node name="Mesh" type="Node3D" parent="." unique_id=310353810]
+
+[node name="Body" type="CSGBox3D" parent="Mesh" unique_id=77725255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28294373, 0)
+size = Vector3(1, 0.78567505, 1.5700684)
+material = SubResource("StandardMaterial3D_pt7ul")
+
+[node name="RayCast3D" type="RayCast3D" parent="Mesh" unique_id=733590555]

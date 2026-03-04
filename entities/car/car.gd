@@ -4,16 +4,19 @@ extends Node3D
 @onready var sphere: RigidBody3D = $Sphere
 @onready var mesh: Node3D = $Mesh
 @onready var ground_ray: RayCast3D = $Mesh/RayCast3D
-@onready var body: CSGBox3D = $Mesh/Body
+@onready var body: CSGBox3D = $Mesh/CSGBox3D
+@onready var camera_point: Marker3D = $CameraPoint
+@onready var box_holder: BoxHolder = $Mesh/BoxHolder
+@onready var car_body_shape: CollisionShape3D = $Sphere/CarBodyShape
 
 @export var steer_speed_curve: Curve
 
-const SPHERE_OFFSET := Vector3(0, -1.0, 0) # Where to place mesh relative to sphere center
+const SPHERE_OFFSET := Vector3(0, -0.4, 0) # Where to place mesh relative to sphere center
 const FRONT_AXLE_OFFSET := Vector3(0, 0, -0.25)
 
-const ACCELERATION := 35.0
-const REVERSE_FACTOR := 0.7 # Reverse strength relative to acceleration
-const MAX_SPEED := 20.0
+const ACCELERATION := 28.0
+const REVERSE_FACTOR := 0.5 # Reverse strength relative to acceleration
+const MAX_SPEED := 18.0
 const STATIONARY_THRESHOLD := 0.5 # Speed below which the car is considered stationary
 
 const HANDBRAKE_DRAG := 3.0
@@ -58,8 +61,8 @@ func _physics_process(delta):
 	
 	# Measure angle between mesh facing and velocity (drift angle)
 	var drift_angle := 0.0
+	var vel_dir := sphere.linear_velocity.normalized()
 	if speed > STATIONARY_THRESHOLD:
-		var vel_dir := sphere.linear_velocity / speed
 		var facing := forward if not is_reversing() else -forward
 		drift_angle = facing.signed_angle_to(vel_dir, Vector3.UP)
 	
@@ -90,7 +93,16 @@ func _physics_process(delta):
 		var tilt_target := drift_angle * speed_factor * MAX_TILT
 		var tilt_speed := lerpf(TILT_RECOVER_SPEED, TILT_LEAN_SPEED, absf(drift_angle) / PI)
 		body.rotation.z = lerp(body.rotation.z, tilt_target, tilt_speed * delta)
+	
+	# Lead camera point
+	var camera_offset := Vector3(0, 3.0, 0) + vel_dir * 5.0 * speed_factor
+	camera_offset *= speed_factor * (1.0 if not is_reversing() else -1.0)
+	camera_point.global_position = lerp(camera_point.global_position, mesh.global_position + camera_offset, 5.0 * delta)
 
+	# Anchor car body shape to mesh for collisions
+	# car_body_shape.global_transform = mesh.global_transform
+	# car_body_shape.global_position.y += 1.0
+	
 
 func _process(_delta):
 	speed_input = (Input.get_action_strength("accelerate") - Input.get_action_strength("reverse") * REVERSE_FACTOR) * ACCELERATION

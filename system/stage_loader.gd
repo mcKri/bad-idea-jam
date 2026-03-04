@@ -17,4 +17,9 @@ func load_stage(stage_scene: PackedScene):
 		await curr_stage.ready
 	
 	car.global_position = curr_stage.get_spawn_position()
-	Camera.focus_on(car.mesh)
+	Camera.focus_on(car.camera_point)
+	
+	car.box_holder.reset()
+	for box in curr_stage.boxes:
+		var box_instance = box.instantiate()
+		car.box_holder.add_box(box_instance)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_pt7ul"]
 [ext_resource type="Texture2D" uid="uid://bh1xib8ri0gho" path="res://stages/car_prototype/testmap.png" id="2_t117t"]
+[ext_resource type="PackedScene" uid="uid://b0iuur3da6uka" path="res://entities/box/box.tscn" id="3_orwpi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pt7ul"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +19,7 @@ glow_enabled = true
 
 [node name="CarPrototypeArea" type="Node3D" unique_id=2137135937]
 script = ExtResource("1_pt7ul")
+boxes = Array[PackedScene]([ExtResource("3_orwpi")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=130313378]
 environment = SubResource("Environment_orwpi")
@@ -27,7 +29,7 @@ transform = Transform3D(-0.82609826, -0.17226729, 0.53654975, 0, 0.95212936, 0.3
 shadow_enabled = true
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1706767338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3883741, -4.9330616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.933)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
@@ -41,29 +43,9 @@ collision_layer = 16
 collision_mask = 0
 size = Vector3(168.47632, 1, 142.41821)
 
-[node name="Walls" type="Node3D" parent="." unique_id=1695788866]
-visible = false
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Walls" unique_id=1750467758]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.911926, 1.8950028, 1.0222626)
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1980269488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5637207, 32.391438)
+use_collision = true
 collision_layer = 4
 collision_mask = 0
-size = Vector3(1, 5.2491455, 69.74219)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Walls" unique_id=1902968884]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.019291, 1.8950028, 37.080128)
-collision_layer = 4
-collision_mask = 0
-size = Vector3(1, 5.2491455, 69.74219)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Walls" unique_id=1214937844]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.1934175, 1.8950028, -31.265568)
-collision_layer = 4
-collision_mask = 0
-size = Vector3(1, 5.2491455, 69.74219)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Walls" unique_id=882120684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.045708, 1.8950028, 1.9096031)
-collision_layer = 4
-collision_mask = 0
-size = Vector3(1, 5.2491455, 69.74219)
+size = Vector3(43.398438, 6.1274414, 1)

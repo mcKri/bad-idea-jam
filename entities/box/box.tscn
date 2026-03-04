@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0iuur3da6uka"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x30i6"]
+rough = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yotxw"]
+size = Vector3(0.5263672, 0.55822754, 0.54125977)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30i6"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="Box" type="RigidBody3D" unique_id=755877171]
+collision_layer = 2
+collision_mask = 31
+physics_material_override = SubResource("PhysicsMaterial_x30i6")
+gravity_scale = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1176030861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
+shape = SubResource("BoxShape3D_yotxw")
+debug_color = Color(0.54901963, 0.5647059, 0, 0.6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2121944741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
+size = Vector3(0.5263672, 0.55822754, 0.54125977)
+material = SubResource("StandardMaterial3D_x30i6")

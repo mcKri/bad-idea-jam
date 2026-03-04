@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3883741, -4.9330616)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
-pixel_size = 0.05
+pixel_size = 0.06
 texture = ExtResource("2_t117t")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]

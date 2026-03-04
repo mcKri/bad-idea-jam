@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
 
+[sub_resource type="Curve" id="Curve_yotxw"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.24936384, 0.7956778), 0.7460175, 0.7460175, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvpx2"]
 bounce = 0.2
 
@@ -13,14 +17,14 @@ albedo_color = Color(0, 1, 0, 1)
 
 [node name="Car" type="Node3D" unique_id=880996545]
 script = ExtResource("1_yotxw")
+steer_speed_curve = SubResource("Curve_yotxw")
 
 [node name="Sphere" type="RigidBody3D" parent="." unique_id=361040030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7113662, 0)
 collision_layer = 0
 collision_mask = 20
 physics_material_override = SubResource("PhysicsMaterial_rvpx2")
-linear_damp = 1.0
-angular_damp = 20.0
+angular_damp = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere" unique_id=1762491697]
 shape = SubResource("SphereShape3D_ncaa3")

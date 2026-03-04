@@ -1,6 +1,6 @@
 extends Camera3D
 
-const DEFAULT_OFFSET := Vector3(0, 15, -5)
+const DEFAULT_OFFSET := Vector3(0, 15, -2)
 
 var focus_target: Node3D
 var focus_point: Vector3 = Vector3.INF

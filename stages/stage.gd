@@ -6,8 +6,8 @@ extends Node3D
 @export var boxes: Array[PackedScene]
 
 
-func get_spawn_position() -> Vector3:
+func get_spawn_transform() -> Transform3D:
 	if spawn_point:
-		return spawn_point.global_position
+		return spawn_point.global_transform
 	
-	return Vector3.ZERO
+	return Transform3D.IDENTITY

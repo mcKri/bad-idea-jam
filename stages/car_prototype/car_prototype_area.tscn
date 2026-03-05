@@ -19,7 +19,7 @@ glow_enabled = true
 
 [node name="CarPrototypeArea" type="Node3D" unique_id=2137135937]
 script = ExtResource("1_pt7ul")
-boxes = Array[PackedScene]([ExtResource("3_orwpi")])
+boxes = Array[PackedScene]([ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=130313378]
 environment = SubResource("Environment_orwpi")
@@ -29,7 +29,7 @@ transform = Transform3D(-0.82609826, -0.17226729, 0.53654975, 0, 0.95212936, 0.3
 shadow_enabled = true
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1706767338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.933)
+transform = Transform3D(-0.99999744, 0, -0.0022515357, 0, 1, 0, 0.0022515357, 0, -0.99999744, 0, 0, -4.933)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
@@ -44,7 +44,7 @@ collision_mask = 0
 size = Vector3(168.47632, 1, 142.41821)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1980269488]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5637207, 32.391438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5637207, 3.6846542)
 use_collision = true
 collision_layer = 4
 collision_mask = 0

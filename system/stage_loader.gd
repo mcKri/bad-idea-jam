@@ -16,10 +16,10 @@ func load_stage(stage_scene: PackedScene):
 	if not curr_stage.is_node_ready():
 		await curr_stage.ready
 	
-	car.global_position = curr_stage.get_spawn_position()
+	car.global_transform = curr_stage.get_spawn_transform().translated(Vector3(0, 0.4, 0))
 	Camera.focus_on(car.camera_point)
 	
-	car.box_holder.reset()
+	car.box_anchor.reset()
 	for box in curr_stage.boxes:
 		var box_instance = box.instantiate()
-		car.box_holder.add_box(box_instance)
+		car.box_anchor.add_box(box_instance)

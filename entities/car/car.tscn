@@ -1,47 +1,36 @@
 [gd_scene format=3 uid="uid://eyiskji7g51x"]
 
 [ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
-[ext_resource type="Script" uid="uid://bv3hcp8nt7tqn" path="res://entities/car/box_holder.gd" id="2_1ang0"]
-
-[sub_resource type="Curve" id="Curve_yotxw"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.24936384, 0.7956778), 0.7460175, 0.7460175, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
+[ext_resource type="Script" uid="uid://bv3hcp8nt7tqn" path="res://entities/car/box_anchor.gd" id="2_1ang0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvpx2"]
+
+[sub_resource type="Curve" id="Curve_1ang0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2480211, 0.8268442), 0.0, 0.0, 0, 0, Vector2(0.50923485, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ncaa3"]
 radius = 0.4
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1ang0"]
-size = Vector3(1, 0.7812576, 1.5595703)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7ul"]
 albedo_color = Color(0, 1, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yotxw"]
-size = Vector3(3.1416016, 3.1573792, 3.5146484)
-
-[node name="Car" type="Node3D" unique_id=880996545]
-script = ExtResource("1_yotxw")
-steer_speed_curve = SubResource("Curve_yotxw")
-
-[node name="Sphere" type="RigidBody3D" parent="." unique_id=361040030]
+[node name="Sphere" type="RigidBody3D" unique_id=361040030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 collision_layer = 2
-collision_mask = 31
+collision_mask = 29
 physics_material_override = SubResource("PhysicsMaterial_rvpx2")
-continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 2
 angular_damp = 5.0
+script = ExtResource("1_yotxw")
+steer_speed_curve = SubResource("Curve_1ang0")
 
-[node name="SphereShape" type="CollisionShape3D" parent="Sphere" unique_id=1762491697]
+[node name="SphereShape" type="CollisionShape3D" parent="." unique_id=1762491697]
 shape = SubResource("SphereShape3D_ncaa3")
 
-[node name="CarBodyShape" type="CollisionShape3D" parent="Sphere" unique_id=1630076206]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1999447, 0)
-shape = SubResource("BoxShape3D_1ang0")
-debug_color = Color(0.9210843, 5.7371853e-05, 0.69438714, 0.41960785)
-
 [node name="Mesh" type="Node3D" parent="." unique_id=310353810]
+top_level = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Mesh" unique_id=77725255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4024372, 0)
@@ -50,23 +39,11 @@ collision_mask = 2
 size = Vector3(1, 0.78567505, 1.5700684)
 material = SubResource("StandardMaterial3D_pt7ul")
 
+[node name="BoxAnchor" type="Marker3D" parent="Mesh/CSGBox3D" unique_id=2121495623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39568472, 0.34979522)
+script = ExtResource("2_1ang0")
+
 [node name="RayCast3D" type="RayCast3D" parent="Mesh" unique_id=733590555]
 collision_mask = 16
 
-[node name="BoxHolder" type="Area3D" parent="Mesh" unique_id=803942671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7505467, -0.44978523)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("2_1ang0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/BoxHolder" unique_id=1795837210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048583984, 0.2526703, -0.03491211)
-shape = SubResource("BoxShape3D_yotxw")
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Mesh" unique_id=932243032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5999447, 0)
-remote_path = NodePath("../../Sphere/CarBodyShape")
-
-[node name="CameraPoint" type="Marker3D" parent="." unique_id=599202880]
-
-[connection signal="body_exited" from="Mesh/BoxHolder" to="Mesh/BoxHolder" method="_on_body_exited"]
+[node name="CameraPoint" type="Marker3D" parent="Mesh" unique_id=599202880]

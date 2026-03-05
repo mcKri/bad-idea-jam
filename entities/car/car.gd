@@ -95,7 +95,7 @@ func _physics_process(delta):
 	# Lead camera point
 	var camera_offset := Vector3(0, 3.0, 0) + vel_dir * 5.0 * speed_factor
 	camera_offset *= speed_factor * (1.0 if not is_reversing() else -1.0)
-	camera_point.global_position = lerp(camera_point.global_position, mesh.global_position + camera_offset, 5.0 * delta)
+	camera_point.global_position = lerp(camera_point.global_position, mesh.global_position + camera_offset, 2.0 * delta)
 
 
 func _process(_delta):

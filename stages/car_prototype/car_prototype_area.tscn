@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dweq1naht4loy"]
 
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_pt7ul"]
-[ext_resource type="Texture2D" uid="uid://bh1xib8ri0gho" path="res://stages/car_prototype/testmap.png" id="2_t117t"]
+[ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/car_prototype/testtest.png" id="3_1ai46"]
 [ext_resource type="PackedScene" uid="uid://b0iuur3da6uka" path="res://entities/box/box.tscn" id="3_orwpi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pt7ul"]
@@ -33,15 +33,16 @@ transform = Transform3D(-0.99999744, 0, -0.0022515357, 0, 1, 0, 0.0022515357, 0,
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
-pixel_size = 0.06
-texture = ExtResource("2_t117t")
+pixel_size = 0.18
+texture_filter = 0
+texture = ExtResource("3_1ai46")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 collision_layer = 16
 collision_mask = 0
-size = Vector3(168.47632, 1, 142.41821)
+size = Vector3(460.57324, 1, 443.37305)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1980269488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5637207, 3.6846542)

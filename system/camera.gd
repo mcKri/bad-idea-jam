@@ -29,7 +29,6 @@ func _process(_delta):
 	var anchor_pos := target_pos + anchor_offset
 	
 	# Smoothly pan to target if currently panning, otherwise snap immediately
-	# TODO: Smoothly rotate to look at target
 	if panning:
 		if global_position.distance_to(anchor_pos) > 0.01:
 			global_position = lerp(global_position, anchor_pos, focus_speed)

@@ -1,12 +1,19 @@
 extends Camera3D
 
-const DEFAULT_OFFSET := Vector3(0, 15, -2)
+const DEFAULT_OFFSET := Vector3(0, 15, 2)
+const DEFAULT_PAN_SPEED := 20.0
 
-var focus_target: Node3D
-var focus_point: Vector3 = Vector3.INF
-var focus_speed: float = 0.15
-var panning: bool = false
+var look_target: Node3D
+var look_point: Vector3 = Vector3.INF
 var anchor_offset: Vector3 = DEFAULT_OFFSET
+
+var pan_speed: float = DEFAULT_PAN_SPEED
+var panning: bool = false
+
+var _fixed_basis: Basis
+var _pan_origin: Vector3
+var _pan_duration: float
+var _pan_t: float = 1.0
 
 
 func _init():
@@ -14,58 +21,70 @@ func _init():
 
 
 func _ready():
+	_update_basis()
 	make_current()
 
 
-func _process(_delta):
+func _process(delta):
 	var target_pos := Vector3.INF
 	
 	# Priority: target node > focus point > current position
-	if focus_target:
-		target_pos = focus_target.global_position
-	elif focus_point != Vector3.INF:
-		target_pos = focus_point
+	if look_target:
+		target_pos = look_target.global_position
+	elif look_point != Vector3.INF:
+		target_pos = look_point
 	
 	var anchor_pos := target_pos + anchor_offset
 	
 	# Smoothly pan to target if currently panning, otherwise snap immediately
 	if panning:
-		if global_position.distance_to(anchor_pos) > 0.01:
-			global_position = lerp(global_position, anchor_pos, focus_speed)
-		else:
+		_pan_t = minf(_pan_t + delta / _pan_duration, 1.0)
+		var eased := smoothstep(0.0, 1.0, _pan_t)
+		global_position = _pan_origin.lerp(anchor_pos, eased)
+		if _pan_t >= 1.0:
 			global_position = anchor_pos
 			panning = false
 	else:
 		if anchor_pos != Vector3.INF:
 			global_position = anchor_pos
 	
-	look_at(target_pos, Vector3.UP)
+	basis = _fixed_basis
 
 
-func focus_on(target: Variant, speed: float = 0.15):
+func _update_basis():
+	_fixed_basis = Basis.looking_at(-anchor_offset.normalized(), Vector3.UP)
+
+
+func set_target(target: Variant, speed: float = DEFAULT_PAN_SPEED):
 	if target is Node3D:
-		focus_target = target
+		look_target = target
 	elif target is Vector3:
-		focus_point = target
-		focus_target = null
+		look_point = target
+		look_target = null
 	else:
 		return
 
 	if speed == INF:
-		global_position = focus_point if focus_point != Vector3.INF else focus_target.global_position
+		global_position = look_point if look_point != Vector3.INF else look_target.global_position
 	else:
-		focus_speed = speed
+		pan_speed = speed
+		var dest := look_target.global_position if look_target else look_point
+		_pan_origin = global_position
+		_pan_duration = maxf(global_position.distance_to(dest + anchor_offset) / pan_speed, 0.001)
+		_pan_t = 0.0
 		panning = true
 
 
-func clear_focus():
-	focus_target = null
-	focus_point = Vector3.INF
+func clear_target():
+	look_target = null
+	look_point = Vector3.INF
 
 
 func set_offset(new_offset: Vector3):
 	anchor_offset = new_offset
+	_update_basis()
 
 
 func reset_offset():
 	anchor_offset = DEFAULT_OFFSET
+	_update_basis()

@@ -31,6 +31,7 @@ const MAX_TILT := 1.2
 const TILT_LEAN_SPEED := 2.0 # How quickly the car_body tilts into a drift
 const TILT_RECOVER_SPEED := 15.0 # How quickly the car_body returns upright
 
+var driving: bool = false
 var speed_input := 0.0
 var steer_input := 0.0
 var handbrake := false
@@ -101,6 +102,9 @@ func _physics_process(delta):
 
 
 func _process(_delta):
+	if not driving:
+		return
+
 	speed_input = (Input.get_action_strength("accelerate") - Input.get_action_strength("reverse") * REVERSE_FACTOR) * ACCELERATION
 	steer_input = (Input.get_action_strength("steer_left") - Input.get_action_strength("steer_right")) * STEERING
 	handbrake = Input.is_action_pressed("handbrake")

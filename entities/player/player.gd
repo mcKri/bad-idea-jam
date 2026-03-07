@@ -1,0 +1,99 @@
+class_name Player
+extends CharacterBody3D
+
+@onready var coll_shape: CollisionShape3D = $CollisionShape3D
+@onready var direction_marker: Marker3D = $DirectionMarker
+@onready var actionable_finder: Area3D = $DirectionMarker/ActionableFinder
+@onready var carry_anchor: Marker3D = $DirectionMarker/CarryAnchor
+
+var first_actionable: Node3D = null:
+	set(val):
+		if val == first_actionable:
+			return
+		
+		first_actionable = val
+		if first_actionable:
+			# TODO: Show UI prompt
+			# TODO: Play SFX
+			pass
+		else:
+			# TODO: Hide UI prompt
+			pass
+
+var car: Car
+var held_box: Box
+
+
+func _physics_process(delta):
+	if !car:
+		var input_vector = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+		velocity.x = input_vector.x * 500.0 * delta
+		velocity.z = input_vector.y * 500.0 * delta
+		move_and_slide()
+		
+		if velocity.length() > 0.1:
+			direction_marker.look_at(global_position + velocity, Vector3.UP)
+		
+		# Check for actionable objects in front of the player
+		var found_actionable = null
+		for actionable in actionable_finder.get_overlapping_bodies():
+			found_actionable = actionable
+			if found_actionable == first_actionable:
+				break
+		
+		first_actionable = found_actionable
+
+
+func _unhandled_input(event: InputEvent):
+	if !car:
+		if event is InputEventKey:
+			if event.is_action_pressed("interact") && first_actionable:
+				if first_actionable is Car:
+					if held_box:
+						first_actionable.box_anchor.add_box(held_box)
+						held_box = null
+					else:
+						enter_car(first_actionable)
+				elif first_actionable is Box && !held_box:
+					carry_box(first_actionable)
+	else:
+		if event is InputEventKey:
+			if event.is_action_pressed("interact"):
+				exit_car()
+	
+	if event is InputEventKey:
+		if Input.is_key_pressed(KEY_X):
+			Camera.set_target(StageLoader.car)
+		if Input.is_key_pressed(KEY_C):
+			Camera.set_target(self )
+
+
+func enter_car(new_car: Car):
+	car = new_car
+	Camera.set_target(car.camera_point)
+	car.driving = true
+	reparent(car)
+	position = Vector3.ZERO
+	visible = false
+	coll_shape.disabled = true
+	actionable_finder.monitoring = false
+
+
+func exit_car():
+	Camera.set_target(self )
+	reparent(car.get_parent())
+	car.driving = false
+	position = car.global_position - Vector3(2.0, 0, 0).rotated(Vector3.UP, car.mesh.global_rotation.y)
+	rotation = Vector3.ZERO
+	car = null
+	visible = true
+	coll_shape.disabled = false
+	actionable_finder.monitoring = true
+
+
+func carry_box(box: Box):
+	box.enable_interaction(false)
+	box.freeze = true
+	box.reparent(carry_anchor)
+	box.transform = Transform3D.IDENTITY
+	held_box = box

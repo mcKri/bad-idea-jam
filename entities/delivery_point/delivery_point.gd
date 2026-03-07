@@ -24,12 +24,9 @@ func set_active(active: bool = true):
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body is Car:
-		if body.box_anchor.get_top_box() != _required_box_instance:
-			return
-
-		body.box_anchor.deliver_box()
-		set_active(false)
-		delivered.emit()
+		if body.box_anchor.deliver_box(_required_box_instance):
+			set_active(false)
+			delivered.emit()
 
 
 func set_required_box(box: Box):

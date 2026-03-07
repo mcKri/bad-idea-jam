@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bnl0uwm7p86h"]
+
+[ext_resource type="Script" uid="uid://l4pvyaf76sk7" path="res://entities/player/player.gd" id="1_symyc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfv1e"]
+height = 1.6386719
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_symyc"]
+radius = 2.008
+
+[node name="Player" type="CharacterBody3D" unique_id=1220741404]
+collision_mask = 30
+axis_lock_linear_y = true
+script = ExtResource("1_symyc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1029540855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8046875, 0)
+shape = SubResource("CapsuleShape3D_sfv1e")
+
+[node name="CSGPolygon3D" type="CSGCylinder3D" parent="." unique_id=587719861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7742615, 0)
+height = 1.3099976
+
+[node name="DirectionMarker" type="Marker3D" parent="." unique_id=1299765155]
+
+[node name="ActionableFinder" type="Area3D" parent="DirectionMarker" unique_id=1981653865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.555)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DirectionMarker/ActionableFinder" unique_id=1713768810]
+shape = SubResource("SphereShape3D_symyc")
+
+[node name="CarryAnchor" type="Marker3D" parent="DirectionMarker" unique_id=1371869544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2144581)

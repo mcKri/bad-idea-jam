@@ -1,6 +1,7 @@
 extends Node
 
 @onready var game_world: Node3D = get_node("/root/GameWorld")
+@onready var player: Player = game_world.get_node("Player")
 @onready var car: Car = game_world.get_node("Car")
 
 var curr_stage: Stage
@@ -16,11 +17,10 @@ func load_stage(stage_scene: PackedScene):
 	if not curr_stage.is_node_ready():
 		await curr_stage.ready
 	
-	# Spawn car
+	# Reposition car at spawn point
 	car.global_transform = curr_stage.get_spawn_transform().translated(Vector3(0, 0.4, 0))
 	
-	# Focus camera on car
-	Camera.focus_on(car.camera_point)
+	player.enter_car(car)
 	
 	# Initialize delivery points
 	var boxes: Array[Box] = []

@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
 [ext_resource type="Script" uid="uid://bv3hcp8nt7tqn" path="res://entities/car/box_anchor.gd" id="2_1ang0"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rvpx2"]
-
 [sub_resource type="Curve" id="Curve_1ang0"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2480211, 0.8268442), 0.0, 0.0, 0, 0, Vector2(0.50923485, 1), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -17,9 +15,8 @@ albedo_color = Color(0, 1, 0, 1)
 
 [node name="Sphere" type="RigidBody3D" unique_id=361040030]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.4, 0)
-collision_layer = 2
+collision_layer = 34
 collision_mask = 29
-physics_material_override = SubResource("PhysicsMaterial_rvpx2")
 contact_monitor = true
 max_contacts_reported = 2
 angular_damp = 5.0

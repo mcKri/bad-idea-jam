@@ -17,15 +17,23 @@ func _physics_process(delta):
 
 
 func add_box(box: Box):
-	add_child(box)
+	var anchor: Marker3D
+	if boxes.size() > 0:
+		anchor = boxes.back().stack_anchor
+	else:
+		anchor = self
+	
+	if box.is_inside_tree():
+		box.reparent(anchor)
+	else:
+		anchor.add_child(box)
+	
 	box.freeze = true
+	box.enable_interaction(false)
 	
 	var offset = Vector3(randf_range(-STACK_RANDOM_OFFSET, STACK_RANDOM_OFFSET), 0, randf_range(-STACK_RANDOM_OFFSET, STACK_RANDOM_OFFSET))
-	if boxes.size() > 0:
-		var last_box = boxes.back()
-		box.global_position = last_box.stack_anchor.global_position + offset
-	else:
-		box.global_position = global_position + offset
+	box.position = offset
+	box.rotation = Vector3.ZERO
 	
 	boxes.append(box)
 
@@ -58,23 +66,28 @@ func launch_box(force: Vector3):
 	box.reparent(StageLoader.curr_stage)
 	box.freeze = false
 	box.apply_central_impulse(force)
+	box.enable_interaction(true)
 
 
-func deliver_box():
-	var box := get_top_box()
-	if box == null:
-		return
+func deliver_box(box: Box) -> bool:
+	var idx := boxes.find(box)
+	if idx == -1:
+		return false
+	
+	elif idx < boxes.size() - 1:
+		var above_box := boxes[idx + 1]
+		var new_parent: Node3D
+		if idx == 0:
+			new_parent = self
+		else:
+			new_parent = boxes[idx - 1].stack_anchor
+		
+		above_box.reparent(new_parent, false)
 
-	print("Delivered box: ", box)
 	boxes.erase(box)
 	box.queue_free()
 
-
-func get_top_box() -> Box:
-	if boxes.size() == 0:
-		return null
-	
-	return boxes.back()
+	return true
 
 
 func reset():

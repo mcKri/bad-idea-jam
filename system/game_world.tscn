@@ -4,28 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dweq1naht4loy" path="res://stages/car_prototype/car_prototype_area.tscn" id="2_bqd4e"]
 [ext_resource type="PackedScene" uid="uid://eyiskji7g51x" path="res://entities/car/car.tscn" id="2_dsv2d"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bqd4e"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_t117t"]
-sky_material = SubResource("ProceduralSkyMaterial_bqd4e")
-
-[sub_resource type="Environment" id="Environment_tsgca"]
-background_mode = 2
-sky = SubResource("Sky_t117t")
-tonemap_mode = 2
-glow_enabled = true
-
 [node name="GameWorld" type="Node3D" unique_id=548075449]
 script = ExtResource("1_i084f")
 initial_level = ExtResource("2_bqd4e")
 
 [node name="Car" parent="." unique_id=880996545 instance=ExtResource("2_dsv2d")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=648814317]
-environment = SubResource("Environment_tsgca")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=126869411]
-transform = Transform3D(-0.82609826, -0.17226729, 0.53654975, 0, 0.95212936, 0.30569533, -0.5635261, 0.2525344, -0.7865524, 0, 0, 0)
-shadow_enabled = true

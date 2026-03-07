@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://sioxrukrsbqu"]
 
 [ext_resource type="Script" uid="uid://dab6wtnvakyn2" path="res://entities/delivery_point/delivery_point.gd" id="1_2cjne"]
+[ext_resource type="Script" uid="uid://c4ultig5isck1" path="res://entities/delivery_point/nine_patch_viewport.gd" id="2_n370j"]
+[ext_resource type="Texture2D" uid="uid://b50q24ns0vtkn" path="res://entities/delivery_point/square.png" id="2_ys3g3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eaona"]
-size = Vector3(3.3115234, 1.2646484, 2.9841309)
+size = Vector3(12.734131, 1.2646484, 11.124023)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ys3g3"]
+viewport_path = NodePath("Area3D/CollisionShape3D/Sprite3D/SubViewport")
 
 [node name="DeliveryPoint" type="Node3D" unique_id=746821022]
 script = ExtResource("1_2cjne")
@@ -16,5 +21,30 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6045811, 0)
 shape = SubResource("BoxShape3D_eaona")
 debug_color = Color(0, 0.6482518, 0.19639161, 0.41960785)
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D/CollisionShape3D" unique_id=1190192822]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.5045811, 0)
+pixel_size = 0.18
+texture_filter = 0
+texture = SubResource("ViewportTexture_ys3g3")
+
+[node name="SubViewport" type="SubViewport" parent="Area3D/CollisionShape3D/Sprite3D" unique_id=192451710 node_paths=PackedStringArray("target")]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(70, 61)
+script = ExtResource("2_n370j")
+target = NodePath("../..")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Area3D/CollisionShape3D/Sprite3D/SubViewport" unique_id=499916205]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ys3g3")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -3,8 +3,28 @@
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_6fym6"]
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_7ukq6"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ukq6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_det6b"]
+sky_material = SubResource("ProceduralSkyMaterial_7ukq6")
+
+[sub_resource type="Environment" id="Environment_i6edt"]
+background_mode = 2
+sky = SubResource("Sky_det6b")
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="BaseStage" type="Node3D" unique_id=1930302754]
 script = ExtResource("1_6fym6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=513906650]
+environment = SubResource("Environment_i6edt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1184218286]
+transform = Transform3D(-0.82609826, -0.1722673, 0.53654975, 0, 0.95212936, 0.30569535, -0.5635261, 0.2525344, -0.7865524, 0, 0, 0)
+shadow_enabled = true
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=40598232]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)

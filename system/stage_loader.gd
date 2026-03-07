@@ -24,15 +24,12 @@ func load_stage(stage_scene: PackedScene):
 	
 	# Initialize delivery points
 	var boxes: Array[Box] = []
-	var delivery_points := curr_stage.get_delivery_points()
+	var delivery_points := curr_stage.delivery_points
 	for i in range(delivery_points.size()):
 		var point := delivery_points[i]
 		var box_instance = point.required_box.instantiate()
 		point.set_required_box(box_instance)
 		boxes.append(box_instance)
-		
-		if i == delivery_points.size() - 1:
-			point.delivered.connect(_on_final_box_delivered)
 	
 	# Add boxes to car in reverse order so they stack correctly
 	boxes.reverse()
@@ -43,7 +40,3 @@ func load_stage(stage_scene: PackedScene):
 
 func finish_stage():
 	print("Stage finished!")
-
-
-func _on_final_box_delivered():
-	finish_stage()

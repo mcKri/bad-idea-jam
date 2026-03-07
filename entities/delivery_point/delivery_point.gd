@@ -4,8 +4,7 @@ extends Node3D
 const DEFAULT_BOX: PackedScene = preload("res://entities/box/box.tscn")
 
 @onready var area: Area3D = $Area3D
-@onready var sprite: Sprite3D = $Sprite3D
-@onready var sub_viewport: SubViewport = $SubViewport
+@onready var sprite: Sprite3D = $Area3D/CollisionShape3D/Sprite3D
 
 @export var required_box: PackedScene = DEFAULT_BOX
 var _required_box_instance: Box
@@ -15,12 +14,6 @@ signal delivered
 
 func _ready():
 	set_active(false)
-
-
-func _process(_delta):
-	if Engine.is_editor_hint():
-		var area_shape: BoxShape3D = area.shape
-		sub_viewport.size = Vector2i(area_shape.size.x, area_shape.size.z)
 
 
 func set_active(active: bool = true):

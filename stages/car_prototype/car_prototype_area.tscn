@@ -2,34 +2,13 @@
 
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_pt7ul"]
 [ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/car_prototype/testtest.png" id="3_1ai46"]
-[ext_resource type="PackedScene" uid="uid://b0iuur3da6uka" path="res://entities/box/box.tscn" id="3_orwpi"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pt7ul"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_t117t"]
-sky_material = SubResource("ProceduralSkyMaterial_pt7ul")
-
-[sub_resource type="Environment" id="Environment_orwpi"]
-background_mode = 2
-sky = SubResource("Sky_t117t")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="3_orwpi"]
 
 [node name="CarPrototypeArea" type="Node3D" unique_id=2137135937]
 script = ExtResource("1_pt7ul")
-boxes = Array[PackedScene]([ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi"), ExtResource("3_orwpi")])
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=130313378]
-environment = SubResource("Environment_orwpi")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1373807152]
-transform = Transform3D(-0.82609826, -0.17226729, 0.53654975, 0, 0.95212936, 0.30569533, -0.5635261, 0.2525344, -0.7865524, 0, 0, 0)
-shadow_enabled = true
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=1706767338]
-transform = Transform3D(-0.99999744, 0, -0.0022515357, 0, 1, 0, 0.0022515357, 0, -0.99999744, 0, 0, -4.933)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -4.933)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
@@ -39,6 +18,7 @@ texture = ExtResource("3_1ai46")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 use_collision = true
 collision_layer = 16
 collision_mask = 0
@@ -50,3 +30,14 @@ use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(43.398438, 6.1274414, 1)
+
+[node name="DeliveryPoints" type="Node3D" parent="." unique_id=1953744648]
+
+[node name="DeliveryPoint" parent="DeliveryPoints" unique_id=746821022 instance=ExtResource("3_orwpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.51243, -3.8146973e-06, 36.08729)
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" unique_id=300909779 instance=ExtResource("3_orwpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.16179, -3.8146973e-06, 36.203754)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" unique_id=1417721563 instance=ExtResource("3_orwpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6479, -3.8146973e-06, 60.68047)

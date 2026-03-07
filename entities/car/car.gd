@@ -10,7 +10,7 @@ extends RigidBody3D
 @export var steer_speed_curve: Curve
 
 const SPHERE_OFFSET := Vector3(0, -0.4, 0) # Where to place mesh relative to sphere center
-const FRONT_AXLE_OFFSET := Vector3(0, 0, -0.25)
+const FRONT_AXLE_OFFSET := Vector3(0, 0, -0.15)
 
 const ACCELERATION := 28.0
 const REVERSE_FACTOR := 0.5 # Reverse strength relative to acceleration
@@ -95,7 +95,9 @@ func _physics_process(delta):
 	# Lead camera point
 	var camera_offset := Vector3(0, 3.0, 0) + vel_dir * 5.0 * speed_factor
 	camera_offset *= speed_factor * (1.0 if not is_reversing() else -1.0)
-	camera_point.global_position = lerp(camera_point.global_position, mesh.global_position + camera_offset, 2.0 * delta)
+	camera_point.global_position.x = lerp(camera_point.global_position.x, mesh.global_position.x + camera_offset.x, 10.0 * delta)
+	camera_point.global_position.y = lerp(camera_point.global_position.y, mesh.global_position.y + camera_offset.y, 20.0 * delta)
+	camera_point.global_position.z = lerp(camera_point.global_position.z, mesh.global_position.z + camera_offset.z, 10.0 * delta)
 
 
 func _process(_delta):

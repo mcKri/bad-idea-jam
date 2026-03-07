@@ -16,7 +16,7 @@ radius = 0.4
 albedo_color = Color(0, 1, 0, 1)
 
 [node name="Sphere" type="RigidBody3D" unique_id=361040030]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.4, 0)
 collision_layer = 2
 collision_mask = 29
 physics_material_override = SubResource("PhysicsMaterial_rvpx2")
@@ -47,3 +47,4 @@ script = ExtResource("2_1ang0")
 collision_mask = 16
 
 [node name="CameraPoint" type="Marker3D" parent="Mesh" unique_id=599202880]
+top_level = true

@@ -7,7 +7,7 @@ const IMPACT_COOLDOWN_LENGTH := 0.5
 const MIN_LAUNCH_FORCE := 4.0
 const MAX_LAUNCH_FORCE := 12.0
 
-var boxes: Array[RigidBody3D]
+var boxes: Array[Box]
 var impact_cooldown := 0.0
 
 
@@ -16,7 +16,7 @@ func _physics_process(delta):
 		impact_cooldown -= delta
 
 
-func add_box(box: RigidBody3D):
+func add_box(box: Box):
 	add_child(box)
 	box.freeze = true
 	
@@ -58,6 +58,23 @@ func launch_box(force: Vector3):
 	box.reparent(StageLoader.curr_stage)
 	box.freeze = false
 	box.apply_central_impulse(force)
+
+
+func deliver_box():
+	var box := get_top_box()
+	if box == null:
+		return
+
+	print("Delivered box: ", box)
+	boxes.erase(box)
+	box.queue_free()
+
+
+func get_top_box() -> Box:
+	if boxes.size() == 0:
+		return null
+	
+	return boxes.back()
 
 
 func reset():

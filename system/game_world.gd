@@ -5,4 +5,4 @@ extends Node3D
 
 func _ready():
 	if initial_level:
-		StageLoader.load_stage(initial_level)
+		StageLoader.load_stage(0)

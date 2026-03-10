@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capgbexybccbn"
-path="res://.godot/imported/testtest.png-04e0a9afa8d92dcedf5bd6c5a3b8f85e.ctex"
+uid="uid://bh1xib8ri0gho"
+path.s3tc="res://.godot/imported/testmap.png-46fcbd9ec23969a84b09d811807f6e08.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://stages/car_prototype/testtest.png"
-dest_files=["res://.godot/imported/testtest.png-04e0a9afa8d92dcedf5bd6c5a3b8f85e.ctex"]
+source_file="res://stages/test_world/testmap.png"
+dest_files=["res://.godot/imported/testmap.png-46fcbd9ec23969a84b09d811807f6e08.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

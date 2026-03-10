@@ -63,7 +63,7 @@ func launch_box(force: Vector3):
 		return
 
 	var box = boxes.pop_back()
-	box.reparent(StageLoader.curr_stage)
+	box.reparent(StageLoader.stage)
 	box.freeze = false
 	box.apply_central_impulse(force)
 	box.enable_interaction(true)

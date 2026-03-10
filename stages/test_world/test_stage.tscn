@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dweq1naht4loy"]
 
-[ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_pt7ul"]
-[ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/car_prototype/testtest.png" id="3_1ai46"]
-[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="3_orwpi"]
+[ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_q65nq"]
+[ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/test_world/testtest.png" id="2_lxsdt"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="3_ua64i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_orwpi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,8 +17,8 @@ sky = SubResource("Sky_t117t")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="CarPrototypeArea" type="Node3D" unique_id=2137135937]
-script = ExtResource("1_pt7ul")
+[node name="TestStage" type="Node3D" unique_id=2137135937]
+script = ExtResource("1_q65nq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1675844880]
 environment = SubResource("Environment_1ai46")
@@ -32,10 +32,9 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, -4.93
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=516503502]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-visible = false
 pixel_size = 0.18
 texture_filter = 0
-texture = ExtResource("3_1ai46")
+texture = ExtResource("2_lxsdt")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1479566615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -54,11 +53,11 @@ size = Vector3(43.398438, 6.1274414, 1)
 
 [node name="DeliveryPoints" type="Node3D" parent="." unique_id=1953744648]
 
-[node name="DeliveryPoint" parent="DeliveryPoints" unique_id=746821022 instance=ExtResource("3_orwpi")]
+[node name="DeliveryPoint" parent="DeliveryPoints" unique_id=746821022 instance=ExtResource("3_ua64i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.51243, -3.8146973e-06, 36.08729)
 
-[node name="DeliveryPoint2" parent="DeliveryPoints" unique_id=300909779 instance=ExtResource("3_orwpi")]
+[node name="DeliveryPoint2" parent="DeliveryPoints" unique_id=300909779 instance=ExtResource("3_ua64i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.16179, -3.8146973e-06, 36.203754)
 
-[node name="DeliveryPoint3" parent="DeliveryPoints" unique_id=1417721563 instance=ExtResource("3_orwpi")]
+[node name="DeliveryPoint3" parent="DeliveryPoints" unique_id=1417721563 instance=ExtResource("3_ua64i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6479, -3.8146973e-06, 60.68047)

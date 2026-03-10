@@ -31,10 +31,15 @@ const MAX_TILT := 1.2
 const TILT_LEAN_SPEED := 2.0 # How quickly the car_body tilts into a drift
 const TILT_RECOVER_SPEED := 15.0 # How quickly the car_body returns upright
 
-var driving: bool = false
+var driving := false
 var speed_input := 0.0
 var steer_input := 0.0
 var handbrake := false
+
+const MAX_HEALTH := 400.0
+const COLLISION_DAMAGE_SCALE := 5.0
+
+var health := MAX_HEALTH
 
 
 func _ready():
@@ -133,6 +138,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		var shaker := Shaker.new(shake_strength * 0.5, shake_strength)
 		mesh.add_child(shaker)
 		box_anchor.impact_box(normal * -impulse)
+		damage(impulse.length() * COLLISION_DAMAGE_SCALE)
 
 
 func is_reversing() -> bool:
@@ -153,3 +159,16 @@ func is_stationary() -> bool:
 
 func get_max_speed() -> float:
 	return MAX_SPEED * (REVERSE_FACTOR if is_reversing() else 1.0)
+
+
+func damage(amount: float):
+	health -= amount
+	if health <= 0.0:
+		destroy()
+
+
+func destroy():
+	StageLoader.fail_stage()
+	# TODO: Explode
+	hide()
+	queue_free()

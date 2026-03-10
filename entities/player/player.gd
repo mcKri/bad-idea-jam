@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var actionable_finder: Area3D = $DirectionMarker/ActionableFinder
 @onready var carry_anchor: Marker3D = $DirectionMarker/CarryAnchor
 
+var input_enabled := true
 var first_actionable: Node3D = null:
 	set(val):
 		if val == first_actionable:
@@ -23,9 +24,12 @@ var first_actionable: Node3D = null:
 var car: Car
 var held_box: Box
 
+const MAX_HEALTH := 100.0
+var health := MAX_HEALTH
+
 
 func _physics_process(delta):
-	if !car:
+	if !car && input_enabled:
 		var input_vector = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 		velocity.x = input_vector.x * 500.0 * delta
 		velocity.z = input_vector.y * 500.0 * delta
@@ -45,6 +49,9 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event: InputEvent):
+	if !input_enabled:
+		return
+	
 	if !car:
 		if event is InputEventKey:
 			if event.is_action_pressed("interact") && first_actionable:
@@ -61,11 +68,12 @@ func _unhandled_input(event: InputEvent):
 			if event.is_action_pressed("interact"):
 				exit_car()
 	
+	if event.is_action_pressed("restart_stage"):
+		StageLoader.restart_stage()
+
 	if event is InputEventKey:
 		if Input.is_key_pressed(KEY_X):
-			Camera.set_target(StageLoader.car)
-		if Input.is_key_pressed(KEY_C):
-			Camera.set_target(self )
+			damage(50.0)
 
 
 func enter_car(new_car: Car):
@@ -97,3 +105,16 @@ func carry_box(box: Box):
 	box.reparent(carry_anchor)
 	box.transform = Transform3D.IDENTITY
 	held_box = box
+
+
+func damage(amount: float):
+	health -= amount
+	if health <= 0.0:
+		die()
+
+
+func die():
+	StageLoader.fail_stage()
+	# TODO: Play animation
+	hide()
+	queue_free()

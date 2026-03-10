@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bh7hxc7y7lxxv"]
+
+[ext_resource type="Script" uid="uid://cvno21b3rvgct" path="res://ui/ui_layer.gd" id="1_3otji"]
+[ext_resource type="PackedScene" uid="uid://dtulmmv3577jc" path="res://ui/stage_fail_screen.tscn" id="2_xqqt7"]
+
+[node name="UILayer" type="CanvasLayer" unique_id=1128583004]
+script = ExtResource("1_3otji")
+
+[node name="StageFailScreen" parent="." unique_id=1569934570 instance=ExtResource("2_xqqt7")]
+visible = false
+
+[node name="StageCompleteScreen" type="CanvasLayer" parent="." unique_id=748305610]
+
+[node name="PanelContainer" type="PanelContainer" parent="StageCompleteScreen" unique_id=1538257260]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StageCompleteScreen/PanelContainer" unique_id=593398620]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StageCompleteScreen/PanelContainer/MarginContainer" unique_id=1689130358]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StageCompleteScreen/PanelContainer/MarginContainer/VBoxContainer" unique_id=1397949211]
+layout_mode = 2
+text = "You win woohoo"
+fit_content = true
+autowrap_mode = 0

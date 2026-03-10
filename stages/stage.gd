@@ -24,7 +24,7 @@ func activate_next_delivery_point():
 
 func complete_delivery():
 	if curr_delivery_idx + 1 >= delivery_points.size():
-		StageLoader.finish_stage()
+		StageLoader.complete_stage()
 		return
 	
 	curr_delivery_idx += 1

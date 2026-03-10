@@ -1,8 +1,9 @@
 extends Node
 
+const PLAYER_PACKED := preload("res://entities/player/player.tscn")
+const CAR_PACKED := preload("res://entities/car/car.tscn")
+
 @onready var game_world: Node3D = get_node("/root/GameWorld")
-@onready var player: Player = game_world.get_node("Player")
-@onready var car: Car = game_world.get_node("Car")
 
 var worlds: Array[World] = [
 	preload("res://stages/test_world/test_world.tres"),
@@ -10,11 +11,8 @@ var worlds: Array[World] = [
 var world_idx := -1
 var stage_idx := -1
 var stage: Stage
-
-
-func _unhandled_input(event):
-	if event.is_action_pressed("restart_stage"):
-		restart_stage()
+var player: Player
+var car: Car
 
 
 func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
@@ -31,12 +29,16 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 		await stage.ready
 	
 	# Initialize car
-	car.process_mode = Node.PROCESS_MODE_INHERIT
+	car = CAR_PACKED.instantiate()
+	stage.add_child(car)
 	car.global_transform = stage.get_spawn_transform().translated(Vector3(0, 0.4, 0))
 	
 	# Initialize player
-	player.process_mode = Node.PROCESS_MODE_INHERIT
+	player = PLAYER_PACKED.instantiate()
+	stage.add_child(player)
 	player.enter_car(car)
+
+	Camera.set_target(car, INF)
 	
 	# Initialize delivery points
 	var boxes: Array[Box] = []
@@ -54,12 +56,37 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 		car.box_anchor.add_box(box)
 
 
+func advance_stage():
+	var world := worlds[world_idx]
+	var next_idx := stage_idx + 1
+	if next_idx >= world.stages.size():
+		advance_world()
+		return
+	
+	load_stage(next_idx)
+
+
+func advance_world():
+	var next_idx := world_idx + 1
+	if next_idx >= worlds.size():
+		# TODO: Show end screen
+		print("No more worlds!")
+		return
+	
+	load_stage(0, next_idx)
+
+
 func restart_stage():
 	load_stage(stage_idx)
 
 
-func finish_stage():
-	player.process_mode = Node.PROCESS_MODE_DISABLED
-	car.process_mode = Node.PROCESS_MODE_DISABLED
+func fail_stage():
+	player.input_enabled = false
+	car.driving = false
+	UILayer.stage_fail_screen.show()
 
+
+func complete_stage():
+	player.input_enabled = false
+	car.driving = false
 	print("Stage finished!")

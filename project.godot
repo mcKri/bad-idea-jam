@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 StageLoader="*uid://dmxro2o55w5nw"
 AudioManager="*uid://da20nvxd27mo0"
 Camera="*uid://b1jl55o3066mj"
+UILayer="*uid://bh7hxc7y7lxxv"
 
 [display]
 

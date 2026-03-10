@@ -66,6 +66,7 @@ func set_target(target: Variant, speed: float = DEFAULT_PAN_SPEED):
 
 	if speed == INF:
 		global_position = look_point if look_point != Vector3.INF else look_target.global_position
+		panning = false
 	else:
 		pan_speed = speed
 		var dest := look_target.global_position if look_target else look_point

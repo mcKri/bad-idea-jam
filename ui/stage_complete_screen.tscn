@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bqs0wjcm8ovtc"]
+
+[ext_resource type="Script" uid="uid://cegpsx3bp3xy2" path="res://ui/stage_complete_screen.gd" id="1_xu4lr"]
+
+[node name="StageCompleteScreen" type="CanvasLayer" unique_id=2133824874]
+script = ExtResource("1_xu4lr")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=74412878]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=179505839]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=432935093]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1972882428]
+layout_mode = 2
+text = "You win woohoo"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NextStageButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=166433423]
+layout_mode = 2
+text = "Next stage"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/NextStageButton" to="." method="_on_next_stage_button_pressed"]

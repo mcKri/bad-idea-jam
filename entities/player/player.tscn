@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnl0uwm7p86h"]
 
 [ext_resource type="Script" uid="uid://l4pvyaf76sk7" path="res://entities/player/player.gd" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://bg6mrq4ouh7md" path="res://ui/health_bar.tscn" id="2_abrql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfv1e"]
 height = 1.6386719
@@ -33,3 +34,5 @@ shape = SubResource("SphereShape3D_symyc")
 
 [node name="CarryAnchor" type="Marker3D" parent="DirectionMarker" unique_id=1371869544]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2144581)
+
+[node name="HealthBar" parent="." unique_id=1781806300 instance=ExtResource("2_abrql")]

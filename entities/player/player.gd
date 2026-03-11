@@ -25,7 +25,12 @@ var car: Car
 var held_box: Box
 
 const MAX_HEALTH := 100.0
+@onready var health_bar: HealthBar = $HealthBar
 var health := MAX_HEALTH
+
+
+func _ready():
+	health_bar.set_maximum(MAX_HEALTH)
 
 
 func _physics_process(delta):
@@ -54,15 +59,19 @@ func _unhandled_input(event: InputEvent):
 	
 	if !car:
 		if event is InputEventKey:
-			if event.is_action_pressed("interact") && first_actionable:
-				if first_actionable is Car:
-					if held_box:
-						first_actionable.box_anchor.add_box(held_box)
-						held_box = null
-					else:
-						enter_car(first_actionable)
-				elif first_actionable is Box && !held_box:
-					carry_box(first_actionable)
+			if event.is_action_pressed("interact"):
+				if first_actionable:
+					if first_actionable is Box:
+						carry_box(first_actionable)
+					elif first_actionable is Car:
+						if held_box:
+							first_actionable.box_anchor.add_box(held_box)
+							held_box = null
+						else:
+							enter_car(first_actionable)
+				elif held_box:
+					held_box.drop()
+					held_box = null
 	else:
 		if event is InputEventKey:
 			if event.is_action_pressed("interact"):
@@ -111,6 +120,7 @@ func carry_box(box: Box):
 
 func damage(amount: float):
 	health -= amount
+	health_bar.update(health)
 	if health <= 0.0:
 		die()
 

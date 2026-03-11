@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
 [ext_resource type="Script" uid="uid://bv3hcp8nt7tqn" path="res://entities/car/box_anchor.gd" id="2_1ang0"]
 [ext_resource type="PackedScene" uid="uid://c2jnpowkgbear" path="res://entities/car/tray car 001.glb" id="3_x0apo"]
+[ext_resource type="PackedScene" uid="uid://bg6mrq4ouh7md" path="res://ui/health_bar.tscn" id="4_qxogl"]
 
 [sub_resource type="Curve" id="Curve_1ang0"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2480211, 0.8268442), 0.0, 0.0, 0, 0, Vector2(0.50923485, 1), 0.0, 0.0, 0, 0]
@@ -50,3 +51,5 @@ transform = Transform3D(-0.735, 0, 1.10981915e-07, 0, 0.735, 0, -1.10981915e-07,
 [node name="BoxAnchor" type="Marker3D" parent="Mesh/tray car 001" unique_id=2121495623]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -2.183478e-08, 0.71042484, -0.24976063)
 script = ExtResource("2_1ang0")
+
+[node name="HealthBar" parent="Mesh" unique_id=1781806300 instance=ExtResource("4_qxogl")]

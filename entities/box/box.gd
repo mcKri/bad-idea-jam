@@ -6,3 +6,10 @@ extends RigidBody3D
 
 func enable_interaction(val: bool):
 	set_collision_layer_value(6, val)
+
+
+func drop():
+	reparent(StageLoader.stage)
+	freeze = false
+	enable_interaction(true)
+	UILayer.hud.screen_pointer.add_target(self )

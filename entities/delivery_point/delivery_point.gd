@@ -27,6 +27,17 @@ func _on_area_3d_body_entered(body: Node3D):
 		if body.box_anchor.deliver_box(_required_box_instance):
 			set_active(false)
 			delivered.emit()
+	elif body is Box:
+		if body == _required_box_instance:
+			set_active(false)
+			delivered.emit()
+			body.queue_free()
+	elif body is Player:
+		if body.held_box == _required_box_instance:
+			set_active(false)
+			delivered.emit()
+			body.held_box.queue_free()
+			body.held_box = null
 
 
 func set_required_box(box: Box):

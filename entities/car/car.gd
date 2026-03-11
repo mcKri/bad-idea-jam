@@ -39,11 +39,14 @@ var handbrake := false
 const MAX_HEALTH := 400.0
 const COLLISION_DAMAGE_SCALE := 5.0
 
+@onready var health_bar: HealthBar = $Mesh/HealthBar
+
 var health := MAX_HEALTH
 
 
 func _ready():
 	ground_ray.add_exception(self )
+	health_bar.set_max(MAX_HEALTH)
 
 
 func _physics_process(delta):
@@ -163,6 +166,7 @@ func get_max_speed() -> float:
 
 func damage(amount: float):
 	health -= amount
+	health_bar.update(health)
 	if health <= 0.0:
 		destroy()
 

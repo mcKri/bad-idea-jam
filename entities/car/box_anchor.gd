@@ -63,11 +63,9 @@ func launch_box(force: Vector3):
 		return
 
 	var box = boxes.pop_back()
-	box.reparent(StageLoader.stage)
-	box.freeze = false
+	box.drop()
 	box.apply_central_impulse(force)
-	box.enable_interaction(true)
-
+	
 
 func deliver_box(box: Box) -> bool:
 	var idx := boxes.find(box)

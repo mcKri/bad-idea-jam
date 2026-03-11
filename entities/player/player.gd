@@ -79,6 +79,7 @@ func _unhandled_input(event: InputEvent):
 func enter_car(new_car: Car):
 	car = new_car
 	Camera.set_target(car.camera_point)
+	UILayer.hud.screen_pointer.set_center_node(car.mesh)
 	car.driving = true
 	reparent(car)
 	position = Vector3.ZERO
@@ -89,6 +90,7 @@ func enter_car(new_car: Car):
 
 func exit_car():
 	Camera.set_target(self )
+	UILayer.hud.screen_pointer.set_center_node(self )
 	reparent(car.get_parent())
 	car.driving = false
 	position = car.global_position - Vector3(2.0, 0, 0).rotated(Vector3.UP, car.mesh.global_rotation.y)
@@ -114,7 +116,7 @@ func damage(amount: float):
 
 
 func die():
-	StageLoader.fail_stage()
+	StageLoader.fail_stage("You died!")
 	# TODO: Play animation
 	hide()
 	queue_free()

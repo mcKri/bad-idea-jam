@@ -31,7 +31,8 @@ theme_override_constants/separation = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1972882428]
 layout_mode = 2
-text = "You win woohoo"
+bbcode_enabled = true
+text = "[b]You win woohoo"
 fit_content = true
 autowrap_mode = 0
 

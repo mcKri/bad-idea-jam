@@ -3,9 +3,9 @@ extends RigidBody3D
 
 @onready var mesh: Node3D = $Mesh
 @onready var ground_ray: RayCast3D = $Mesh/RayCast3D
-@onready var car_body: CSGBox3D = $Mesh/CSGBox3D
+@onready var car_body: Node3D = $"Mesh/tray car 001"
 @onready var camera_point: Marker3D = $Mesh/CameraPoint
-@onready var box_anchor: BoxAnchor = $Mesh/CSGBox3D/BoxAnchor
+@onready var box_anchor: BoxAnchor = $"Mesh/tray car 001/BoxAnchor"
 
 @export var steer_speed_curve: Curve
 
@@ -94,7 +94,7 @@ func _physics_process(delta):
 	if is_reversing() || is_stationary():
 		car_body.rotation.z = lerp(car_body.rotation.z, 0.0, TILT_RECOVER_SPEED * delta)
 	else:
-		var tilt_target := drift_angle * speed_factor * MAX_TILT
+		var tilt_target := -drift_angle * speed_factor * MAX_TILT
 		var tilt_speed := lerpf(TILT_RECOVER_SPEED, TILT_LEAN_SPEED, absf(drift_angle) / PI)
 		car_body.rotation.z = lerp(car_body.rotation.z, tilt_target, tilt_speed * delta)
 	
@@ -168,7 +168,7 @@ func damage(amount: float):
 
 
 func destroy():
-	StageLoader.fail_stage()
+	StageLoader.fail_stage("Your car was destroyed!")
 	# TODO: Explode
 	hide()
 	queue_free()

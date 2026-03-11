@@ -38,7 +38,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	stage.add_child(player)
 	player.enter_car(car)
 
-	Camera.set_target(car, INF)
+	Camera.set_target(car.camera_point, INF)
 	
 	# Initialize delivery points
 	var boxes: Array[Box] = []
@@ -54,6 +54,8 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	car.box_anchor.reset()
 	for box in boxes:
 		car.box_anchor.add_box(box)
+	
+	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
 
 
 func advance_stage():
@@ -80,13 +82,13 @@ func restart_stage():
 	load_stage(stage_idx)
 
 
-func fail_stage():
+func fail_stage(reason: String = ""):
 	player.input_enabled = false
 	car.driving = false
-	UILayer.stage_fail_screen.show()
+	UILayer.stage_fail_screen.open(reason)
 
 
 func complete_stage():
 	player.input_enabled = false
 	car.driving = false
-	print("Stage finished!")
+	UILayer.stage_complete_screen.show()

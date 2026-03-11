@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhfjlv5c5yfu4" path="res://entities/car/car.gd" id="1_yotxw"]
 [ext_resource type="Script" uid="uid://bv3hcp8nt7tqn" path="res://entities/car/box_anchor.gd" id="2_1ang0"]
+[ext_resource type="PackedScene" uid="uid://c2jnpowkgbear" path="res://entities/car/tray car 001.glb" id="3_x0apo"]
 
 [sub_resource type="Curve" id="Curve_1ang0"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2480211, 0.8268442), 0.0, 0.0, 0, 0, Vector2(0.50923485, 1), 0.0, 0.0, 0, 0]
@@ -31,17 +32,21 @@ top_level = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Mesh" unique_id=77725255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4024372, 0)
+visible = false
 collision_layer = 2
 collision_mask = 2
 size = Vector3(1, 0.78567505, 1.5700684)
 material = SubResource("StandardMaterial3D_pt7ul")
-
-[node name="BoxAnchor" type="Marker3D" parent="Mesh/CSGBox3D" unique_id=2121495623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39568472, 0.34979522)
-script = ExtResource("2_1ang0")
 
 [node name="RayCast3D" type="RayCast3D" parent="Mesh" unique_id=733590555]
 collision_mask = 16
 
 [node name="CameraPoint" type="Marker3D" parent="Mesh" unique_id=599202880]
 top_level = true
+
+[node name="tray car 001" parent="Mesh" unique_id=109652924 instance=ExtResource("3_x0apo")]
+transform = Transform3D(-0.735, 0, 1.10981915e-07, 0, 0.735, 0, -1.10981915e-07, 0, -0.735, 0, 0, 0.4594083)
+
+[node name="BoxAnchor" type="Marker3D" parent="Mesh/tray car 001" unique_id=2121495623]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -2.183478e-08, 0.71042484, -0.24976063)
+script = ExtResource("2_1ang0")

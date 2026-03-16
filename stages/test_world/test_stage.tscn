@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_q65nq"]
 [ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/test_world/testtest.png" id="2_lxsdt"]
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="3_ua64i"]
+[ext_resource type="PackedScene" uid="uid://dalbiokrdtpcf" path="res://entities/garage/garage.tscn" id="4_lxsdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_orwpi"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -61,3 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.16179, -3.8146973e-06, 36
 
 [node name="DeliveryPoint3" parent="DeliveryPoints" unique_id=1417721563 instance=ExtResource("3_ua64i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6479, -3.8146973e-06, 60.68047)
+
+[node name="Garage" parent="." unique_id=1723478353 instance=ExtResource("4_lxsdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.401024, -0.21509802, -26.245945)

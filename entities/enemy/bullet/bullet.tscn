@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dm0ir2bujpvb6"]
+
+[ext_resource type="Script" uid="uid://dqbo5ypkrfocf" path="res://entities/enemy/bullet/bullet.gd" id="1_fu8p4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5dj3l"]
+radius = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_fu8p4"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Bullet" type="Area3D" unique_id=1740006089]
+collision_layer = 0
+collision_mask = 31
+monitoring = false
+script = ExtResource("1_fu8p4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=397296173]
+shape = SubResource("SphereShape3D_5dj3l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1765346809]
+mesh = SubResource("BoxMesh_fu8p4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

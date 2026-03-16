@@ -27,6 +27,10 @@ UILayer="*uid://bh7hxc7y7lxxv"
 window/size/viewport_width=1280
 window/size/viewport_height=768
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

@@ -176,3 +176,12 @@ func destroy():
 	# TODO: Explode
 	hide()
 	queue_free()
+
+
+func _on_area_3d_body_entered(body: Node3D):
+	if body is GunEnemy:
+		var direction := (body.global_transform.origin - global_transform.origin).normalized()
+		body.launch(direction * linear_velocity.length() * 1.5)
+
+		var shaker := Shaker.new(linear_velocity.length() * 0.02, linear_velocity.length() * 0.05)
+		mesh.add_child(shaker)

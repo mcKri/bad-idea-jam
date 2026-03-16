@@ -15,6 +15,28 @@ radius = 0.4
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7ul"]
 albedo_color = Color(0, 1, 0, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qxogl"]
+emission_shape = 3
+emission_box_extents = Vector3(0.51, 0.08, 0.42)
+spread = 108.103
+initial_velocity_max = 1.77
+gravity = Vector3(0, 1.62, 0)
+scale_min = 0.25
+scale_max = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk7sx"]
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ey46q"]
+material = SubResource("StandardMaterial3D_hk7sx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxogl"]
+size = Vector3(1, 1, 0.84680176)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hk7sx"]
+size = Vector3(1, 0.52941895, 1.8586731)
+
 [node name="Sphere" type="RigidBody3D" unique_id=361040030]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.4, 0)
 collision_layer = 34
@@ -53,3 +75,23 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -2.1
 script = ExtResource("2_1ang0")
 
 [node name="HealthBar" parent="Mesh" unique_id=1781806300 instance=ExtResource("4_qxogl")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Mesh" unique_id=67042614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.091312)
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_qxogl")
+draw_pass_1 = SubResource("QuadMesh_ey46q")
+
+[node name="Area3D" type="Area3D" parent="Mesh" unique_id=1098438196]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D" unique_id=1322778243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55411, -0.70739746)
+shape = SubResource("BoxShape3D_qxogl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Area3D" unique_id=1998097644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31881946, 0.59841794)
+shape = SubResource("BoxShape3D_hk7sx")
+
+[connection signal="body_entered" from="Mesh/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -87,27 +87,33 @@ func _unhandled_input(event: InputEvent):
 
 func enter_car(new_car: Car):
 	car = new_car
+	
 	Camera.set_target(car.camera_point)
 	UILayer.hud.screen_pointer.set_center_node(car.mesh)
+	
+	reparent(car.mesh)
 	car.driving = true
-	reparent(car)
+	car.add_collision_exception_with(self )
+	
 	position = Vector3.ZERO
 	visible = false
-	coll_shape.disabled = true
 	actionable_finder.monitoring = false
 
 
 func exit_car():
 	Camera.set_target(self )
 	UILayer.hud.screen_pointer.set_center_node(self )
+	
 	reparent(car.get_parent())
 	car.driving = false
+	car.remove_collision_exception_with(self )
+	
 	position = car.global_position - Vector3(2.0, 0, 0).rotated(Vector3.UP, car.mesh.global_rotation.y)
 	rotation = Vector3.ZERO
-	car = null
 	visible = true
-	coll_shape.disabled = false
 	actionable_finder.monitoring = true
+	
+	car = null
 
 
 func carry_box(box: Box):

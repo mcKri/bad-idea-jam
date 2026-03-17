@@ -14,13 +14,10 @@ extends RigidBody3D
 const SPHERE_OFFSET := Vector3(0, -0.4, 0) # Where to place mesh relative to sphere center
 const FRONT_AXLE_OFFSET := Vector3(0, 0, -0.15)
 
-var acceleration := CarStats.acceleration
 const REVERSE_FACTOR := 0.5 # Reverse strength relative to acceleration
-var max_speed := CarStats.max_speed
 const STATIONARY_THRESHOLD := 0.5 # Speed below which the car is considered stationary
 
 const HANDBRAKE_DRAG := 3.0
-var grip := CarStats.grip
 const MIN_GRIP := 1.5 # Minimum grip (max drift)
 const HANDBRAKE_GRIP_REDUCTION := 4.0 # Grip lost when handbraking
 const OVERSTEER_GRIP_SCALE := 6.0 # How much oversteer angle reduces grip (per radian)
@@ -65,7 +62,7 @@ func _physics_process(delta):
 	# Rotate mesh for steering
 	var speed := linear_velocity.length()
 	var forward := -mesh.global_basis.z
-	var speed_factor := minf(speed / max_speed, 1.0)
+	var speed_factor := minf(speed / CarStats.max_speed, 1.0)
 	var steer_strength := steer_speed_curve.sample(speed_factor) if steer_speed_curve else 1.0
 	
 	# Measure angle between mesh facing and velocity (drift angle)
@@ -79,8 +76,8 @@ func _physics_process(delta):
 	var grip_loss := absf(drift_angle) * OVERSTEER_GRIP_SCALE
 	if handbrake:
 		grip_loss += HANDBRAKE_GRIP_REDUCTION
-	var current_grip := clampf(grip - grip_loss, MIN_GRIP, grip)
-	var is_drifting := current_grip < grip - 0.5
+	var current_grip := clampf(CarStats.grip - grip_loss, MIN_GRIP, CarStats.grip)
+	var is_drifting: bool = current_grip < CarStats.grip - 0.5
 	
 	# Amplify steering while drifting
 	var steer_mult := DRIFT_STEER_MULT if is_drifting else 1.0
@@ -115,7 +112,7 @@ func _process(_delta):
 	if not driving:
 		return
 
-	speed_input = (Input.get_action_strength("accelerate") - Input.get_action_strength("reverse") * REVERSE_FACTOR) * acceleration
+	speed_input = (Input.get_action_strength("accelerate") - Input.get_action_strength("reverse") * REVERSE_FACTOR) * CarStats.acceleration
 	steer_input = (Input.get_action_strength("steer_left") - Input.get_action_strength("steer_right")) * STEERING
 	handbrake = Input.is_action_pressed("handbrake")
 
@@ -163,7 +160,7 @@ func is_stationary() -> bool:
 
 
 func get_max_speed() -> float:
-	return max_speed * (REVERSE_FACTOR if is_reversing() else 1.0)
+	return CarStats.max_speed * (REVERSE_FACTOR if is_reversing() else 1.0)
 
 
 func damage(amount: float):

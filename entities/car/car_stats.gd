@@ -1,8 +1,8 @@
 extends Node
 
-var acceleration := 28.0
-var max_speed := 18.0
-var grip := 10.0 # Maximum grip (no drift)
+var acceleration: float = 28.0
+var max_speed: float = 18.0
+var grip: float = 10.0 # Maximum grip (no drift)
 
 func add_speed(addSpeed):
 	max_speed += addSpeed

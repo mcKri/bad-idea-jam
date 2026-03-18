@@ -4,10 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://bsx7t23q2a1w8" path="res://entities/garage/garage_building.glb" id="2_48lg1"]
 [ext_resource type="PackedScene" uid="uid://c2jnpowkgbear" path="res://entities/car/tray car 001.glb" id="3_8wnem"]
 [ext_resource type="Script" uid="uid://c4ultig5isck1" path="res://entities/delivery_point/nine_patch_viewport.gd" id="4_8wnem"]
+[ext_resource type="Script" uid="uid://didlhp3x5vrhc" path="res://ui/spatial_ui.gd" id="4_kxsr7"]
+[ext_resource type="PackedScene" uid="uid://cm76l68wb24hn" path="res://ui/upgrade_panel.tscn" id="5_41skr"]
 [ext_resource type="Texture2D" uid="uid://b50q24ns0vtkn" path="res://entities/delivery_point/square.png" id="5_kxsr7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwssi"]
+size = Vector3(2.8, 2.24, 0.01)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_lwpgf"]
-viewport_path = NodePath("UpgradeMenu")
+viewport_path = NodePath("UpgradeMenu/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_41skr"]
 size = Vector3(12.734131, 1.2646484, 11.124023)
@@ -18,55 +23,31 @@ viewport_path = NodePath("Area3D/CollisionShape3D/Sprite3D/SubViewport")
 [node name="Garage" type="Node3D" unique_id=1723478353]
 script = ExtResource("1_ntkc6")
 
-[node name="garage_building" parent="." unique_id=852013570 instance=ExtResource("2_48lg1")]
+[node name="garage_building" parent="." unique_id=703455527 instance=ExtResource("2_48lg1")]
 transform = Transform3D(0.14999996, 9.175833e-05, -4.520383e-06, -9.175691e-05, 0.14999996, 4.4551896e-05, 4.5492784e-06, -4.454896e-05, 0.14999999, 0, 0, 0)
 
 [node name="Car" parent="." unique_id=237136765 instance=ExtResource("3_8wnem")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.1646175, 0.18356204, -0.7363566)
 
-[node name="UpgradeMenuBody" type="Sprite3D" parent="." unique_id=857379383]
-transform = Transform3D(1.5068521, 0, 0, 0, 1.5068521, 0, 0, 0, 1.5068521, -1.1604565, 2.112736, -3.4787288)
+[node name="UpgradeMenu" type="StaticBody3D" parent="." unique_id=1641461817 node_paths=PackedStringArray("sub_viewport")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1604565, 2.112736, -3.4787288)
+script = ExtResource("4_kxsr7")
+sub_viewport = NodePath("SubViewport")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpgradeMenu" unique_id=2002162412]
+shape = SubResource("BoxShape3D_jwssi")
+
+[node name="Sprite3D" type="Sprite3D" parent="UpgradeMenu" unique_id=857379383]
 double_sided = false
+texture_filter = 0
 texture = SubResource("ViewportTexture_lwpgf")
 
-[node name="UpgradeMenu" type="SubViewport" parent="." unique_id=2143958492]
+[node name="SubViewport" type="SubViewport" parent="UpgradeMenu" unique_id=2143958492]
 transparent_bg = true
-handle_input_locally = false
+size = Vector2i(280, 224)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UpgradeMenu" unique_id=1631100762]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeMenu/CanvasLayer" unique_id=1658939064]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -68.0
-offset_right = 72.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-mouse_filter = 2
-
-[node name="SpeedUp" type="Button" parent="UpgradeMenu/CanvasLayer/VBoxContainer" unique_id=88574789]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "Speed Up +"
-
-[node name="AccelerationUp" type="Button" parent="UpgradeMenu/CanvasLayer/VBoxContainer" unique_id=2032001302]
-layout_mode = 2
-text = "Acceleration Up +"
-
-[node name="HandlingUp" type="Button" parent="UpgradeMenu/CanvasLayer/VBoxContainer" unique_id=2057848916]
-layout_mode = 2
-text = "Handling Up +"
-
-[node name="Exit" type="Button" parent="UpgradeMenu/CanvasLayer/VBoxContainer" unique_id=1812232401]
-layout_mode = 2
-text = "Exit"
+[node name="UpgradePanel" parent="UpgradeMenu/SubViewport" unique_id=1784560719 instance=ExtResource("5_41skr")]
+layer = 10
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=647623227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5706263, 3.2738583, 0)
@@ -112,8 +93,4 @@ patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
 
-[connection signal="pressed" from="UpgradeMenu/CanvasLayer/VBoxContainer/SpeedUp" to="." method="_on_speed_up_pressed"]
-[connection signal="pressed" from="UpgradeMenu/CanvasLayer/VBoxContainer/AccelerationUp" to="." method="_on_acceleration_up_pressed"]
-[connection signal="pressed" from="UpgradeMenu/CanvasLayer/VBoxContainer/HandlingUp" to="." method="_on_handling_up_pressed"]
-[connection signal="pressed" from="UpgradeMenu/CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

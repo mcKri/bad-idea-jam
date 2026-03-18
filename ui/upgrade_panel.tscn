@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cm76l68wb24hn"]
+
+[ext_resource type="Script" uid="uid://c4mbe1kpg5602" path="res://ui/upgrade_panel.gd" id="1_772ik"]
+
+[node name="UpgradePanel" type="CanvasLayer" unique_id=986897113]
+script = ExtResource("1_772ik")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1784560719]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -68.0
+offset_right = 72.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="SpeedUp" type="Button" parent="VBoxContainer" unique_id=1602846140]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text = "Speed Up +"
+
+[node name="AccelerationUp" type="Button" parent="VBoxContainer" unique_id=1140430472]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Acceleration Up +"
+
+[node name="HandlingUp" type="Button" parent="VBoxContainer" unique_id=158216870]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Handling Up +"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=965749414]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/SpeedUp" to="." method="_on_speed_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/AccelerationUp" to="." method="_on_acceleration_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/HandlingUp" to="." method="_on_handling_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

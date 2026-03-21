@@ -4,3 +4,9 @@
 
 [node name="AudioManager" type="Node" unique_id=1609273905]
 script = ExtResource("1_ayx4f")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=636787459]
+bus = &"Music"
+
+[node name="JinglePlayer" type="AudioStreamPlayer" parent="." unique_id=1638363400]
+bus = &"Music"

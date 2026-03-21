@@ -3,8 +3,4 @@ extends CanvasLayer
 
 @onready var stage_timer: StageTimer = %StageTimer
 @onready var screen_pointer: ScreenPointer = $ScreenPointer
-
-# Minigames
-@onready var simon_says_minigame: SimonSaysMinigame = %SimonSaysMinigame
-@onready var thermometer_minigame: ThermometerMinigame = %ThermometerMinigame
-@onready var ball_cup_minigame: BallCupMinigame = %BallCupMinigame
+@onready var minigame_handler: MinigameHandler = $MinigameHandler

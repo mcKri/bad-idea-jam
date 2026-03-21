@@ -8,6 +8,8 @@ extends Node3D
 @export var time_limit: float = 999.0
 @onready var timer := time_limit
 
+@export var enabled_minigames: Array[Minigame.Type]
+
 var delivery_points: Array[DeliveryPoint] = []
 var curr_delivery_idx: int = 0
 
@@ -19,6 +21,8 @@ func _ready():
 			child.delivered.connect(_on_delivery_point_delivered)
 	
 	activate_next_delivery_point()
+
+	UILayer.hud.minigame_handler.set_enabled_types(enabled_minigames)
 
 
 func _process(delta):

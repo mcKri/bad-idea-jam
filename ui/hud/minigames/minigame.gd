@@ -1,11 +1,18 @@
 class_name Minigame
 extends Control
 
+enum Type {
+	SIMON_SAYS,
+	THERMOMETER,
+	BALL_CUP,
+}
+
 const BASE_COOLDOWN := 5.0
 const IDLE_TIME := 5.0
 const IDLE_FLASH_TIME := 2.0
 
 var _flash_tween: Tween
+var _shaker: Shaker
 var _cooldown := 0.0
 var _idle_timer := IDLE_TIME
 var _idle_tracking_enabled := true
@@ -16,6 +23,9 @@ var _input_enabled: bool = false:
 
 
 func _ready():
+	_shaker = Shaker.new(INF, 3.0, 0.02)
+	add_child(_shaker)
+	_shaker.stop()
 	hide()
 
 
@@ -53,11 +63,14 @@ func start_flashing():
 	_flash_tween.tween_property(self , "modulate", Color(1, 0, 0, 1), 0.5)
 	_flash_tween.tween_property(self , "modulate", Color(1, 1, 1, 1), 0.5)
 
+	_shaker.start()
+
 
 func stop_flashing():
 	if _flash_tween:
 		_flash_tween.kill()
 	
+	_shaker.stop()
 	modulate = Color(1, 1, 1, 1)
 
 

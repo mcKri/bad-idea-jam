@@ -90,6 +90,7 @@ func enter_car(new_car: Car):
 	
 	Camera.set_target(car.camera_point)
 	UILayer.hud.screen_pointer.set_center_node(car.mesh)
+	UILayer.hud.minigame_handler.set_paused(false)
 	
 	reparent(car.mesh)
 	car.driving = true
@@ -103,6 +104,7 @@ func enter_car(new_car: Car):
 func exit_car():
 	Camera.set_target(self )
 	UILayer.hud.screen_pointer.set_center_node(self )
+	UILayer.hud.minigame_handler.set_paused()
 	
 	reparent(car.get_parent())
 	car.driving = false

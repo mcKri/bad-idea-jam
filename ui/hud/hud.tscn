@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6lrldbeieo0n" path="res://ui/hud/minigames/thermometer/thermometer_minigame.tscn" id="4_o2lis"]
 [ext_resource type="Texture2D" uid="uid://dnhxr1f2ir35l" path="res://ui/hud/screen_pointer/arrow.png" id="4_w75iv"]
 [ext_resource type="Texture2D" uid="uid://4aw38uas4wn2" path="res://icon.svg" id="5_imuuq"]
+[ext_resource type="Script" uid="uid://b6u1dg7dwqt5i" path="res://ui/hud/minigames/minigame_handler.gd" id="6_aixkq"]
 [ext_resource type="PackedScene" uid="uid://d4lrkdemwdfps" path="res://ui/hud/minigames/ball_cup/ball_cup_minigame.tscn" id="8_gfles"]
 
 [sub_resource type="Gradient" id="Gradient_00rn6"]
@@ -80,22 +81,33 @@ offset_bottom = 40.0
 texture = ExtResource("5_imuuq")
 expand_mode = 1
 
-[node name="SimonSaysMinigame" parent="." unique_id=1238536316 instance=ExtResource("3_kwc50")]
+[node name="MinigameHandler" type="Control" parent="." unique_id=883742254]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("6_aixkq")
+
+[node name="SimonSaysMinigame" parent="MinigameHandler" unique_id=1238536316 instance=ExtResource("3_kwc50")]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 50.0
 offset_top = 50.0
 offset_right = 1230.0
 offset_bottom = 718.0
 
-[node name="ThermometerMinigame" parent="." unique_id=1978464541 instance=ExtResource("4_o2lis")]
+[node name="ThermometerMinigame" parent="MinigameHandler" unique_id=1978464541 instance=ExtResource("4_o2lis")]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 1041.0
 offset_top = 420.0
 offset_right = 2221.0
 offset_bottom = 1088.0
 
-[node name="BallCupMinigame" parent="." unique_id=387627342 instance=ExtResource("8_gfles")]
+[node name="BallCupMinigame" parent="MinigameHandler" unique_id=387627342 instance=ExtResource("8_gfles")]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 633.0
 offset_top = 592.0
 offset_right = 673.0

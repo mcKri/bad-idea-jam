@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dweq1naht4loy"]
 
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_q65nq"]
-[ext_resource type="Script" uid="uid://b6u1dg7dwqt5i" path="res://system/minigame_handler.gd" id="2_84h26"]
 [ext_resource type="Texture2D" uid="uid://capgbexybccbn" path="res://stages/test_world/testtest.png" id="2_lxsdt"]
 [ext_resource type="PackedScene" uid="uid://bk160b68lygin" path="res://stages/test_world/level 1 tryout_.glb" id="3_r1fu0"]
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="3_ua64i"]
@@ -30,10 +29,7 @@ glow_enabled = true
 
 [node name="TestStage" type="Node3D" unique_id=2137135937]
 script = ExtResource("1_q65nq")
-
-[node name="MinigameHandler" type="Node" parent="." unique_id=1877975019]
-script = ExtResource("2_84h26")
-enabled_types = Array[int]([2, 0, 1])
+enabled_minigames = Array[int]([0, 1, 2])
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1202299420]
 navigation_mesh = SubResource("NavigationMesh_q65nq")

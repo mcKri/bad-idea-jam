@@ -31,6 +31,7 @@ func start():
 		tween.tween_property(btn_a, "position", btn_b.position, SHUFFLE_SPEED)
 		tween.set_parallel()
 		tween.tween_property(btn_b, "position", btn_a.position, SHUFFLE_SPEED)
+		
 		await tween.finished
 	
 	enable_input()

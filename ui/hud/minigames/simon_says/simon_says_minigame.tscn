@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bjpvx0sxdpwl1"]
+
+[ext_resource type="Script" uid="uid://6u6g6w8dmp58" path="res://ui/hud/minigames/simon_says/simon_says_minigame.gd" id="1_6307i"]
+[ext_resource type="Texture2D" uid="uid://b1meon7yxjuxj" path="res://ui/hud/minigames/simon_says/ss_neutral.png" id="2_oluru"]
+
+[node name="SimonSaysMinigame" type="Control" unique_id=1238536316]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_6307i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=268624233]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_oluru")
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect" unique_id=1471125371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="TextureRect/CenterContainer" unique_id=856329622]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="RedArea" type="Area2D" parent="TextureRect/CenterContainer/Control" unique_id=1975587690]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/CenterContainer/Control/RedArea" unique_id=523022791]
+visible = false
+polygon = PackedVector2Array(-48, 0, 0, -48, 0, 0)
+
+[node name="PurpleArea" type="Area2D" parent="TextureRect/CenterContainer/Control" unique_id=265319700]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/CenterContainer/Control/PurpleArea" unique_id=1997224490]
+visible = false
+polygon = PackedVector2Array(48, 0, 0, -48, 0, 0)
+
+[node name="GreenArea" type="Area2D" parent="TextureRect/CenterContainer/Control" unique_id=1428205544]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/CenterContainer/Control/GreenArea" unique_id=1001739535]
+visible = false
+polygon = PackedVector2Array(-48, 0, 0, 48, 0, 0)
+
+[node name="BlueArea" type="Area2D" parent="TextureRect/CenterContainer/Control" unique_id=297360352]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect/CenterContainer/Control/BlueArea" unique_id=746263270]
+visible = false
+polygon = PackedVector2Array(48, 0, 0, 48, 0, 0)
+
+[connection signal="input_event" from="TextureRect/CenterContainer/Control/RedArea" to="." method="_on_red_area_input_event"]
+[connection signal="input_event" from="TextureRect/CenterContainer/Control/PurpleArea" to="." method="_on_purple_area_input_event"]
+[connection signal="input_event" from="TextureRect/CenterContainer/Control/GreenArea" to="." method="_on_green_area_input_event"]
+[connection signal="input_event" from="TextureRect/CenterContainer/Control/BlueArea" to="." method="_on_blue_area_input_event"]

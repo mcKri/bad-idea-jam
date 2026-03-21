@@ -56,6 +56,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 		car.box_anchor.add_box(box)
 	
 	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
+	UILayer.hud.show()
 
 
 func advance_stage():

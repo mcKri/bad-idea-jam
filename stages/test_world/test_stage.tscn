@@ -33,7 +33,7 @@ script = ExtResource("1_q65nq")
 
 [node name="MinigameHandler" type="Node" parent="." unique_id=1877975019]
 script = ExtResource("2_84h26")
-enabled_types = Array[int]([1, 0])
+enabled_types = Array[int]([2, 0, 1])
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1202299420]
 navigation_mesh = SubResource("NavigationMesh_q65nq")

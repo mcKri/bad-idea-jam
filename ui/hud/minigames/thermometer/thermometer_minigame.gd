@@ -23,6 +23,13 @@ var cooling := false:
 		switch.texture_normal = COLD_SWITCH_TEXTURE if cooling else HOT_SWITCH_TEXTURE
 
 
+func _ready():
+	super ()
+
+	enable_idle_tracking(false)
+	enable_input()
+
+
 func start():
 	super ()
 	temp = 50.0

@@ -7,3 +7,4 @@ extends CanvasLayer
 # Minigames
 @onready var simon_says_minigame: SimonSaysMinigame = %SimonSaysMinigame
 @onready var thermometer_minigame: ThermometerMinigame = %ThermometerMinigame
+@onready var ball_cup_minigame: BallCupMinigame = %BallCupMinigame

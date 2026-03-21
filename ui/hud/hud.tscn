@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6lrldbeieo0n" path="res://ui/hud/minigames/thermometer/thermometer_minigame.tscn" id="4_o2lis"]
 [ext_resource type="Texture2D" uid="uid://dnhxr1f2ir35l" path="res://ui/hud/screen_pointer/arrow.png" id="4_w75iv"]
 [ext_resource type="Texture2D" uid="uid://4aw38uas4wn2" path="res://icon.svg" id="5_imuuq"]
+[ext_resource type="PackedScene" uid="uid://d4lrkdemwdfps" path="res://ui/hud/minigames/ball_cup/ball_cup_minigame.tscn" id="8_gfles"]
 
 [sub_resource type="Gradient" id="Gradient_00rn6"]
 
@@ -92,3 +93,10 @@ offset_left = 1041.0
 offset_top = 420.0
 offset_right = 2221.0
 offset_bottom = 1088.0
+
+[node name="BallCupMinigame" parent="." unique_id=387627342 instance=ExtResource("8_gfles")]
+unique_name_in_owner = true
+offset_left = 633.0
+offset_top = 592.0
+offset_right = 673.0
+offset_bottom = 632.0

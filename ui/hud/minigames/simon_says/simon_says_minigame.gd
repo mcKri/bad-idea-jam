@@ -23,11 +23,7 @@ var correct_sequence: Array[ButtonColor] = []
 const PLAYBACK_INTERVAL := 1.0
 var playback_idx: int = 0
 
-const RESPONSE_TIME := 5.0
-var response_timer: float = RESPONSE_TIME
 var input_step: int = 0
-
-var input_enabled: bool = false
 
 
 func start():
@@ -43,25 +39,20 @@ func start():
 	
 	print("Correct sequence: ", correct_sequence)
 
-	play_sequence()
+	await play_sequence()
 	input_step = 0
+	enable_input()
 
 
 func _process(delta):
 	super (delta)
 
-	if !is_visible_in_tree() || !input_enabled:
+	if !is_visible_in_tree() || !_input_enabled:
 		return
-
-	response_timer -= delta
-	if response_timer <= 0.0:
-		fail()
-	elif response_timer <= RESPONSE_TIME * 0.5:
-		start_flashing()
 
 
 func play_sequence():
-	input_enabled = false
+	_input_enabled = false
 	playback_idx = 0
 
 
@@ -72,9 +63,6 @@ func play_sequence():
 		await get_tree().create_timer(PLAYBACK_INTERVAL).timeout
 
 		light_up_button(ButtonColor.NONE)
-	
-	input_enabled = true
-	response_timer = RESPONSE_TIME
 		
 
 func light_up_button(color: ButtonColor):
@@ -106,13 +94,12 @@ func _on_blue_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 
 
 func _handle_button_input_event(button_color: ButtonColor, event: InputEvent):
-	if not input_enabled:
+	if not _input_enabled:
 		return
 
 	if event is InputEventMouseButton and event.pressed:
 		light_up_button(button_color)
-		stop_flashing()
-		response_timer = RESPONSE_TIME
+		reset_idle_timer()
 
 		if button_color == correct_sequence[input_step]:
 			input_step += 1

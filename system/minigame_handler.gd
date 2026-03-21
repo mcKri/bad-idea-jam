@@ -2,7 +2,8 @@ class_name MinigameHandler
 extends Node
 
 enum MinigameType {
-	SIMON_SAYS
+	SIMON_SAYS,
+	THERMOMETER,
 }
 @export var enabled_types: Array[MinigameType] = []
 @export_range(1.0, 10.0) var difficulty_mod := 1.0
@@ -39,6 +40,8 @@ func _get_minigame_node(minigame_type: MinigameType) -> Minigame:
 	match minigame_type:
 		MinigameType.SIMON_SAYS:
 			return UILayer.hud.simon_says_minigame
+		MinigameType.THERMOMETER:
+			return UILayer.hud.thermometer_minigame
 		_:
 			return null
 

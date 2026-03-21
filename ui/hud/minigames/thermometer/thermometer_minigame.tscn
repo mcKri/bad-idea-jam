@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c6lrldbeieo0n"]
+
+[ext_resource type="Script" uid="uid://dwpquc3eqm7ka" path="res://ui/hud/minigames/thermometer/thermometer_minigame.gd" id="1_btvn0"]
+[ext_resource type="Texture2D" uid="uid://x2cbdwx5n7bq" path="res://ui/hud/minigames/thermometer/thermometre0000.png" id="2_bhttl"]
+[ext_resource type="Texture2D" uid="uid://bi3p4lv55ygq0" path="res://ui/hud/minigames/thermometer/thermometre0001.png" id="3_5or4t"]
+[ext_resource type="Texture2D" uid="uid://ds10j1g2yj7l6" path="res://ui/hud/minigames/thermometer/thermometre0002.png" id="4_0cywx"]
+[ext_resource type="Texture2D" uid="uid://hdx4ac3nc8ps" path="res://ui/hud/minigames/thermometer/thermometre0003.png" id="5_x4n66"]
+[ext_resource type="Texture2D" uid="uid://bgngpp4b1y4lh" path="res://ui/hud/minigames/thermometer/thermometre0004.png" id="6_4215e"]
+[ext_resource type="Texture2D" uid="uid://cp1h83quha3m7" path="res://ui/hud/minigames/thermometer/thermometre0005.png" id="7_et8ta"]
+[ext_resource type="Texture2D" uid="uid://bh57dq8yeh2fj" path="res://ui/hud/minigames/thermometer/thermometre0006.png" id="8_bdhs1"]
+[ext_resource type="Texture2D" uid="uid://whodom8xxlk4" path="res://ui/hud/minigames/thermometer/thermometre0007.png" id="9_o7wkr"]
+[ext_resource type="Texture2D" uid="uid://kpi2b1bypdsg" path="res://ui/hud/minigames/thermometer/thermometre0008.png" id="10_wje4y"]
+[ext_resource type="Texture2D" uid="uid://dc4t44d1g44gw" path="res://ui/hud/minigames/thermometer/thermometre0009.png" id="11_p3j7n"]
+[ext_resource type="Texture2D" uid="uid://dmjnbiyvf5n3u" path="res://ui/hud/minigames/thermometer/thermometre0010.png" id="12_fx3pi"]
+[ext_resource type="Texture2D" uid="uid://cr0wg3d6ehrt0" path="res://ui/hud/minigames/thermometer/thermometre0011.png" id="13_26yd7"]
+[ext_resource type="Texture2D" uid="uid://bhknf8lffcxto" path="res://ui/hud/minigames/thermometer/thermometre0012.png" id="14_yhwr3"]
+[ext_resource type="Texture2D" uid="uid://dxiwgaevqoj4c" path="res://ui/hud/minigames/thermometer/thermometre0013.png" id="15_f786x"]
+[ext_resource type="Texture2D" uid="uid://duthcags7fb0" path="res://ui/hud/minigames/thermometer/thermometre0014.png" id="16_ahbc6"]
+[ext_resource type="Texture2D" uid="uid://conmmcyydhmu0" path="res://ui/hud/minigames/thermometer/thermometre0015.png" id="17_vxhpy"]
+[ext_resource type="Texture2D" uid="uid://cvohd5yorp885" path="res://ui/hud/minigames/thermometer/thermometre0016.png" id="18_mkxlw"]
+[ext_resource type="Texture2D" uid="uid://dmmfpnqhpy7s5" path="res://ui/hud/minigames/thermometer/thermometre0017.png" id="19_xqsbu"]
+[ext_resource type="Texture2D" uid="uid://d0tohc1ud24j6" path="res://ui/hud/minigames/thermometer/thermometre0018.png" id="20_am2cg"]
+[ext_resource type="Texture2D" uid="uid://bgg1vaonk7mfg" path="res://ui/hud/minigames/thermometer/thermometre0019.png" id="21_rmcal"]
+[ext_resource type="Texture2D" uid="uid://d2tn2sbty5ujn" path="res://ui/hud/minigames/thermometer/thermometre0020.png" id="22_xjdnb"]
+[ext_resource type="Texture2D" uid="uid://p48f683hm11c" path="res://ui/hud/minigames/thermometer/thermometre0021.png" id="23_cf4qn"]
+[ext_resource type="Texture2D" uid="uid://bkyhu31evwl3g" path="res://ui/hud/minigames/thermometer/thermometre0022.png" id="24_godhb"]
+[ext_resource type="Texture2D" uid="uid://dshlxll1nkafh" path="res://ui/hud/minigames/thermometer/thermometre0023.png" id="25_v2gba"]
+[ext_resource type="Texture2D" uid="uid://brjsxqgyks2ly" path="res://ui/hud/minigames/thermometer/thermometre0024.png" id="26_noetg"]
+[ext_resource type="Texture2D" uid="uid://ciowce6upv0ei" path="res://ui/hud/minigames/thermometer/thermometre0025.png" id="27_djf1a"]
+[ext_resource type="Texture2D" uid="uid://doosjc3ge664v" path="res://ui/hud/minigames/thermometer/thermometre0026.png" id="28_xvyhr"]
+[ext_resource type="Texture2D" uid="uid://cajobtswxt2hm" path="res://ui/hud/minigames/thermometer/thermometre0027.png" id="29_0vhqk"]
+[ext_resource type="Texture2D" uid="uid://dt7qf8n4s8bu4" path="res://ui/hud/minigames/thermometer/thermometre0028.png" id="30_1y5ib"]
+[ext_resource type="Texture2D" uid="uid://cril67bu1xbsc" path="res://ui/hud/minigames/thermometer/thermometre0029.png" id="31_2geb7"]
+[ext_resource type="Texture2D" uid="uid://bg25lvw0w7wjr" path="res://ui/hud/minigames/thermometer/thermometre0030.png" id="32_gfqnc"]
+[ext_resource type="Texture2D" uid="uid://dkrp6cbit2enc" path="res://ui/hud/minigames/thermometer/thermometre0031.png" id="33_ydfe6"]
+[ext_resource type="Texture2D" uid="uid://bs4jia0elwx58" path="res://ui/hud/minigames/thermometer/thermometre0032.png" id="34_3imd2"]
+[ext_resource type="Texture2D" uid="uid://cuk3nugtuq1tc" path="res://ui/hud/minigames/thermometer/thermometre0033.png" id="35_4wrnp"]
+[ext_resource type="Texture2D" uid="uid://bobvvf5oy7mij" path="res://ui/hud/minigames/thermometer/thermometre0034.png" id="36_l4xop"]
+[ext_resource type="Texture2D" uid="uid://bcl1nenw1aor8" path="res://ui/hud/minigames/thermometer/thermometre0035.png" id="37_nj5ma"]
+[ext_resource type="Texture2D" uid="uid://cul1y6q0qfgn8" path="res://ui/hud/minigames/thermometer/thermometre0036.png" id="38_jxwqd"]
+[ext_resource type="Texture2D" uid="uid://cmmuoj3pavtwu" path="res://ui/hud/minigames/thermometer/thermometre0037.png" id="39_ivtyn"]
+[ext_resource type="Texture2D" uid="uid://dy7wa5iup3ona" path="res://ui/hud/minigames/thermometer/thermometre0038.png" id="40_podss"]
+[ext_resource type="Texture2D" uid="uid://bcmxad0dt3sp7" path="res://ui/hud/minigames/thermometer/thermometre0039.png" id="41_g5lak"]
+[ext_resource type="Texture2D" uid="uid://do52ucnj7m0b5" path="res://ui/hud/minigames/thermometer/thermometre0040.png" id="42_io3e3"]
+[ext_resource type="Texture2D" uid="uid://bdng7r0xjhyap" path="res://ui/hud/minigames/thermometer/thermometre0041.png" id="43_kx18e"]
+[ext_resource type="Texture2D" uid="uid://sqyb3ek0fcsv" path="res://ui/hud/minigames/thermometer/thermometre0042.png" id="44_etdgw"]
+[ext_resource type="Texture2D" uid="uid://crd1pvaa8pcy2" path="res://ui/hud/minigames/thermometer/thermometre0043.png" id="45_yta76"]
+[ext_resource type="Texture2D" uid="uid://dh1hmrwihi6fi" path="res://ui/hud/minigames/thermometer/thermometre0044.png" id="46_tby77"]
+[ext_resource type="Texture2D" uid="uid://h7f4ox18ql88" path="res://ui/hud/minigames/thermometer/thermometre0045.png" id="47_2iktm"]
+[ext_resource type="Texture2D" uid="uid://bs8u28vbj20vm" path="res://ui/hud/minigames/thermometer/thermometre0046.png" id="48_488ub"]
+
+[node name="ThermometerMinigame" type="Control" unique_id=1978464541]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_btvn0")
+textures = Array[Texture2D]([ExtResource("2_bhttl"), ExtResource("3_5or4t"), ExtResource("4_0cywx"), ExtResource("5_x4n66"), ExtResource("6_4215e"), ExtResource("7_et8ta"), ExtResource("8_bdhs1"), ExtResource("9_o7wkr"), ExtResource("10_wje4y"), ExtResource("11_p3j7n"), ExtResource("12_fx3pi"), ExtResource("13_26yd7"), ExtResource("14_yhwr3"), ExtResource("15_f786x"), ExtResource("16_ahbc6"), ExtResource("17_vxhpy"), ExtResource("18_mkxlw"), ExtResource("19_xqsbu"), ExtResource("20_am2cg"), ExtResource("21_rmcal"), ExtResource("22_xjdnb"), ExtResource("23_cf4qn"), ExtResource("24_godhb"), ExtResource("25_v2gba"), ExtResource("26_noetg"), ExtResource("27_djf1a"), ExtResource("28_xvyhr"), ExtResource("29_0vhqk"), ExtResource("30_1y5ib"), ExtResource("31_2geb7"), ExtResource("32_gfqnc"), ExtResource("33_ydfe6"), ExtResource("34_3imd2"), ExtResource("35_4wrnp"), ExtResource("36_l4xop"), ExtResource("37_nj5ma"), ExtResource("38_jxwqd"), ExtResource("39_ivtyn"), ExtResource("40_podss"), ExtResource("41_g5lak"), ExtResource("42_io3e3"), ExtResource("43_kx18e"), ExtResource("44_etdgw"), ExtResource("45_yta76"), ExtResource("46_tby77"), ExtResource("47_2iktm"), ExtResource("48_488ub")])
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1966628812]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_bhttl")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

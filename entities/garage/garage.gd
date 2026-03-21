@@ -7,7 +7,7 @@ extends Node3D
 
 
 func _ready():
-	set_active()
+	set_active(false)
 
 
 func set_active(active: bool = true):

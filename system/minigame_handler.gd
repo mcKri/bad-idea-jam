@@ -28,10 +28,12 @@ func trigger_random_minigame():
 	shuffled_types.shuffle()
 	for minigame_type in shuffled_types:
 		var minigame_node = _get_minigame_node(minigame_type)
-		if minigame_node and !minigame_node.is_visible_in_tree():
-			print("Triggering minigame: ", minigame_type)
-			minigame_node.start()
-			break
+		if !minigame_node || minigame_node.is_visible_in_tree() || minigame_node.is_on_cooldown():
+			continue
+		
+		print("Triggering minigame: ", minigame_type)
+		minigame_node.start()
+		break
 
 	trigger_timer = _get_trigger_interval()
 

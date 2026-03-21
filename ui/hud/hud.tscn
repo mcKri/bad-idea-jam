@@ -88,7 +88,7 @@ offset_bottom = 718.0
 
 [node name="ThermometerMinigame" parent="." unique_id=1978464541 instance=ExtResource("4_o2lis")]
 unique_name_in_owner = true
-offset_left = 1013.0
-offset_top = 535.0
-offset_right = 2193.0
-offset_bottom = 1203.0
+offset_left = 1041.0
+offset_top = 420.0
+offset_right = 2221.0
+offset_bottom = 1088.0

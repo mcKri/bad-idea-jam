@@ -48,10 +48,12 @@
 [ext_resource type="Texture2D" uid="uid://dh1hmrwihi6fi" path="res://ui/hud/minigames/thermometer/thermometre0044.png" id="46_tby77"]
 [ext_resource type="Texture2D" uid="uid://h7f4ox18ql88" path="res://ui/hud/minigames/thermometer/thermometre0045.png" id="47_2iktm"]
 [ext_resource type="Texture2D" uid="uid://bs8u28vbj20vm" path="res://ui/hud/minigames/thermometer/thermometre0046.png" id="48_488ub"]
+[ext_resource type="Texture2D" uid="uid://cjq3lndpvwbsa" path="res://ui/hud/minigames/thermometer/hot.png" id="49_ehhle"]
 
 [node name="ThermometerMinigame" type="Control" unique_id=1978464541]
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(3, 3)
 script = ExtResource("1_btvn0")
 textures = Array[Texture2D]([ExtResource("2_bhttl"), ExtResource("3_5or4t"), ExtResource("4_0cywx"), ExtResource("5_x4n66"), ExtResource("6_4215e"), ExtResource("7_et8ta"), ExtResource("8_bdhs1"), ExtResource("9_o7wkr"), ExtResource("10_wje4y"), ExtResource("11_p3j7n"), ExtResource("12_fx3pi"), ExtResource("13_26yd7"), ExtResource("14_yhwr3"), ExtResource("15_f786x"), ExtResource("16_ahbc6"), ExtResource("17_vxhpy"), ExtResource("18_mkxlw"), ExtResource("19_xqsbu"), ExtResource("20_am2cg"), ExtResource("21_rmcal"), ExtResource("22_xjdnb"), ExtResource("23_cf4qn"), ExtResource("24_godhb"), ExtResource("25_v2gba"), ExtResource("26_noetg"), ExtResource("27_djf1a"), ExtResource("28_xvyhr"), ExtResource("29_0vhqk"), ExtResource("30_1y5ib"), ExtResource("31_2geb7"), ExtResource("32_gfqnc"), ExtResource("33_ydfe6"), ExtResource("34_3imd2"), ExtResource("35_4wrnp"), ExtResource("36_l4xop"), ExtResource("37_nj5ma"), ExtResource("38_jxwqd"), ExtResource("39_ivtyn"), ExtResource("40_podss"), ExtResource("41_g5lak"), ExtResource("42_io3e3"), ExtResource("43_kx18e"), ExtResource("44_etdgw"), ExtResource("45_yta76"), ExtResource("46_tby77"), ExtResource("47_2iktm"), ExtResource("48_488ub")])
 
@@ -59,7 +61,14 @@ textures = Array[Texture2D]([ExtResource("2_bhttl"), ExtResource("3_5or4t"), Ext
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(3, 3)
 texture_normal = ExtResource("2_bhttl")
 
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=510806741]
+layout_mode = 0
+offset_top = 54.000004
+offset_right = 64.0
+offset_bottom = 118.0
+texture_normal = ExtResource("49_ehhle")
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]

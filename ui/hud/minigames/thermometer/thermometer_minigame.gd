@@ -3,7 +3,11 @@ extends Minigame
 
 @export var textures: Array[Texture2D]
 
-@onready var button: TextureButton = $TextureButton
+@onready var thermometer: TextureButton = $TextureButton
+@onready var switch: TextureButton = $TextureButton2
+
+const COLD_SWITCH_TEXTURE := preload("res://ui/hud/minigames/thermometer/cold.png")
+const HOT_SWITCH_TEXTURE := preload("res://ui/hud/minigames/thermometer/hot.png")
 
 const MAX_TEMP := 100.0
 const MIN_TEMP := 0.0
@@ -13,7 +17,10 @@ var temp := 50.0:
 	set(val):
 		temp = val
 		_update_texture()
-var cooling := false
+var cooling := false:
+	set(val):
+		cooling = val
+		switch.texture_normal = COLD_SWITCH_TEXTURE if cooling else HOT_SWITCH_TEXTURE
 
 
 func start():
@@ -23,6 +30,8 @@ func start():
 
 
 func _process(delta):
+	super (delta)
+
 	if !is_visible_in_tree():
 		return
 
@@ -31,6 +40,15 @@ func _process(delta):
 	else:
 		temp += delta * 10.0
 	
+	# Flashing
+	if temp >= MAX_TEMP - FAIL_MARGIN && !cooling:
+		start_flashing()
+	elif temp <= MIN_TEMP + FAIL_MARGIN && cooling:
+		start_flashing()
+	else:
+		stop_flashing()
+
+	# Failure check
 	if temp >= MAX_TEMP + FAIL_MARGIN || temp <= MIN_TEMP - FAIL_MARGIN:
 		fail()
 
@@ -42,8 +60,12 @@ func _toggle_cooling():
 func _update_texture():
 	var t = clamp((temp - MIN_TEMP) / (MAX_TEMP - MIN_TEMP), 0.0, 1.0)
 	var idx = int(t * (textures.size() - 1))
-	button.texture_normal = textures[idx]
+	thermometer.texture_normal = textures[idx]
 
 
 func _on_texture_button_pressed():
+	_toggle_cooling()
+
+
+func _on_texture_button_2_pressed():
 	_toggle_cooling()

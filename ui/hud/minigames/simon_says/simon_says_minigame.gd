@@ -23,12 +23,16 @@ var correct_sequence: Array[ButtonColor] = []
 const PLAYBACK_INTERVAL := 1.0
 var playback_idx: int = 0
 
+const RESPONSE_TIME := 5.0
+var response_timer: float = RESPONSE_TIME
 var input_step: int = 0
 
 var input_enabled: bool = false
 
 
 func start():
+	texture_rect.texture = TEXTURES[ButtonColor.NONE]
+
 	super ()
 
 	correct_sequence.clear()
@@ -41,6 +45,19 @@ func start():
 
 	play_sequence()
 	input_step = 0
+
+
+func _process(delta):
+	super (delta)
+
+	if !is_visible_in_tree() || !input_enabled:
+		return
+
+	response_timer -= delta
+	if response_timer <= 0.0:
+		fail()
+	elif response_timer <= RESPONSE_TIME * 0.5:
+		start_flashing()
 
 
 func play_sequence():
@@ -57,11 +74,19 @@ func play_sequence():
 		light_up_button(ButtonColor.NONE)
 	
 	input_enabled = true
+	response_timer = RESPONSE_TIME
 		
 
 func light_up_button(color: ButtonColor):
 	texture_rect.texture = TEXTURES.get(color, TEXTURES[ButtonColor.NONE])
 	# TODO: Play sound
+
+
+func fail():
+	modulate = Color(1, 0, 0, 1)
+	await get_tree().create_timer(0.5).timeout
+
+	super ()
 
 
 func _on_red_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
@@ -86,6 +111,8 @@ func _handle_button_input_event(button_color: ButtonColor, event: InputEvent):
 
 	if event is InputEventMouseButton and event.pressed:
 		light_up_button(button_color)
+		stop_flashing()
+		response_timer = RESPONSE_TIME
 
 		if button_color == correct_sequence[input_step]:
 			input_step += 1

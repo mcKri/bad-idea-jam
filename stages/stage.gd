@@ -3,6 +3,7 @@ extends Node3D
 
 @onready var spawn_point: Marker3D = $SpawnPoint
 @onready var delivery_point_holder: Node3D = $DeliveryPoints
+@onready var garage: Garage = $Garage
 
 @export var time_limit: float = 999.0
 @onready var timer := time_limit
@@ -39,7 +40,8 @@ func complete_delivery():
 	UILayer.hud.screen_pointer.remove_target(curr_point)
 
 	if curr_delivery_idx + 1 >= delivery_points.size():
-		StageLoader.complete_stage()
+		garage.set_active()
+		UILayer.hud.screen_pointer.add_target(garage.area)
 		return
 	
 	curr_delivery_idx += 1

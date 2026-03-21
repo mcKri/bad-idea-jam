@@ -38,6 +38,6 @@ autowrap_mode = 0
 
 [node name="NextStageButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=166433423]
 layout_mode = 2
-text = "Next stage"
+text = "Continue"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/NextStageButton" to="." method="_on_next_stage_button_pressed"]

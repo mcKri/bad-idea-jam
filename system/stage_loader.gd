@@ -89,6 +89,9 @@ func fail_stage(reason: String = ""):
 
 
 func complete_stage():
-	player.input_enabled = false
-	car.driving = false
+	player.hide()
+	player.queue_free()
+	car.hide()
+	car.queue_free()
+	UILayer.hud.hide()
 	UILayer.stage_complete_screen.show()

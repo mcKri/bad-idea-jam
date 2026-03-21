@@ -40,6 +40,7 @@ func start():
 	print("Correct sequence: ", correct_sequence)
 
 	await play_sequence()
+	
 	input_step = 0
 	enable_input()
 
@@ -52,9 +53,7 @@ func _process(delta):
 
 
 func play_sequence():
-	_input_enabled = false
 	playback_idx = 0
-
 
 	for color in correct_sequence:
 		await get_tree().create_timer(PLAYBACK_INTERVAL * 0.5).timeout

@@ -38,6 +38,7 @@ func modify_difficulty(mod: float):
 
 
 func start():
+	enable_input(false)
 	stop_flashing()
 	show()
 

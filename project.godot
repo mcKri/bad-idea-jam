@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 StageLoader="*uid://dmxro2o55w5nw"
-AudioManager="*uid://da20nvxd27mo0"
+AudioManager="*uid://rwwqqbmq4awb"
 Camera="*uid://b1jl55o3066mj"
 UILayer="*uid://bh7hxc7y7lxxv"
 CarStats="*uid://ge6inn5mrd22"

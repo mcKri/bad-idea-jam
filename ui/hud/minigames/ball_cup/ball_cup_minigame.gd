@@ -48,9 +48,15 @@ func lift_cup(also_drop: bool = false):
 
 
 func _handle_option_select(correct: bool):
-	_input_enabled = false
+	if !_input_enabled:
+		return
+
+	enable_input(false)
 
 	await lift_cup()
+
+	if !correct:
+		modulate = Color(1, 0, 0, 1)
 
 	await get_tree().create_timer(SHOW_DURATION).timeout
 

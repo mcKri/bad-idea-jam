@@ -61,6 +61,7 @@ textures = Array[Texture2D]([ExtResource("2_bhttl"), ExtResource("3_5or4t"), Ext
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+focus_mode = 0
 texture_normal = ExtResource("2_bhttl")
 
 [node name="TextureButton2" type="TextureButton" parent="." unique_id=510806741]
@@ -68,6 +69,7 @@ layout_mode = 0
 offset_top = 54.000004
 offset_right = 64.0
 offset_bottom = 118.0
+focus_mode = 0
 texture_normal = ExtResource("49_ehhle")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

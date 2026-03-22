@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rbxj47xjb3lp"]
+
+[ext_resource type="Script" uid="uid://c1h7l20qglrqm" path="res://ui/hud/minigames/phone/phone_minigame.gd" id="1_rkehi"]
+[ext_resource type="Texture2D" uid="uid://cpvicrldjj57i" path="res://ui/hud/minigames/phone/phone_bottom.png" id="2_181n3"]
+[ext_resource type="Texture2D" uid="uid://dbtw0qk6cpr7i" path="res://ui/hud/minigames/phone/phone_top.png" id="3_hokyi"]
+
+[node name="PhoneMinigame" type="Control" unique_id=205193423]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3, 3)
+mouse_filter = 1
+script = ExtResource("1_rkehi")
+prompt_dir = "res://ui/hud/minigames/phone/prompts"
+
+[node name="PhoneTop" type="TextureRect" parent="." unique_id=1382410755]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("3_hokyi")
+
+[node name="PhoneBottom" type="TextureRect" parent="." unique_id=1669281936]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_181n3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1350499809]
+layout_mode = 0
+offset_top = 13.333334
+offset_right = 95.0
+offset_bottom = 40.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=103183049]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "This is a very very long test text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=172484013]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 89.0
+offset_bottom = 96.0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

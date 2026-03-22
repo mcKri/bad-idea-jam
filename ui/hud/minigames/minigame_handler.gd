@@ -4,9 +4,10 @@ extends Control
 @onready var simon_says_minigame: SimonSaysMinigame = %SimonSaysMinigame
 @onready var thermometer_minigame: ThermometerMinigame = %ThermometerMinigame
 @onready var ball_cup_minigame: BallCupMinigame = %BallCupMinigame
+@onready var phone_minigame: PhoneMinigame = %PhoneMinigame
 
-const BASE_TRIGGER_INTERVAL := 2.0
-var trigger_timer := BASE_TRIGGER_INTERVAL
+const BASE_TRIGGER_INTERVAL := 9.0
+var trigger_timer := BASE_TRIGGER_INTERVAL * 0.5
 var enabled_types: Array[Minigame.Type]
 
 
@@ -58,5 +59,7 @@ func _get_minigame_node(minigame_type: Minigame.Type) -> Minigame:
 			return thermometer_minigame
 		Minigame.Type.BALL_CUP:
 			return ball_cup_minigame
+		Minigame.Type.PHONE:
+			return phone_minigame
 		_:
 			return null

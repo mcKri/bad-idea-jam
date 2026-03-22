@@ -15,7 +15,13 @@ var player: Player
 var car: Car
 
 
+func _ready():
+	SaveSystem.save_started.connect(_on_save_started)
+
+
 func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
+	SaveSystem.save_game()
+
 	if stage:
 		stage.queue_free()
 	
@@ -96,3 +102,10 @@ func complete_stage():
 	car.queue_free()
 	UILayer.hud.hide()
 	UILayer.stage_complete_screen.show()
+
+
+func _on_save_started():
+	SaveSystem.set_property("world", world_idx)
+	SaveSystem.set_property("stage", stage_idx)
+	SaveSystem.resolve_save_connection(_on_save_started)
+	print("StageLoader save complete")

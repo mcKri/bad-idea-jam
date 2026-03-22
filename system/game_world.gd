@@ -1,8 +1,9 @@
 extends Node3D
 
-@export var initial_level: PackedScene
-
-
 func _ready():
-	if initial_level:
-		StageLoader.load_stage(0)
+	await SaveSystem.load_game()
+
+	var world_idx: int = SaveSystem.get_property("world")
+	var stage_idx: int = SaveSystem.get_property("stage")
+	print("Loaded save data: world=" + str(world_idx) + ", stage=" + str(stage_idx))
+	StageLoader.load_stage(stage_idx, world_idx)

@@ -1,6 +1,7 @@
 class_name StageTimer
-extends TextureProgressBar
+extends Control
 
+@onready var bar: TextureProgressBar = $TextureProgressBar
 @onready var label: Label = $Label
 
 var _max_time: float = 0.0
@@ -23,4 +24,4 @@ func display_time(seconds: float):
 		time_string = "%02d" % seconds
 
 	label.text = time_string
-	value = seconds / _max_time * 100.0
+	bar.value = seconds / _max_time * 100.0

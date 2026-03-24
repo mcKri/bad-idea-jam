@@ -9,6 +9,7 @@ extends Node3D
 @onready var timer := time_limit
 
 @export var enabled_minigames: Array[Minigame.Type]
+@export var music: AudioStream
 
 var delivery_points: Array[DeliveryPoint] = []
 var curr_delivery_idx: int = 0
@@ -23,6 +24,7 @@ func _ready():
 	activate_next_delivery_point()
 
 	UILayer.hud.minigame_handler.set_enabled_types(enabled_minigames)
+	UILayer.hud.minigame_handler.set_paused(false)
 
 
 func _process(delta):

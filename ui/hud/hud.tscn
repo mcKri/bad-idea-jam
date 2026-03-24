@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcyk114avhmgt" path="res://ui/hud/hud.gd" id="1_xmswo"]
 [ext_resource type="Script" uid="uid://ss305vhhti7x" path="res://ui/hud/stage_timer.gd" id="2_4d6w6"]
+[ext_resource type="Texture2D" uid="uid://cyh2l1sdof83w" path="res://ui/hud/clock.png" id="2_5uuaq"]
 [ext_resource type="Script" uid="uid://mnnnt36vbblg" path="res://ui/hud/screen_pointer.gd" id="3_e0nub"]
 [ext_resource type="PackedScene" uid="uid://bjpvx0sxdpwl1" path="res://ui/hud/minigames/simon_says/simon_says_minigame.tscn" id="3_kwc50"]
 [ext_resource type="PackedScene" uid="uid://c6lrldbeieo0n" path="res://ui/hud/minigames/thermometer/thermometer_minigame.tscn" id="4_o2lis"]
@@ -11,45 +12,52 @@
 [ext_resource type="PackedScene" uid="uid://d4lrkdemwdfps" path="res://ui/hud/minigames/ball_cup/ball_cup_minigame.tscn" id="8_gfles"]
 [ext_resource type="PackedScene" uid="uid://rbxj47xjb3lp" path="res://ui/hud/minigames/phone/phone_minigame.tscn" id="10_cxhb7"]
 
-[sub_resource type="Gradient" id="Gradient_00rn6"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gjtyb"]
-gradient = SubResource("Gradient_00rn6")
-
 [sub_resource type="LabelSettings" id="LabelSettings_00rn6"]
-font_size = 32
+font_size = 64
+font_color = Color(0.14279999, 0.6441866, 0.68, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
 
 [node name="HUD" type="CanvasLayer" unique_id=1828116555]
 script = ExtResource("1_xmswo")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1183901710]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=681155188]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="StageTimer" type="TextureProgressBar" parent="MarginContainer" unique_id=1151699697]
+[node name="StageTimer" type="Control" parent="MarginContainer" unique_id=1564878624]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("2_4d6w6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/StageTimer" unique_id=1151699697]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(3, 3)
 size_flags_horizontal = 8
 size_flags_vertical = 0
 step = 0.01
 value = 80.0
 fill_mode = 5
-nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture1D_gjtyb")
-script = ExtResource("2_4d6w6")
+texture_progress = ExtResource("2_5uuaq")
 
 [node name="Label" type="Label" parent="MarginContainer/StageTimer" unique_id=202517358]
+custom_minimum_size = Vector2(192, 192)
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 192.0
+offset_bottom = 192.0
 size_flags_vertical = 1
 text = "99"
 label_settings = SubResource("LabelSettings_00rn6")
@@ -117,7 +125,7 @@ offset_bottom = 632.0
 [node name="PhoneMinigame" parent="MinigameHandler" unique_id=205193423 instance=ExtResource("10_cxhb7")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 31.0
-offset_top = 451.0
-offset_right = 31.0
-offset_bottom = 451.0
+offset_left = 26.0
+offset_top = 494.0
+offset_right = 26.0
+offset_bottom = 494.0

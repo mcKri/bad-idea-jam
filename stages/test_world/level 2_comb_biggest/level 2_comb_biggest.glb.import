@@ -1,0 +1,145 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dgd6d0wlx05r5"
+path="res://.godot/imported/level 2_comb_biggest.glb-ad9d8caaeb60ecd277675fadc1299264.scn"
+
+[deps]
+
+source_file="res://stages/test_world/level 2_comb_biggest/level 2_comb_biggest.glb"
+dest_files=["res://.godot/imported/level 2_comb_biggest.glb-ad9d8caaeb60ecd277675fadc1299264.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:SLANTEDD_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:SLANTED_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:Towers": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_002": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_003": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_004": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_005": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_normal_006": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_slant_big": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_slant_small": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_tri_big": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_tri_big_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_tri_small": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:building_tri_small_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:idk": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:sign": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:sign_001": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+},
+"PATH:sign_002": {
+"generate/physics": true,
+"physics/layer": 4,
+"physics/mask": 0
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

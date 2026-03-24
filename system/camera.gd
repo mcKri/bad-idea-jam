@@ -1,6 +1,6 @@
 extends Camera3D
 
-const DEFAULT_OFFSET := Vector3(0, 12, 2)
+const DEFAULT_OFFSET := Vector3(0, 18, 1)
 const DEFAULT_PAN_SPEED := 20.0
 
 var look_target: Node3D

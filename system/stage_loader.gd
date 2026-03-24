@@ -61,6 +61,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	for box in boxes:
 		car.box_anchor.add_box(box)
 	
+	AudioManager.play_music(stage.music)
 	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
 	UILayer.hud.show()
 
@@ -93,6 +94,7 @@ func fail_stage(reason: String = ""):
 	player.input_enabled = false
 	car.driving = false
 	UILayer.stage_fail_screen.open(reason)
+	UILayer.hud.minigame_handler.set_paused(true)
 
 
 func complete_stage():

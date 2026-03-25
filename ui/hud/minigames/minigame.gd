@@ -38,7 +38,7 @@ func _process(delta):
 		if _idle_timer > 0:
 			_idle_timer -= delta
 			if _idle_timer <= 0.0:
-				fail()
+				handle_idle_timeout()
 			elif _idle_timer <= IDLE_FLASH_TIME:
 				start_flashing()
 
@@ -105,3 +105,7 @@ func enable_idle_tracking(enable: bool = true):
 func reset_idle_timer():
 	stop_flashing()
 	_idle_timer = IDLE_TIME
+
+
+func handle_idle_timeout():
+	fail()

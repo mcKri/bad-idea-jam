@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://onuqqdsl88x1" path="res://stages/stage.gd" id="1_6fym6"]
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_7ukq6"]
 [ext_resource type="PackedScene" uid="uid://dalbiokrdtpcf" path="res://entities/garage/garage.tscn" id="3_det6b"]
+[ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="4_i6edt"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_det6b"]
 geometry_source_geometry_mode = 1
@@ -80,5 +81,8 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 [node name="Garage" parent="." unique_id=1723478353 instance=ExtResource("3_det6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.401024, -0.21509802, -26.245945)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1792390903]
-fov = 37.849285
+[node name="Enemies" type="Node3D" parent="." unique_id=491556290]
+
+[node name="GunEnemy" parent="Enemies" unique_id=170973106 instance=ExtResource("4_i6edt")]
+process_mode = 4
+visible = false

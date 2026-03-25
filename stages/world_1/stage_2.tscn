@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bqlkacaffhs60" path="res://stages/world_1/base_stage.tscn" id="1_mpi72"]
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_o6dms"]
+[ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_o6dms"]
 
 [node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_mpi72")]
-enabled_minigames = Array[int]([1])
+enabled_minigames = Array[int]([3])
 
 [node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]
 transform = Transform3D(-0.30565014, -0.8908636, 0.33606556, 0.7228571, 0.012617437, 0.6908824, -0.61972225, 0.45409566, 0.64011055, 0, 0, 0)
@@ -27,3 +28,14 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 115.41418, 
 
 [node name="Garage" parent="." index="6" unique_id=1723478353]
 transform = Transform3D(-2.1855693e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855693e-07, 76.84796, -0.21509612, 93.42619)
+
+[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1792390903]
+fov = 37.849285
+
+[node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.187527, 0, 26.90418)
+
+[node name="GunEnemy4" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="1" unique_id=2080657865 instance=ExtResource("3_o6dms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.46108, 3.0517578e-05, -46.949615)
+
+[editable path="Terrain/level 1_sf"]

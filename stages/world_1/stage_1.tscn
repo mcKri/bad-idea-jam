@@ -20,3 +20,8 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -15.019, 0,
 
 [node name="Garage" parent="." index="6" unique_id=1723478353]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 114.98513, -0.21509612, 6.5209694)
+
+[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1792390903]
+fov = 37.849285
+
+[editable path="Terrain/level 1_sf"]

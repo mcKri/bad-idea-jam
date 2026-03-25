@@ -125,3 +125,12 @@ func _on_texture_button_pressed():
 	else:
 		await display_text(_curr_prompt.failure_message)
 		fail()
+
+
+func handle_idle_timeout():
+	if _curr_prompt.should_answer:
+		await display_text(_curr_prompt.failure_message)
+		fail()
+	else:
+		await display_text(_curr_prompt.success_message)
+		complete()

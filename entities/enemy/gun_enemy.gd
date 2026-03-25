@@ -115,6 +115,8 @@ func search_for_player():
 				continue
 			
 			var collider = sight_cast.get_collider()
+			if collider is Area3D:
+				collider = collider.get_parent().get_parent()
 			if collider is Player || collider is Car:
 				target = body
 				_on_triggered()

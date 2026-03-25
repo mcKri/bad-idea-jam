@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://70wv2xto7cds"]
 
 [ext_resource type="Script" uid="uid://bvit6bg7ogerx" path="res://entities/enemy/gun_enemy.gd" id="1_1r5rx"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_c6sgr"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_c6sgr"]
 [ext_resource type="PackedScene" uid="uid://dm0ir2bujpvb6" path="res://entities/enemy/bullet/bullet.tscn" id="2_id4ay"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_id4ay"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_1ny2q"]
-[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_wj6vg"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_wj6vg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ksmh7"]
 
@@ -74,9 +74,10 @@ monitorable = false
 shape = SubResource("SphereShape3D_1r5rx")
 
 [node name="SightCast" type="RayCast3D" parent="." unique_id=437733940]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4807923, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7003275, 0)
 enabled = false
-collision_mask = 5
+collision_mask = 7
+collide_with_areas = true
 
 [connection signal="state_physics_processing" from="StateChart/Root/IdleState" to="." method="_on_idle_state_physics_processing"]
 [connection signal="state_physics_processing" from="StateChart/Root/FollowState" to="." method="_on_follow_state_physics_processing"]

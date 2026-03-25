@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_FILE_PATH := "user://_save_data.json"
+const SAVE_FILE_PATH := "user://save_data.json"
 
 var _save_data: Dictionary = {
 	"world": 0,
@@ -86,3 +86,12 @@ func get_property(key: String) -> Variant:
 		return null
 
 	return _save_data[key]
+
+
+func has_save_data() -> bool:
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+	if !file:
+		return false
+
+	file.close()
+	return true

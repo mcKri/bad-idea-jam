@@ -6,6 +6,10 @@
 [node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_mpi72")]
 enabled_minigames = Array[int]([1])
 
+[node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]
+transform = Transform3D(-0.30565014, -0.8908636, 0.33606556, 0.7228571, 0.012617437, 0.6908824, -0.61972225, 0.45409566, 0.64011055, 0, 0, 0)
+light_color = Color(1, 0.8215, 0.49, 1)
+
 [node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.10674, -7.6293945e-06, 38.86915)
 

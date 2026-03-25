@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://stsvutjevocq"]
+
+[ext_resource type="Script" uid="uid://c2oaovx8850qi" path="res://ui/main_menu/main_menu.gd" id="1_t7e0r"]
+[ext_resource type="Script" uid="uid://bh41kxldf2bht" path="res://ui/main_menu/volume_slider.gd" id="2_mu8pm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mu8pm"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_omy8q"]
+font_size = 48
+
+[node name="MainMenu" type="CenterContainer" unique_id=223592989]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7e0r")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=922283290]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=876587007]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=969756507]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 92
+bbcode_enabled = true
+text = "Cool Car Game"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=658097427]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Continue Game"
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=915455373]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=9742341]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1163633107]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="MarginContainer" unique_id=800039447]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMenu" unique_id=1375829037]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_mu8pm")
+
+[node name="MusicVolume" type="VBoxContainer" parent="MarginContainer/SettingsMenu" unique_id=1261695626]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMenu/MusicVolume" unique_id=997881032]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_omy8q")
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMenu/MusicVolume" unique_id=1863344428]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_mu8pm")
+bus_name = "Music"
+
+[node name="SFXVolume" type="VBoxContainer" parent="MarginContainer/SettingsMenu" unique_id=301605024]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMenu/SFXVolume" unique_id=609482056]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_omy8q")
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMenu/SFXVolume" unique_id=1735627959]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_mu8pm")
+bus_name = "SFX"
+
+[node name="BackButton" type="Button" parent="MarginContainer/SettingsMenu" unique_id=1823558180]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]

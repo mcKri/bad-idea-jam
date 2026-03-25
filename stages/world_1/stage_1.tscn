@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dc1of7bp2mhi6"]
+
+[ext_resource type="PackedScene" uid="uid://bqlkacaffhs60" path="res://stages/world_1/base_stage.tscn" id="1_esb41"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_m7i2r"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_esb41")]
+enabled_minigames = Array[int]([1])
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="1" unique_id=746821022 instance=ExtResource("2_m7i2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.980442, -7.6293945e-06, 136.0688)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="2" unique_id=1647949387 instance=ExtResource("2_m7i2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.45871, -7.6293945e-06, 166.12537)
+
+[node name="DeliveryPoint4" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="3" unique_id=217529901 instance=ExtResource("2_m7i2r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159.27461, -7.6293945e-06, 133.62791)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -15.019, 0, -58.867)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 114.98513, -0.21509612, 6.5209694)

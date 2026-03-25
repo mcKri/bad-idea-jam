@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="World" format=3 uid="uid://dr8fmdlb7ungt"]
+
+[ext_resource type="Script" uid="uid://dtd4v50845w8b" path="res://stages/world.gd" id="1_w20uf"]
+
+[resource]
+script = ExtResource("1_w20uf")
+stages = Array[PackedScene]([null])
+metadata/_custom_type_script = "uid://dtd4v50845w8b"

@@ -6,7 +6,8 @@ const CAR_PACKED := preload("res://entities/car/car.tscn")
 @onready var game_world: Node3D = get_node("/root/GameWorld")
 
 var worlds: Array[World] = [
-	preload("res://stages/test_world/test_world.tres"),
+	preload("res://stages/world_1/world_1.tres"),
+	preload("res://stages/world_2/world_2.tres"),
 ]
 var world_idx := -1
 var stage_idx := -1
@@ -37,7 +38,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	# Initialize car
 	car = CAR_PACKED.instantiate()
 	stage.add_child(car)
-	car.global_transform = stage.get_spawn_transform().translated(Vector3(0, 0.4, 0))
+	car.global_transform = stage.get_spawn_transform().translated(Vector3(0, 1.0, 0))
 	
 	# Initialize player
 	player = PLAYER_PACKED.instantiate()

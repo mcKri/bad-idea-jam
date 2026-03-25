@@ -38,6 +38,10 @@ vertical_scroll_mode = 0
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=103183049]
 layout_mode = 2
 mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "This is a very very long test text"

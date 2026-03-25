@@ -10,6 +10,7 @@ extends Node3D
 
 @export var enabled_minigames: Array[Minigame.Type]
 @export var music: AudioStream
+@export var terrain: Node3D
 
 var delivery_points: Array[DeliveryPoint] = []
 var curr_delivery_idx: int = 0

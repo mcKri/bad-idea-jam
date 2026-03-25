@@ -14,6 +14,7 @@ var _fixed_basis: Basis
 var _pan_origin: Vector3
 var _pan_duration: float
 var _pan_t: float = 1.0
+var _bounds: AABB
 
 
 func _init():
@@ -33,6 +34,10 @@ func _process(delta):
 		target_pos = look_target.global_position
 	elif look_point != Vector3.INF:
 		target_pos = look_point
+	
+	# Clamp target position within bounds if set
+	if target_pos != Vector3.INF and _bounds.size != Vector3.ZERO:
+		target_pos = target_pos.clamp(_bounds.position, _bounds.end)
 	
 	var anchor_pos := target_pos + anchor_offset
 	
@@ -89,3 +94,7 @@ func set_offset(new_offset: Vector3):
 func reset_offset():
 	anchor_offset = DEFAULT_OFFSET
 	_update_basis()
+
+
+func set_bounds(bounds: AABB):
+	_bounds = bounds

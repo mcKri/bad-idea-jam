@@ -14,7 +14,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_00rn6"]
 font_size = 64
-font_color = Color(0.14279999, 0.6441866, 0.68, 1)
+font_color = Color(0.27199998, 0.65279996, 0.68, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)

@@ -15,6 +15,7 @@ const LAUNCH_DAMAGE_SCALE := 2.0
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var state_chart: StateChart = $StateChart
+@onready var sprite: Sprite3D = $Sprite3D
 
 @onready var detect_area: Area3D = $DetectionArea
 @onready var detect_shape: CollisionShape3D = $DetectionArea/CollisionShape3D
@@ -56,6 +57,8 @@ func _physics_process(delta: float):
 		velocity.y -= 20.0 * delta
 	
 	move_and_slide()
+	if velocity.length() > 0:
+		sprite.rotation.y = atan2(velocity.x, velocity.z) - rotation.y - PI / 2.0
 
 
 func _draw_debug_ray(cast_vector: Vector3) -> void:

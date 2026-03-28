@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://do4qqglwdth5c"]
+
+[ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_w2bfp"]
+
+[resource]
+script = ExtResource("1_w2bfp")
+message = "Hot babes in your nearby area!"
+message_2 = "Dude what is wrong with you..."
+metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

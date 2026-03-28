@@ -11,6 +11,7 @@ enum Type {
 const BASE_COOLDOWN := 5.0
 const IDLE_TIME := 5.0
 const IDLE_FLASH_TIME := 2.0
+const EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")
 
 var _flash_tween: Tween
 var _shaker: Shaker
@@ -77,7 +78,11 @@ func stop_flashing():
 
 func fail():
 	_finish()
-	StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
+	if is_instance_valid(StageLoader.car):
+		var explosion = EXPLOSION_SCENE.instantiate()
+		StageLoader.stage.add_child(explosion)
+		explosion.global_position = StageLoader.car.global_position
+		StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
 
 
 func complete():

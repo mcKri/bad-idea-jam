@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://cmdj7fr3yg4o2"]
+
+[ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_g11mv"]
+
+[resource]
+script = ExtResource("1_g11mv")
+message = "You took EVERYTHING from me!"
+message_2 = "Oh wait no, I still have my phone haha"
+should_answer = true
+metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

@@ -1,6 +1,8 @@
 class_name Car
 extends RigidBody3D
 
+const DESTROY_EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")
+
 @onready var mesh: Node3D = $Mesh
 @onready var ground_ray: RayCast3D = $Mesh/RayCast3D
 @onready var car_body: Node3D = $"Mesh/tray car 001"
@@ -172,14 +174,16 @@ func damage(amount: float):
 
 func destroy():
 	StageLoader.fail_stage("Your car was destroyed!")
-	# TODO: Explode
+	var explosion = DESTROY_EXPLOSION_SCENE.instantiate()
+	add_sibling(explosion)
+	explosion.global_position = global_position
 	hide()
 	queue_free()
 
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body is GunEnemy:
-		var direction := (body.global_transform.origin - global_transform.origin).normalized()
+		var direction := (body.global_position - global_position).normalized()
 		body.launch(direction * linear_velocity.length() * 1.5)
 
 		var shaker := Shaker.new(linear_velocity.length() * 0.02, linear_velocity.length() * 0.05)

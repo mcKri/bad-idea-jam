@@ -96,6 +96,7 @@ func fail_stage(reason: String = ""):
 	car.driving = false
 	UILayer.stage_fail_screen.open(reason)
 	UILayer.hud.minigame_handler.set_paused(true)
+	AudioManager.play_music(preload("res://assets/music/game_over.mp3"))
 
 
 func complete_stage():

@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://bvit6bg7ogerx" path="res://entities/enemy/gun_enemy.gd" id="1_1r5rx"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_c6sgr"]
 [ext_resource type="PackedScene" uid="uid://dm0ir2bujpvb6" path="res://entities/enemy/bullet/bullet.tscn" id="2_id4ay"]
+[ext_resource type="Texture2D" uid="uid://dqqxtti23kq6a" path="res://entities/enemy/frame0008.png" id="3_1ny2q"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_id4ay"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_1ny2q"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_wj6vg"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ksmh7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ksmh7"]
 
@@ -20,13 +19,14 @@ collision_mask = 31
 script = ExtResource("1_1r5rx")
 bullet_scene = ExtResource("2_id4ay")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=574340304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97359604, 0)
-mesh = SubResource("CapsuleMesh_ksmh7")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1287753687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99827385, 0)
 shape = SubResource("CapsuleShape3D_ksmh7")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=786859101]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, -10, 0, 10, -4.371139e-07, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("3_1ny2q")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1777719764]
 target_desired_distance = 1.1

@@ -4,7 +4,7 @@ extends Minigame
 @export_dir var prompt_dir: String
 
 const SCROLL_WAIT_TIME := 0.5
-const SCROLL_SPEED := 45.0
+const SCROLL_SPEED := 75.0
 
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var label: RichTextLabel = $ScrollContainer/RichTextLabel
@@ -43,7 +43,7 @@ func start():
 	_curr_prompt = _prompt_pool.pick_random()
 	_start_shaking()
 	enable_input()
-	display_text(_curr_prompt.text)
+	display_text(_curr_prompt.message)
 
 
 func display_text(text: String):
@@ -51,7 +51,7 @@ func display_text(text: String):
 	label.text = text
 	await get_tree().process_frame
 
-	var text_width := label.size.x
+	var text_width := label.get_content_width()
 	var scroll_width := scroll_container.size.x
 	if text_width <= scroll_width:
 		return
@@ -110,27 +110,21 @@ func _finish():
 
 
 func _on_texture_button_pressed():
-	print("Button pressed")
-
 	if !_input_enabled:
 		return
 	
 	_stop_shaking()
 	enable_input(false)
 	
+	await display_text(_curr_prompt.message_2)
 	if _curr_prompt.should_answer:
-		print("Displaying success message: " + _curr_prompt.success_message)
-		await display_text(_curr_prompt.success_message)
 		complete()
 	else:
-		await display_text(_curr_prompt.failure_message)
 		fail()
 
 
 func handle_idle_timeout():
 	if _curr_prompt.should_answer:
-		await display_text(_curr_prompt.failure_message)
 		fail()
 	else:
-		await display_text(_curr_prompt.success_message)
 		complete()

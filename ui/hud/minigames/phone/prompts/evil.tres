@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://cg7qru53ts2ta"]
+
+[ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_8crb6"]
+
+[resource]
+script = ExtResource("1_8crb6")
+message = "Nyeheheh, hey! I'm your pal and definitely not evil!"
+message_2 = "Thanks again for suggesting that voice changing surgery, I have my appointment on thursday!"
+should_answer = true
+metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

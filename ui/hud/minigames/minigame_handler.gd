@@ -63,3 +63,11 @@ func _get_minigame_node(minigame_type: Minigame.Type) -> Minigame:
 			return phone_minigame
 		_:
 			return null
+
+
+func reset():
+	trigger_timer = BASE_TRIGGER_INTERVAL * 0.5
+	simon_says_minigame._finish()
+	thermometer_minigame._finish()
+	ball_cup_minigame._finish()
+	phone_minigame._finish()

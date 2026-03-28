@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://b2lgnmog4dtug"]
+
+[ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_mgr65"]
+
+[resource]
+script = ExtResource("1_mgr65")
+message = "Hey, can you pick up the phone?"
+message_2 = "I asked if you can pick it up, I didn't tell you to do it."
+metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

@@ -80,8 +80,9 @@ func advance_stage():
 func advance_world():
 	var next_idx := world_idx + 1
 	if next_idx >= worlds.size():
-		# TODO: Show end screen
-		print("No more worlds!")
+		stage.hide()
+		stage.queue_free()
+		UILayer.game_end_screen.show()
 		return
 	
 	load_stage(0, next_idx)

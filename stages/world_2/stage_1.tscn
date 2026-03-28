@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0lk0lfayq6gm"]
+
+[ext_resource type="PackedScene" uid="uid://b36t64e4cy6uk" path="res://stages/world_2/base_stage.tscn" id="1_5rsgp"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_5rsgp")]
+
+[node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.318993, 0, 64.76347)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 37.160652, 0, 10.787867)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 33.999504, -0.21509802, 95.81409)
+
+[editable path="Terrain/level 2_sf"]

@@ -152,7 +152,7 @@ libraries/ = SubResource("AnimationLibrary_hvip3")
 speed_scale = 0.7
 
 [node name="NoTexture" type="TextureRect" parent="." unique_id=1484171774]
-modulate = Color(1, 0.16000003, 0.25800014, 1)
+modulate = Color(1, 0.17000002, 0.22533327, 1)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 64.0

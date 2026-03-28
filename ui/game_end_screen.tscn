@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bg8vr78ndtuil"]
+
+[ext_resource type="Script" uid="uid://x6wacqi5bikd" path="res://ui/game_end_screen.gd" id="1_ymspo"]
+
+[node name="GameEndScreen" type="Control" unique_id=1273864728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ymspo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1529985815]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2093012836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1173166787]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=1925301725]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "YOU FINISHED THE DANG GAME"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2063156014]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "back to Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

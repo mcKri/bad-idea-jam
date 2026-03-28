@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://b0iuur3da6uka"]
 
 [ext_resource type="Script" uid="uid://ck33y5gbajtus" path="res://entities/box/box.gd" id="1_josro"]
+[ext_resource type="PackedScene" uid="uid://ck7fgmmcunoy5" path="res://entities/box/crate_.glb" id="2_pihpk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x30i6"]
 bounce = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yotxw"]
-size = Vector3(0.5263672, 0.55822754, 0.54125977)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30i6"]
-albedo_color = Color(1, 1, 0, 1)
+size = Vector3(0.5998535, 0.5963745, 0.60253906)
 
 [node name="Box" type="RigidBody3D" unique_id=755877171]
 collision_layer = 34
@@ -18,14 +16,17 @@ physics_material_override = SubResource("PhysicsMaterial_x30i6")
 script = ExtResource("1_josro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1176030861]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3030735, 0)
 shape = SubResource("BoxShape3D_yotxw")
 debug_color = Color(0.54901963, 0.5647059, 0, 0.6)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2121944741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284, 0)
-size = Vector3(0.5263672, 0.55822754, 0.54125977)
-material = SubResource("StandardMaterial3D_x30i6")
-
 [node name="StackAnchor" type="Marker3D" parent="." unique_id=342336291]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56069, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60350364, 0)
+
+[node name="crate_" parent="." unique_id=240934834 instance=ExtResource("2_pihpk")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.30152974, 0)
+
+[node name="Cube" parent="crate_" index="0" unique_id=249227409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[editable path="crate_"]

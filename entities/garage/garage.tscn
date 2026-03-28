@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b50q24ns0vtkn" path="res://entities/delivery_point/square.png" id="5_kxsr7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwssi"]
-size = Vector3(2.8, 2.24, 0.01)
+size = Vector3(2.08, 1.36, 0.01)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lwpgf"]
 viewport_path = NodePath("UpgradeMenu/SubViewport")
@@ -44,7 +44,7 @@ texture = SubResource("ViewportTexture_lwpgf")
 
 [node name="SubViewport" type="SubViewport" parent="UpgradeMenu" unique_id=2143958492]
 transparent_bg = true
-size = Vector2i(280, 224)
+size = Vector2i(208, 136)
 
 [node name="UpgradePanel" parent="UpgradeMenu/SubViewport" unique_id=1784560719 instance=ExtResource("5_41skr")]
 layer = 10

@@ -1,0 +1,104 @@
+class_name YesNoMinigame
+extends Minigame
+
+
+@export_dir var prompt_dir: String
+
+const SCROLL_WAIT_TIME := 0.5
+const SCROLL_SPEED := 75.0
+
+@onready var scroll_container: ScrollContainer = $ScrollContainer
+@onready var label: RichTextLabel = $ScrollContainer/RichTextLabel
+@onready var button_ap: AnimationPlayer = $ButtonAP
+@onready var screen_ap: AnimationPlayer = $ScreenTexture/ScreenAP
+
+var _prompt_pool: Array[YesNoPrompt]
+var _curr_prompt: YesNoPrompt
+var _scroll_tween: Tween
+
+
+func _ready():
+	super ()
+
+	# Load all resources in prompt dir with class YesNoPrompt
+	_prompt_pool = []
+	for file_name in DirAccess.get_files_at(prompt_dir):
+		if !file_name.ends_with(".tres"):
+			continue
+		
+		var res := ResourceLoader.load(prompt_dir + "/" + file_name)
+		if res is YesNoPrompt:
+			_prompt_pool.append(res)
+
+
+func start():
+	super ()
+	
+	button_ap.play("enter")
+	_curr_prompt = _prompt_pool.pick_random()
+	display_text(_curr_prompt.message)
+	await button_ap.animation_finished
+
+	enable_input()
+
+
+func display_text(text: String):
+	_reset_scroll()
+	label.text = text
+	screen_ap.play("talk")
+	await get_tree().process_frame
+
+	var text_width := label.get_content_width()
+	var scroll_width := scroll_container.size.x
+	if text_width <= scroll_width:
+		return
+
+	_idle_timer += SCROLL_WAIT_TIME
+	await get_tree().create_timer(SCROLL_WAIT_TIME).timeout
+
+	var max_scroll := text_width - scroll_width
+	var scroll_time := max_scroll / SCROLL_SPEED
+	_idle_timer += scroll_time
+	_scroll_tween = create_tween()
+	_scroll_tween.tween_property(scroll_container, "scroll_horizontal", max_scroll, scroll_time)
+	await _scroll_tween.finished
+
+	_idle_timer += SCROLL_WAIT_TIME
+	await get_tree().create_timer(SCROLL_WAIT_TIME).timeout
+
+	screen_ap.stop()
+
+
+func _reset_scroll():
+	if _scroll_tween and _scroll_tween.is_valid():
+		_scroll_tween.kill()
+	scroll_container.scroll_horizontal = 0
+
+
+func _answer(is_yes: bool):
+	if is_yes == _curr_prompt.should_answer_yes:
+		complete()
+	else:
+		fail()
+
+
+func _finish():
+	super ()
+
+	label.text = ""
+	_reset_scroll()
+	screen_ap.stop()
+
+
+func _on_yes_button_pressed():
+	if !_input_enabled:
+		return
+	
+	_answer(true)
+
+
+func _on_no_button_pressed():
+	if !_input_enabled:
+		return
+	
+	_answer(false)

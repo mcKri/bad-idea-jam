@@ -6,6 +6,7 @@ enum Type {
 	THERMOMETER,
 	BALL_CUP,
 	PHONE,
+	YES_NO,
 }
 
 const BASE_COOLDOWN := 5.0

@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dwec47gknn55g"]
+
+[ext_resource type="Texture2D" uid="uid://doknm570d8mgb" path="res://ui/hud/minigames/yes_no/no0000.png" id="1_5j1dn"]
+[ext_resource type="Script" uid="uid://cf5olyb57wka" path="res://ui/hud/minigames/yes_no/yes_no_minigame.gd" id="1_kfpn0"]
+[ext_resource type="Texture2D" uid="uid://ctaxxog6ywkb1" path="res://ui/hud/minigames/yes_no/no0001.png" id="2_10xjn"]
+[ext_resource type="Texture2D" uid="uid://bq83il07niguk" path="res://ui/hud/minigames/yes_no/yes0000.png" id="2_ljsi2"]
+[ext_resource type="Texture2D" uid="uid://b7gi0wvjhr0nr" path="res://ui/hud/minigames/yes_no/no0002.png" id="3_at6w6"]
+[ext_resource type="Texture2D" uid="uid://doqqtoxmy0orc" path="res://ui/hud/minigames/yes_no/no0003.png" id="4_a0qv4"]
+[ext_resource type="Texture2D" uid="uid://oxe7v7to3fmo" path="res://ui/hud/minigames/yes_no/no0005.png" id="5_bfn6e"]
+[ext_resource type="Texture2D" uid="uid://bl1mv5emfobau" path="res://ui/hud/minigames/yes_no/no0004.png" id="6_i1wgw"]
+[ext_resource type="Texture2D" uid="uid://cvl1d1d712ad2" path="res://ui/hud/minigames/yes_no/no0006.png" id="7_nnuew"]
+[ext_resource type="Texture2D" uid="uid://1mo6yldpam6a" path="res://ui/hud/minigames/yes_no/no0007.png" id="8_85vi7"]
+[ext_resource type="Texture2D" uid="uid://bfejmanqa02ke" path="res://ui/hud/minigames/yes_no/no0008.png" id="9_ynwne"]
+[ext_resource type="Texture2D" uid="uid://bet74lx54qdts" path="res://ui/hud/minigames/yes_no/no0009.png" id="10_qoof7"]
+[ext_resource type="Texture2D" uid="uid://6ekksgokct8n" path="res://ui/hud/minigames/yes_no/no0010.png" id="11_y33kr"]
+[ext_resource type="Texture2D" uid="uid://dn7qmpdpisgsy" path="res://ui/hud/minigames/yes_no/yes0001.png" id="13_gqejo"]
+[ext_resource type="Texture2D" uid="uid://bld6uyli3ga62" path="res://ui/hud/minigames/yes_no/yes0002.png" id="14_100lx"]
+[ext_resource type="Texture2D" uid="uid://bbirav3djag0b" path="res://ui/hud/minigames/yes_no/yes0003.png" id="15_kfpn0"]
+[ext_resource type="Texture2D" uid="uid://bj2ie2rkf8mf7" path="res://ui/hud/minigames/yes_no/yes0004.png" id="16_on8fg"]
+[ext_resource type="Texture2D" uid="uid://cv54xwg8qel46" path="res://ui/hud/minigames/yes_no/yes0005.png" id="17_fkog0"]
+[ext_resource type="Texture2D" uid="uid://c2nbl21xg4qfp" path="res://ui/hud/minigames/yes_no/yes0006.png" id="18_c161n"]
+[ext_resource type="Texture2D" uid="uid://dvng31khwsmpj" path="res://ui/hud/minigames/yes_no/yes0007.png" id="19_60lci"]
+[ext_resource type="Texture2D" uid="uid://dkoepn02atyq8" path="res://ui/hud/minigames/yes_no/yes0008.png" id="20_y8rwr"]
+[ext_resource type="Texture2D" uid="uid://cvkfwf8o3m3cw" path="res://ui/hud/minigames/yes_no/yes0009.png" id="21_qjlu4"]
+[ext_resource type="Texture2D" uid="uid://b7eqq686w1058" path="res://ui/hud/minigames/yes_no/yes0010.png" id="22_15n2s"]
+[ext_resource type="Texture2D" uid="uid://btttnqravgob4" path="res://ui/hud/minigames/yes_no/yesno0000.png" id="23_100lx"]
+[ext_resource type="Texture2D" uid="uid://hxads5lhbcnf" path="res://ui/hud/minigames/yes_no/yesno0001.png" id="24_kfpn0"]
+
+[sub_resource type="Animation" id="Animation_on8fg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenTexture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_100lx")]
+}
+
+[sub_resource type="Animation" id="Animation_fkog0"]
+resource_name = "talk"
+length = 0.26667002
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenTexture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("23_100lx"), ExtResource("24_kfpn0"), ExtResource("23_100lx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c161n"]
+_data = {
+&"RESET": SubResource("Animation_on8fg"),
+&"talk": SubResource("Animation_fkog0")
+}
+
+[sub_resource type="Animation" id="Animation_mgfmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoTexture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YesTexture:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_26p17"]
+resource_name = "enter"
+length = 0.33333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoTexture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.06666666, 0.099999994, 0.13333336, 0.16666666, 0.20000002, 0.23333338, 0.26666668, 0.29999998, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_5j1dn"), ExtResource("2_10xjn"), ExtResource("3_at6w6"), ExtResource("4_a0qv4"), ExtResource("5_bfn6e"), ExtResource("6_i1wgw"), ExtResource("7_nnuew"), ExtResource("8_85vi7"), ExtResource("9_ynwne"), ExtResource("10_qoof7"), ExtResource("11_y33kr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YesTexture:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.06666666, 0.099999994, 0.13333336, 0.16666666, 0.20000002, 0.23333332, 0.26666668, 0.29999998, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ljsi2"), ExtResource("13_gqejo"), ExtResource("14_100lx"), ExtResource("15_kfpn0"), ExtResource("16_on8fg"), ExtResource("17_fkog0"), ExtResource("18_c161n"), ExtResource("19_60lci"), ExtResource("20_y8rwr"), ExtResource("21_qjlu4"), ExtResource("22_15n2s")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvip3"]
+_data = {
+&"RESET": SubResource("Animation_mgfmo"),
+&"enter": SubResource("Animation_26p17")
+}
+
+[node name="YesNoMinigame" type="Control" unique_id=685337253]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_kfpn0")
+
+[node name="ScreenTexture" type="TextureRect" parent="." unique_id=1023646759]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+scale = Vector2(3, 3)
+mouse_filter = 2
+texture = ExtResource("23_100lx")
+
+[node name="ScreenAP" type="AnimationPlayer" parent="ScreenTexture" unique_id=338879468]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_c161n")
+
+[node name="ButtonAP" type="AnimationPlayer" parent="." unique_id=1750114099]
+libraries/ = SubResource("AnimationLibrary_hvip3")
+speed_scale = 0.7
+
+[node name="NoTexture" type="TextureRect" parent="." unique_id=1484171774]
+modulate = Color(1, 0.16000003, 0.25800014, 1)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+scale = Vector2(3, 3)
+mouse_filter = 2
+
+[node name="NoButton" type="TextureButton" parent="NoTexture" unique_id=1621182670]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="YesTexture" type="TextureRect" parent="." unique_id=1497991647]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 64.0
+scale = Vector2(3, 3)
+mouse_filter = 2
+
+[node name="YesButton" type="TextureButton" parent="YesTexture" unique_id=1623608834]
+layout_mode = 0
+offset_left = 67.0
+offset_right = 127.0
+offset_bottom = 60.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=781101632]
+layout_mode = 0
+offset_top = -43.666664
+offset_right = 384.0
+offset_bottom = 3.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer" unique_id=1918520160]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "This is a very very long test text"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="pressed" from="NoTexture/NoButton" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="YesTexture/YesButton" to="." method="_on_yes_button_pressed"]

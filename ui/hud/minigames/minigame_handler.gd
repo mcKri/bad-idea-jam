@@ -5,6 +5,7 @@ extends Control
 @onready var thermometer_minigame: ThermometerMinigame = %ThermometerMinigame
 @onready var ball_cup_minigame: BallCupMinigame = %BallCupMinigame
 @onready var phone_minigame: PhoneMinigame = %PhoneMinigame
+@onready var yes_no_minigame: YesNoMinigame = %YesNoMinigame
 
 const BASE_TRIGGER_INTERVAL := 9.0
 var trigger_timer := BASE_TRIGGER_INTERVAL * 0.5
@@ -44,7 +45,6 @@ func trigger_random_minigame():
 		|| minigame_node.is_on_cooldown():
 			continue
 		
-		print("Triggering minigame: ", minigame_type)
 		minigame_node.start()
 		break
 
@@ -61,6 +61,8 @@ func _get_minigame_node(minigame_type: Minigame.Type) -> Minigame:
 			return ball_cup_minigame
 		Minigame.Type.PHONE:
 			return phone_minigame
+		Minigame.Type.YES_NO:
+			return yes_no_minigame
 		_:
 			return null
 

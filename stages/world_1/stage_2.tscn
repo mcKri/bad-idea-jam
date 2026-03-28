@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_o6dms"]
 
 [node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_mpi72")]
-enabled_minigames = Array[int]([3])
+enabled_minigames = Array[int]([4])
 
 [node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]
 transform = Transform3D(-0.30565014, -0.8908636, 0.33606556, 0.7228571, 0.012617437, 0.6908824, -0.61972225, 0.45409566, 0.64011055, 0, 0, 0)

@@ -21,6 +21,7 @@ const TEXTURES: Dictionary = {
 
 var correct_sequence: Array[ButtonColor] = []
 const PLAYBACK_INTERVAL := 1.0
+const STEP_COUNT := 3
 var playback_idx: int = 0
 
 var input_step: int = 0
@@ -32,8 +33,7 @@ func start():
 	super ()
 
 	correct_sequence.clear()
-	var num_steps = randi_range(3, 6)
-	for i in range(num_steps):
+	for i in range(STEP_COUNT):
 		var random_color = ButtonColor.values()[randi_range(1, 4)]
 		correct_sequence.append(random_color)
 	

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_o6dms"]
 
 [node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_mpi72")]
-time_limit = 40.0
+time_limit = 42.0
 enabled_minigames = Array[int]([0])
 
 [node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]

@@ -23,10 +23,11 @@ func _ready():
 	# Load all resources in prompt dir with class PhonePrompt
 	_prompt_pool = []
 	for file_name in DirAccess.get_files_at(prompt_dir):
-		if !file_name.ends_with(".tres"):
+		var actual_name := file_name.trim_suffix(".remap")
+		if !actual_name.ends_with(".tres"):
 			continue
 		
-		var res := ResourceLoader.load(prompt_dir + "/" + file_name)
+		var res := ResourceLoader.load(prompt_dir + "/" + actual_name)
 		if res is PhonePrompt:
 			if !res.enabled:
 				continue

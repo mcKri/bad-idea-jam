@@ -43,7 +43,7 @@ const COLLISION_DAMAGE_SCALE := 5.0
 @onready var health_bar: HealthBar = $Mesh/HealthBar
 
 var health := MAX_HEALTH
-var god_mode := true
+var god_mode := false
 
 
 func _ready():

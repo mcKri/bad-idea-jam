@@ -13,14 +13,6 @@ signal save_started
 signal _save_completed
 
 
-func _input(event):
-	if event.is_action_pressed("save_game"):
-		print("Save game triggered")
-		save_game()
-	elif event.is_action_pressed("load_game"):
-		load_game()
-
-
 func save_game():
 	_subscriber_wait_list = []
 	for conn in save_started.get_connections():

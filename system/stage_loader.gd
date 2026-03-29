@@ -20,6 +20,21 @@ func _ready():
 	SaveSystem.save_started.connect(_on_save_started)
 
 
+func _input(event):
+	if event.is_action_pressed("next_level"):
+		advance_stage()
+	elif event.is_action_pressed("prev_level"):
+		var prev_idx := stage_idx - 1
+		var new_world_idx := world_idx
+		if prev_idx < 0:
+			new_world_idx -= 1
+			if new_world_idx < 0:
+				return
+			prev_idx = worlds[new_world_idx].stages.size() - 1
+		
+		load_stage(prev_idx, new_world_idx)
+
+
 func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	SaveSystem.save_game()
 

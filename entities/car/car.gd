@@ -37,12 +37,13 @@ var speed_input := 0.0
 var steer_input := 0.0
 var handbrake := false
 
-const MAX_HEALTH := 400.0
+const MAX_HEALTH := 280.0
 const COLLISION_DAMAGE_SCALE := 5.0
 
 @onready var health_bar: HealthBar = $Mesh/HealthBar
 
 var health := MAX_HEALTH
+var god_mode := true
 
 
 func _ready():
@@ -169,7 +170,8 @@ func damage(amount: float):
 	health -= amount
 	health_bar.update(health)
 	if health <= 0.0:
-		destroy()
+		if not god_mode:
+			destroy()
 
 
 func destroy():
@@ -184,7 +186,7 @@ func destroy():
 func _on_area_3d_body_entered(body: Node3D):
 	if body is GunEnemy:
 		var direction := (body.global_position - global_position).normalized()
-		body.launch(direction * linear_velocity.length() * 1.5)
+		body.launch(direction * linear_velocity.length() * 2.5)
 
 		var shaker := Shaker.new(linear_velocity.length() * 0.02, linear_velocity.length() * 0.05)
 		mesh.add_child(shaker)

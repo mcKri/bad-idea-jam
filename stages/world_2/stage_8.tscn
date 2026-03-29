@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://dmfysbdbq1qft"]
+
+[ext_resource type="PackedScene" uid="uid://b36t64e4cy6uk" path="res://stages/world_2/base_stage.tscn" id="1_62ya7"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_qgbbj"]
+[ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_pbchl"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_62ya7")]
+time_limit = 154.0
+enabled_minigames = Array[int]([0, 1, 2, 3, 4])
+
+[node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 254.42264, 0, -46.980957)
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="1" unique_id=1153439443 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 254.42264, 0, 222.95593)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="2" unique_id=1401904311 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.74948, 0, 313.64853)
+
+[node name="DeliveryPoint4" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="3" unique_id=176213326 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -318.15475, 0, 313.64853)
+
+[node name="DeliveryPoint5" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="4" unique_id=839509442 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -257.15475, 0, 153.64853)
+
+[node name="DeliveryPoint6" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="5" unique_id=412699402 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -245.15475, 0, 84.64853)
+
+[node name="DeliveryPoint7" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="6" unique_id=1454415497 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -266.0227, 0, -97.77763)
+
+[node name="DeliveryPoint8" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="7" unique_id=1049388539 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -193.99466, 0, -99.12397)
+
+[node name="DeliveryPoint9" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="8" unique_id=807249810 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.99466, 0, -8.12397)
+
+[node name="DeliveryPoint10" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="9" unique_id=1756127036 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.743225, 0, -97.65419)
+
+[node name="DeliveryPoint11" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="10" unique_id=1309557821 instance=ExtResource("2_qgbbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.743225, 0, -236.65419)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(-0.9999999, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, -0.9999999, 254.59106, 0, -275.30487)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -85.15, 0, -177.489)
+
+[node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -317.73126, 0, 84.144905)
+visible = true
+
+[node name="GunEnemy2" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="1" unique_id=675998195 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -316.73126, 0, 67.144905)
+
+[node name="GunEnemy3" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="2" unique_id=173288646 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.57544, 0, 63.779106)
+
+[node name="GunEnemy4" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="3" unique_id=419646268 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -294.51697, 0, 81.28123)
+
+[node name="GunEnemy5" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="4" unique_id=405473235 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -279.7075, 0, 61.75963)
+
+[node name="GunEnemy6" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="5" unique_id=1342675099 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.19016, 0, 46.95012)
+
+[node name="GunEnemy7" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="6" unique_id=2089007079 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -291.82437, 0, 32.813763)
+
+[node name="GunEnemy8" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="7" unique_id=2135499256 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.62958, 0, 31.467472)
+
+[node name="GunEnemy9" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="8" unique_id=1574572806 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -267.59064, 0, 48.296448)
+
+[node name="GunEnemy10" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="9" unique_id=1256294869 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -237.97162, 0, 32.140617)
+
+[node name="GunEnemy11" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="10" unique_id=2085965283 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -209.02576, 0, 20.023727)
+
+[node name="GunEnemy12" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="11" unique_id=526857044 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.831, 0, 19.350582)
+
+[node name="GunEnemy13" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="12" unique_id=585519375 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -172.00201, 0, 19.350582)
+
+[node name="GunEnemy14" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="13" unique_id=1860962361 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.13406, 0, 17.331108)
+
+[node name="GunEnemy15" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="14" unique_id=113808317 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.21198, 0, 3.194744)
+
+[node name="GunEnemy16" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="15" unique_id=90690820 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.38727, 0, 6.5605507)
+
+[node name="GunEnemy17" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="16" unique_id=2125864911 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.21628, 0, 11.272682)
+
+[node name="GunEnemy18" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="17" unique_id=1538494358 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -221.14267, 0, 7.233734)
+
+[node name="GunEnemy19" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="18" unique_id=1198618087 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -245.3764, 0, 3.8679276)
+
+[node name="GunEnemy20" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="19" unique_id=1799564468 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.61017, 0, 15.311634)
+
+[node name="GunEnemy21" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="20" unique_id=2124666627 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -285.76596, 0, 0.5021248)
+
+[node name="GunEnemy22" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="21" unique_id=1215027976 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -286.43912, 0, -19.692661)
+
+[node name="GunEnemy23" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="22" unique_id=2022146558 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.24432, 0, -40.560593)
+
+[node name="GunEnemy24" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="23" unique_id=30040952 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.58636, 0, -40.560593)
+
+[node name="GunEnemy25" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="24" unique_id=1967799716 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -214.58636, 0, -34.560593)
+
+[node name="GunEnemy26" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="25" unique_id=495370929 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.46951, 0, -30.521624)
+
+[node name="GunEnemy27" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="26" unique_id=879659940 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -177.56262, 0, -28.50215)
+
+[node name="GunEnemy28" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="27" unique_id=452176436 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.36786, 0, -24.4632)
+
+[node name="GunEnemy29" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="28" unique_id=2104573352 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.38733, 0, -50.043243)
+
+[node name="GunEnemy30" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="29" unique_id=242783412 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180.9284, 0, -49.3701)
+
+[node name="GunEnemy31" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="30" unique_id=2086823010 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -318.9261, 0, 191.62096)
+
+[node name="GunEnemy32" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="31" unique_id=14765958 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -298.05817, 0, 191.62096)
+
+[node name="GunEnemy33" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="32" unique_id=1931907852 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -270.45862, 0, 189.60144)
+
+[node name="GunEnemy34" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="33" unique_id=1734255604 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -269.7855, 0, 312.7896)
+
+[node name="GunEnemy35" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="34" unique_id=709409002 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.20541, 0, 311.44327)
+
+[node name="GunEnemy36" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="35" unique_id=1422557370 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.76404, 0, 314.1359)
+
+[node name="GunEnemy37" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="36" unique_id=1479631980 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.76404, 0, 309.1359)
+
+[node name="GunEnemy38" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="37" unique_id=1737491201 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.891724, 0, 310.03857)
+
+[node name="GunEnemy39" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="38" unique_id=1641931013 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.155823, 0, 310.7117)
+
+[node name="GunEnemy40" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="39" unique_id=870631921 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.350586, 0, 282.43903)
+
+[node name="GunEnemy41" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="40" unique_id=198966268 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.817986, 0, 291.19006)
+
+[node name="GunEnemy42" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="41" unique_id=557671640 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.77667, 0, 174.06033)
+
+[node name="GunEnemy43" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="42" unique_id=1898665303 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.77667, 0, 101.06033)
+
+[node name="GunEnemy44" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="43" unique_id=1185152837 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 217.04083, 0, -11.357269)
+
+[node name="GunEnemy45" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="44" unique_id=558490192 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.56244, 0, -5.2988434)
+
+[node name="GunEnemy46" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="45" unique_id=1163351372 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 254.06458, 0, -91.46324)
+
+[node name="GunEnemy47" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="46" unique_id=1494459364 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 221.07977, 0, -218.01718)
+
+[node name="GunEnemy48" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="47" unique_id=326837388 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.70538, 0, -220.70982)
+
+[node name="GunEnemy49" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="48" unique_id=748613570 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.70538, 0, -238.70982)
+
+[node name="GunEnemy50" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="49" unique_id=6463682 instance=ExtResource("3_pbchl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.70538, 0, -238.70982)
+
+[editable path="Terrain/level 2_sf"]

@@ -2,17 +2,18 @@ class_name Minigame
 extends Control
 
 enum Type {
-	SIMON_SAYS,
 	THERMOMETER,
+	SIMON_SAYS,
 	BALL_CUP,
-	PHONE,
 	YES_NO,
+	PHONE,
 }
 
 const BASE_COOLDOWN := 5.0
 const IDLE_TIME := 5.0
 const IDLE_FLASH_TIME := 2.0
 const EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")
+const FAILURE_DAMAGE := 120.0
 
 var _flash_tween: Tween
 var _shaker: Shaker
@@ -83,7 +84,11 @@ func fail():
 		var explosion = EXPLOSION_SCENE.instantiate()
 		StageLoader.stage.add_child(explosion)
 		explosion.global_position = StageLoader.car.global_position
-		StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
+		if StageLoader.car.box_anchor.boxes.size() > 0:
+			if not StageLoader.car.god_mode:
+				StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
+		else:
+			StageLoader.car.damage(FAILURE_DAMAGE)
 
 
 func complete():

@@ -15,6 +15,8 @@ extends Node3D
 var delivery_points: Array[DeliveryPoint] = []
 var curr_delivery_idx: int = 0
 
+var active: bool = false
+
 
 func _ready():
 	for child in delivery_point_holder.get_children():
@@ -29,11 +31,14 @@ func _ready():
 
 
 func _process(delta):
-	if timer > 0:
-		timer -= delta
-		UILayer.hud.stage_timer.display_time(timer)
-	if timer <= 0:
-		StageLoader.fail_stage("Time's up!")
+	if active:
+		if timer > 0:
+			timer -= delta
+			UILayer.hud.stage_timer.display_time(timer)
+		if timer <= 0:
+			StageLoader.car.destroy()
+			StageLoader.fail_stage("Time's up!")
+			active = false
 
 
 func activate_next_delivery_point():

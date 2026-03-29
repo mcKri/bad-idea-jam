@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://c53a4xmhfvb2p"]
+
+[ext_resource type="PackedScene" uid="uid://bqlkacaffhs60" path="res://stages/world_1/base_stage.tscn" id="1_61igf"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_52q0w"]
+[ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_rsiv4"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_61igf")]
+time_limit = 45.0
+enabled_minigames = Array[int]([0, 1, 2])
+
+[node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]
+transform = Transform3D(-0.30565014, -0.8908636, 0.33606556, 0.7228571, 0.012617437, 0.6908824, -0.61972225, 0.45409566, 0.64011055, 0, 0, 0)
+light_color = Color(1, 0.8215, 0.49, 1)
+
+[node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9598, -7.6293945e-06, -105.06261)
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="1" unique_id=492649956 instance=ExtResource("2_52q0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.27084, -7.6293945e-06, -124.718704)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="2" unique_id=1647949387 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.506371, -7.6293945e-06, -110.90518)
+
+[node name="DeliveryPoint4" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="3" unique_id=217529901 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, -71.86932)
+
+[node name="DeliveryPoint5" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="4" unique_id=1882536043 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.142494, -7.6293945e-06, -52.08545)
+
+[node name="DeliveryPoint6" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="5" unique_id=1924620554 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.7827835, -7.6293945e-06, -36.618053)
+
+[node name="DeliveryPoint7" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="6" unique_id=173820366 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.142494, -7.6293945e-06, -20.431238)
+
+[node name="DeliveryPoint8" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="7" unique_id=1029314735 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, -6.7623806)
+
+[node name="DeliveryPoint9" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="8" unique_id=869545069 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.861885, -7.6293945e-06, 9.424425)
+
+[node name="DeliveryPoint10" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="9" unique_id=1684235646 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, 24.172413)
+
+[node name="DeliveryPoint11" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="10" unique_id=710080145 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, 38.9204)
+
+[node name="DeliveryPoint12" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="11" unique_id=1275459057 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, 44.675716)
+
+[node name="DeliveryPoint13" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="12" unique_id=1422435046 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.502205, -7.6293945e-06, 49.35191)
+
+[node name="DeliveryPoint14" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="13" unique_id=766509795 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.142494, -7.6293945e-06, 55.82662)
+
+[node name="DeliveryPoint15" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="14" unique_id=775408444 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.581306, -7.6293945e-06, 61.94164)
+
+[node name="DeliveryPoint16" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="15" unique_id=1221533638 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.964516, -7.6293945e-06, 66.567505)
+
+[node name="DeliveryPoint17" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="16" unique_id=1289402288 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.581306, -7.6293945e-06, 70.26819)
+
+[node name="DeliveryPoint18" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="17" unique_id=688008126 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.581306, -7.6293945e-06, 71.26819)
+
+[node name="DeliveryPoint19" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="18" unique_id=1307743180 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.123268, -7.6293945e-06, 74.0437)
+
+[node name="DeliveryPoint20" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="19" unique_id=439082627 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.964546, -7.6293945e-06, 76.819214)
+
+[node name="DeliveryPoint21" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="20" unique_id=483524016 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.8148575, -7.6293945e-06, 78.669556)
+
+[node name="DeliveryPoint22" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="21" unique_id=1453730093 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.964546, -7.6293945e-06, 82.678635)
+
+[node name="DeliveryPoint23" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="22" unique_id=1700500340 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.431648, -7.6293945e-06, 86.37932)
+
+[node name="DeliveryPoint24" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="23" unique_id=58768506 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.422554, -7.6293945e-06, 87.92127)
+
+[node name="DeliveryPoint25" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="24" unique_id=507558070 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.8148575, -7.6293945e-06, 91.313576)
+
+[node name="DeliveryPoint26" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="25" unique_id=1902935722 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.8148575, -7.6293945e-06, 94.313576)
+
+[node name="DeliveryPoint27" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="26" unique_id=1124568937 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.0484085, -7.6293945e-06, 95.85554)
+
+[node name="DeliveryPoint28" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="27" unique_id=655904617 instance=ExtResource("2_52q0w")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.59034, -7.6293945e-06, 97.39748)
+
+[node name="DeliveryPoint29" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="28" unique_id=2120385734 instance=ExtResource("2_52q0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7218704, -7.6293945e-06, 104.79886)
+
+[node name="DeliveryPoint30" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="29" unique_id=1945075119 instance=ExtResource("2_52q0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.883026, -7.6293945e-06, 134.69469)
+
+[node name="DeliveryPoint31" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="30" unique_id=949733238 instance=ExtResource("2_52q0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.5335, -7.6293945e-06, 75.421455)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 182.62495, 0, -55.054005)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(-2.1855692e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855692e-07, 194.296, 0, 121.957)
+
+[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1792390903]
+fov = 37.849285
+
+[node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.187527, 0, 26.90418)
+
+[node name="GunEnemy4" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="1" unique_id=2080657865 instance=ExtResource("3_rsiv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.296547, 3.0517578e-05, 98.3024)
+
+[node name="GunEnemy5" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="2" unique_id=207876964 instance=ExtResource("3_rsiv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.296547, 3.0517578e-05, 93.3024)
+
+[node name="GunEnemy6" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="3" unique_id=916872195 instance=ExtResource("3_rsiv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.296547, 3.0517578e-05, 89.3024)
+
+[node name="GunEnemy7" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="4" unique_id=217879831 instance=ExtResource("3_rsiv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.305626, 3.0517578e-05, 99.17091)
+
+[editable path="Terrain/level 1_sf"]

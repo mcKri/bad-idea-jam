@@ -4,12 +4,15 @@ extends CharacterBody3D
 const DEATH_EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")
 
 @export var enemy_groups: Array[String] = []
-@export var max_health: float = 100.0
+@export var max_health: float = 70.0
 
 var health: float
 
 
 func _ready():
+	if not is_visible_in_tree():
+		queue_free()
+
 	health = max_health
 	for group in enemy_groups:
 		add_to_group(group)

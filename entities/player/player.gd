@@ -24,7 +24,7 @@ var first_actionable: Node3D = null:
 var car: Car
 var held_box: Box
 
-const MAX_HEALTH := 100.0
+const MAX_HEALTH := 70.0
 @onready var health_bar: HealthBar = $HealthBar
 var health := MAX_HEALTH
 

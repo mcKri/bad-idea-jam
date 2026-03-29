@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://suilmyvds8gn"]
+
+[ext_resource type="PackedScene" uid="uid://bqlkacaffhs60" path="res://stages/world_1/base_stage.tscn" id="1_w1qmx"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_7jsqg"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_w1qmx")]
+time_limit = 30.0
+enabled_minigames = Array[int]([1])
+
+[node name="DirectionalLight3D" parent="." index="2" unique_id=1184218286]
+transform = Transform3D(-0.30565014, -0.8908636, 0.33606556, 0.7228571, 0.012617437, 0.6908824, -0.61972225, 0.45409566, 0.64011055, 0, 0, 0)
+light_color = Color(1, 0.8215, 0.49, 1)
+
+[node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.970436, -7.6293945e-06, -82.80433)
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="1" unique_id=492649956 instance=ExtResource("2_7jsqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.115177, -7.6293945e-06, -25.09517)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="2" unique_id=1647949387 instance=ExtResource("2_7jsqg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.933525, -7.6293945e-06, -106.31758)
+
+[node name="DeliveryPoint4" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="3" unique_id=217529901 instance=ExtResource("2_7jsqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.09446, -7.6293945e-06, 15.841106)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -13.730476, 0, -124.95407)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 5.338, 0, 75.993)
+
+[node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1792390903]
+fov = 37.849285
+
+[node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.187527, 0, 26.90418)
+
+[editable path="Terrain/level 1_sf"]

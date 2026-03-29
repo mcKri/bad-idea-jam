@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dtd4v50845w8b" path="res://stages/world.gd" id="1_w20uf"]
 [ext_resource type="PackedScene" uid="uid://d0lk0lfayq6gm" path="res://stages/world_2/stage_1.tscn" id="2_51cbj"]
+[ext_resource type="PackedScene" uid="uid://cvqkswktluco0" path="res://stages/world_2/stage_2.tscn" id="3_wis2w"]
+[ext_resource type="PackedScene" uid="uid://byrdb3n735g5j" path="res://stages/world_2/stage_3.tscn" id="4_73a3a"]
+[ext_resource type="PackedScene" uid="uid://cfniilrhh0nfh" path="res://stages/world_2/stage_4.tscn" id="5_x5ccr"]
+[ext_resource type="PackedScene" uid="uid://c5ts7vixnivo7" path="res://stages/world_2/stage_5.tscn" id="6_t2tkm"]
+[ext_resource type="PackedScene" uid="uid://bsl6d3jfjve1" path="res://stages/world_2/stage_6.tscn" id="7_wc3d2"]
+[ext_resource type="PackedScene" uid="uid://biw828qj67sbm" path="res://stages/world_2/stage_7.tscn" id="8_3lxho"]
+[ext_resource type="PackedScene" uid="uid://dmfysbdbq1qft" path="res://stages/world_2/stage_8.tscn" id="9_kk0fk"]
 
 [resource]
 script = ExtResource("1_w20uf")
-stages = Array[PackedScene]([ExtResource("2_51cbj")])
+stages = Array[PackedScene]([ExtResource("2_51cbj"), ExtResource("3_wis2w"), ExtResource("4_73a3a"), ExtResource("5_x5ccr"), ExtResource("6_t2tkm"), ExtResource("7_wc3d2"), ExtResource("8_3lxho"), ExtResource("9_kk0fk")])
 metadata/_custom_type_script = "uid://dtd4v50845w8b"

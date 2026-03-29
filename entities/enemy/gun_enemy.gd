@@ -9,8 +9,7 @@ const SHOOT_COOLDOWN := 1.5
 const SHOOT_FORCE := 10.0
 const STOP_DISTANCE := 8.0
 const STOP_MARGIN := 2.0
-const LAUNCH_FRICTION := 10.0
-const LAUNCH_DAMAGE_SCALE := 2.0
+const LAUNCH_FRICTION := 20.0
 @export var bullet_scene: PackedScene
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
@@ -210,7 +209,6 @@ func _on_idle_state_physics_processing(_delta: float):
 func _on_launched_state_state_physics_processing(delta: float):
 	nav_agent.velocity = Vector3.ZERO
 	var speed := _launch_velocity.length()
-	print("Launch velocity: ", _launch_velocity, " Speed: ", speed)
 
 	# Check for non-floor collisions and deal self-damage on impact
 	for i in get_slide_collision_count():
@@ -220,11 +218,8 @@ func _on_launched_state_state_physics_processing(delta: float):
 		# Only apply damage and stop launch when hitting something that isn't the floor
 		if other is CSGBox3D || other is Car || other is Player:
 			continue
-		print("Collision with: ", other, " Layer: ", other.collision_layer)
 		
-		damage(speed * LAUNCH_DAMAGE_SCALE)
-		_launch_velocity = Vector3.ZERO
-		state_chart.send_event("toIdle")
+		die()
 		return
 
 	velocity.x = _launch_velocity.x

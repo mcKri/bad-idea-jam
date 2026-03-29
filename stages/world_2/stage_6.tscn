@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bsl6d3jfjve1"]
+
+[ext_resource type="PackedScene" uid="uid://b36t64e4cy6uk" path="res://stages/world_2/base_stage.tscn" id="1_twro7"]
+[ext_resource type="PackedScene" uid="uid://sioxrukrsbqu" path="res://entities/delivery_point/delivery_point.tscn" id="2_hy2xf"]
+[ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_rlxoy"]
+
+[node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_twro7")]
+time_limit = 61.0
+enabled_minigames = Array[int]([0, 1, 2, 3, 4])
+
+[node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.87713, 0, 122.85934)
+
+[node name="DeliveryPoint2" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="1" unique_id=1049118827 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.933784, 0, 134.06354)
+
+[node name="DeliveryPoint3" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="2" unique_id=465196762 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.552956, 0, 263.11932)
+
+[node name="DeliveryPoint4" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="3" unique_id=2088777559 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.55359, 0, 213.73785)
+
+[node name="DeliveryPoint5" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="4" unique_id=1271557042 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -216.55359, 0, 272.73785)
+
+[node name="DeliveryPoint6" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="5" unique_id=642270483 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -321.95612, 0, 192.64856)
+
+[node name="DeliveryPoint7" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="6" unique_id=1373835461 instance=ExtResource("2_hy2xf")]
+transform = Transform3D(0.82844174, 0, -0.5600752, 0, 1, 0, 0.5600752, 0, 0.82844174, -231.49257, 0, 137.45749)
+
+[node name="SpawnPoint" parent="." index="5" unique_id=40598232]
+transform = Transform3D(-4.371138e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.371138e-08, 170.36612, 0, 53.114853)
+
+[node name="Garage" parent="." index="6" unique_id=1723478353]
+transform = Transform3D(-0.8949811, 0, 0.44610408, 0, 1, 0, -0.44610408, 0, -0.8949811, -163.111, 0, 171.339)
+
+[node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.477356, 0, 123.66118)
+visible = true
+
+[node name="GunEnemy2" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="1" unique_id=151206590 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.477356, 0, 123.66118)
+
+[node name="GunEnemy3" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="2" unique_id=97146282 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.34802, 0, 120.75639)
+
+[node name="GunEnemy4" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="3" unique_id=1833234905 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.02823, 0, 124.07614)
+
+[node name="GunEnemy5" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="4" unique_id=446599292 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.8457, 0, 159.34863)
+
+[node name="GunEnemy6" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="5" unique_id=1890454126 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -192.8457, 0, 157.34863)
+
+[node name="GunEnemy7" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="6" unique_id=1841230507 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -214.00919, 0, 148.63425)
+
+[node name="GunEnemy8" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="7" unique_id=1199897016 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -219.00919, 0, 143.63425)
+
+[node name="GunEnemy9" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="8" unique_id=1718511206 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.00919, 0, 181.63425)
+
+[node name="GunEnemy10" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="9" unique_id=2076036851 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -205.91397, 0, 170.84503)
+
+[node name="GunEnemy11" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="10" unique_id=1673019089 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -297.20746, 0, 191.59354)
+
+[node name="GunEnemy12" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="11" unique_id=1042159352 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -277.20746, 0, 191.59354)
+
+[node name="GunEnemy13" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="12" unique_id=1721200723 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.0236, 0, 192.00851)
+
+[node name="GunEnemy14" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="13" unique_id=801018412 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -237.37029, 0, 275.0026)
+
+[node name="GunEnemy15" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="14" unique_id=260996087 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.37029, 0, 274.0026)
+
+[node name="GunEnemy16" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="15" unique_id=2010152227 instance=ExtResource("3_rlxoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252.37029, 0, 274.0026)
+
+[editable path="Terrain/level 2_sf"]

@@ -84,5 +84,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.401024, -0.21509802, -26.
 [node name="Enemies" type="Node3D" parent="." unique_id=491556290]
 
 [node name="GunEnemy" parent="Enemies" unique_id=170973106 instance=ExtResource("4_i6edt")]
-process_mode = 4
 visible = false

@@ -38,7 +38,9 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	# Initialize car
 	car = CAR_PACKED.instantiate()
 	stage.add_child(car)
-	car.global_transform = stage.get_spawn_transform().translated(Vector3(0, 1.0, 0))
+	var spawn_transform := stage.get_spawn_transform()
+	car.global_transform = spawn_transform.translated(Vector3(0, 1.0, 0))
+	car.mesh.global_basis = spawn_transform.basis
 	
 	# Initialize player
 	player = PLAYER_PACKED.instantiate()
@@ -63,8 +65,11 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 		car.box_anchor.add_box(box)
 	
 	AudioManager.play_music(stage.music)
+	UILayer.hud.minigame_handler.reset()
 	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
 	UILayer.hud.show()
+
+	stage.active = true
 
 
 func advance_stage():
@@ -98,6 +103,7 @@ func fail_stage(reason: String = ""):
 	UILayer.stage_fail_screen.open(reason)
 	UILayer.hud.minigame_handler.set_paused(true)
 	AudioManager.play_music(preload("res://assets/music/game_over.mp3"))
+	stage.active = false
 
 
 func complete_stage():
@@ -106,6 +112,7 @@ func complete_stage():
 	car.hide()
 	car.queue_free()
 	UILayer.hud.hide()
+	stage.active = false
 
 
 func _on_save_started():

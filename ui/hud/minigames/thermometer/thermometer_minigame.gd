@@ -12,6 +12,7 @@ const HOT_SWITCH_TEXTURE := preload("res://ui/hud/minigames/thermometer/hot.png"
 const MAX_TEMP := 100.0
 const MIN_TEMP := 0.0
 const FAIL_MARGIN := 10.0
+const TEMP_DELTA := 15.0
 
 var temp := 50.0:
 	set(val):
@@ -43,9 +44,9 @@ func _process(delta):
 		return
 
 	if cooling:
-		temp -= delta * 20.0
+		temp -= delta * TEMP_DELTA
 	else:
-		temp += delta * 10.0
+		temp += delta * TEMP_DELTA * 0.5
 	
 	# Flashing
 	if temp >= MAX_TEMP - FAIL_MARGIN && !cooling:

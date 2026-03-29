@@ -20,7 +20,7 @@ func start():
 	await lift_cup(true)
 
 	# Shuffle cup positions
-	var shuffle_count := randi_range(5, 10)
+	var shuffle_count := randi_range(4, 6)
 	for i in range(shuffle_count):
 		var buttons := [correct_button, wrong_button_1, wrong_button_2]
 		var btn_a = buttons.pick_random()

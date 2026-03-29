@@ -49,6 +49,13 @@ var god_mode := false
 func _ready():
 	ground_ray.add_exception(self )
 	health_bar.set_max(MAX_HEALTH)
+	sync_visual_state()
+
+
+func sync_visual_state():
+	# Keep mesh and camera anchor aligned immediately after teleports/spawn.
+	mesh.global_position = global_position + SPHERE_OFFSET - mesh.global_basis * FRONT_AXLE_OFFSET
+	camera_point.global_position = mesh.global_position
 
 
 func _physics_process(delta):

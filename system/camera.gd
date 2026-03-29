@@ -27,6 +27,9 @@ func _ready():
 
 
 func _process(delta):
+	if !is_instance_valid(look_target) || look_target.is_queued_for_deletion():
+		look_target = null
+
 	var target_pos := Vector3.INF
 	
 	# Priority: target node > focus point > current position
@@ -63,18 +66,22 @@ func _update_basis():
 func set_target(target: Variant, speed: float = DEFAULT_PAN_SPEED):
 	if target is Node3D:
 		look_target = target
+		look_point = Vector3.INF
 	elif target is Vector3:
 		look_point = target
 		look_target = null
 	else:
 		return
 
+	var dest := look_target.global_position if look_target else look_point
+	if _bounds.size != Vector3.ZERO:
+		dest = dest.clamp(_bounds.position, _bounds.end)
+
 	if speed == INF:
-		global_position = look_point if look_point != Vector3.INF else look_target.global_position
+		global_position = dest + anchor_offset
 		panning = false
 	else:
 		pan_speed = speed
-		var dest := look_target.global_position if look_target else look_point
 		_pan_origin = global_position
 		_pan_duration = maxf(global_position.distance_to(dest + anchor_offset) / pan_speed, 0.001)
 		_pan_t = 0.0

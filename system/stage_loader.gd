@@ -56,12 +56,12 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	var spawn_transform := stage.get_spawn_transform()
 	car.global_transform = spawn_transform.translated(Vector3(0, 1.0, 0))
 	car.mesh.global_basis = spawn_transform.basis
+	car.sync_visual_state()
 	
 	# Initialize player
 	player = PLAYER_PACKED.instantiate()
 	stage.add_child(player)
 	player.enter_car(car)
-
 	Camera.set_target(car.camera_point, INF)
 	
 	# Initialize delivery points

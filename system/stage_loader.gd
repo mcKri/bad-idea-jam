@@ -106,7 +106,6 @@ func complete_stage():
 	car.hide()
 	car.queue_free()
 	UILayer.hud.hide()
-	UILayer.stage_complete_screen.show()
 
 
 func _on_save_started():

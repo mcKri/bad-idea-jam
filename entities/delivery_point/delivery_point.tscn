@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dab6wtnvakyn2" path="res://entities/delivery_point/delivery_point.gd" id="1_2cjne"]
 [ext_resource type="Script" uid="uid://c4ultig5isck1" path="res://entities/delivery_point/nine_patch_viewport.gd" id="2_n370j"]
-[ext_resource type="Texture2D" uid="uid://b50q24ns0vtkn" path="res://entities/delivery_point/square.png" id="2_ys3g3"]
+[ext_resource type="Texture2D" uid="uid://1ixdjn50gygj" path="res://entities/delivery_point/square.png" id="3_n370j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eaona"]
 size = Vector3(12.734131, 1.2646484, 11.124023)
@@ -41,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ys3g3")
+texture = ExtResource("3_n370j")
 patch_margin_left = 24
 patch_margin_top = 24
 patch_margin_right = 24

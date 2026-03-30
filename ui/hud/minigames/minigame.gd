@@ -10,7 +10,7 @@ enum Type {
 }
 
 const BASE_COOLDOWN := 5.0
-const FADE_IN_TIME := 1.5
+const FADE_IN_TIME := 1.0
 const IDLE_TIME := 5.0
 const IDLE_FLASH_TIME := 2.0
 const EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")

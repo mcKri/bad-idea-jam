@@ -13,6 +13,7 @@ const MUSIC_POOL := [
 var worlds: Array[World] = [
 	preload("res://stages/world_1/world_1.tres"),
 	preload("res://stages/world_2/world_2.tres"),
+	preload("res://stages/world_3/world_3.tres"),
 ]
 var world_idx := -1
 var stage_idx := -1

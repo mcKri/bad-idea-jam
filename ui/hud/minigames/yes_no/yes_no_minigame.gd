@@ -35,6 +35,8 @@ func _ready():
 
 
 func start():
+	button_ap.play("RESET")
+
 	await super ()
 	
 	button_ap.play("enter")

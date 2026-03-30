@@ -32,10 +32,10 @@ func _ready():
 
 
 func start():
-	await super ()
-	
 	temp = 50.0
 	cooling = false
+	
+	await super ()
 
 
 func _process(delta):

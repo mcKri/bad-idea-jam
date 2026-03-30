@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://cysjornk5ue0q"]
+
+[ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_eurs4"]
+
+[resource]
+script = ExtResource("1_eurs4")
+message = "Would you spare someone fair?"
+should_answer_yes = true
+metadata/_custom_type_script = "uid://c028y8gs7piyn"

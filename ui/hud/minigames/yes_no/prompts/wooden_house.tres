@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_7dwji")
-message = "SAY YES"
-should_answer_yes = true
+message = "Would you burn down a wooden house?"
 metadata/_custom_type_script = "uid://c028y8gs7piyn"

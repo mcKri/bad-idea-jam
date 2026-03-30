@@ -108,6 +108,7 @@ func stop_flashing():
 
 
 func fail():
+	AudioManager.play_sound(preload("res://assets/sfx/minigame_fail.ogg"))
 	_finish()
 	if is_instance_valid(StageLoader.car):
 		var explosion = EXPLOSION_SCENE.instantiate()

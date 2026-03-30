@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://f40kwolfplim"]
+
+[ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_exvqy"]
+
+[resource]
+script = ExtResource("1_exvqy")
+message = "Would you not not not burn down a wooden house?"
+should_answer_yes = true
+metadata/_custom_type_script = "uid://c028y8gs7piyn"

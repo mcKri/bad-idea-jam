@@ -34,7 +34,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i5wg5"]
 resource_name = "transition"
-length = 0.6333333
+length = 0.41666666
+step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,7 +43,7 @@ tracks/0/path = NodePath("TextureRect:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.5666667, 0.6, 0.63333344),
+"times": PackedFloat32Array(0, 0.016666668, 0.033333335, 0.05, 0.06666667, 0.083333336, 0.1, 0.11666667, 0.13333334, 0.3, 0.31666666, 0.33333334, 0.35, 0.3666667, 0.38333336, 0.4, 0.41666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [null, ExtResource("1_ybpvr"), ExtResource("2_pwwr4"), ExtResource("3_upgo4"), ExtResource("4_ki8yn"), ExtResource("5_6xkjd"), ExtResource("6_hpfyu"), ExtResource("7_00tk4"), ExtResource("8_kg2y0"), ExtResource("9_4vkld"), ExtResource("10_nwto4"), ExtResource("11_y1b2u"), ExtResource("12_3rem7"), ExtResource("13_s7nye"), ExtResource("14_aavwj"), ExtResource("15_aukph"), null]
@@ -54,7 +55,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.26666668),
+"times": PackedFloat32Array(0.13333334),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],

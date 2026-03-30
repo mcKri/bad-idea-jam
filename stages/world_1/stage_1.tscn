@@ -22,4 +22,4 @@ transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 143.
 [node name="Camera3D" type="Camera3D" parent="." index="7" unique_id=1792390903]
 fov = 37.849285
 
-[editable path="Terrain/level 1_sf"]
+[editable path="Terrain/world1_buildings"]

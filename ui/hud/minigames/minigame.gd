@@ -121,6 +121,7 @@ func fail():
 
 
 func complete():
+	AudioManager.play_sound(preload("res://assets/sfx/minigame_pass.ogg"))
 	_finish()
 
 

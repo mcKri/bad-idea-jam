@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqs0wjcm8ovtc" path="res://ui/stage_complete_screen.tscn" id="3_00rn6"]
 [ext_resource type="PackedScene" uid="uid://stsvutjevocq" path="res://ui/main_menu/main_menu.tscn" id="5_vu3t1"]
 [ext_resource type="PackedScene" uid="uid://bg8vr78ndtuil" path="res://ui/game_end_screen.tscn" id="6_8aggs"]
+[ext_resource type="PackedScene" uid="uid://ecwiqddueo73" path="res://ui/transition_overlay/transition_overlay.tscn" id="7_15oer"]
 
 [node name="UILayer" type="CanvasLayer" unique_id=1128583004]
 script = ExtResource("1_3otji")
@@ -22,3 +23,5 @@ visible = false
 
 [node name="GameEndScreen" parent="." unique_id=1273864728 instance=ExtResource("6_8aggs")]
 visible = false
+
+[node name="TransitionOverlay" parent="." unique_id=1081610188 instance=ExtResource("7_15oer")]

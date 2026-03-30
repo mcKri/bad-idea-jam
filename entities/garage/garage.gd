@@ -20,5 +20,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Car:
 		AudioManager.play_music(preload("res://assets/music/asleep.mp3"))
 		upgrade_panel.set_time_left(StageLoader.stage.timer)
+
+		UILayer.transition_overlay.trigger()
+		await UILayer.transition_overlay.halfway
+		
 		$GarageCam.make_current()
 		StageLoader.complete_stage()

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ecwiqddueo73"]
+
+[ext_resource type="Script" uid="uid://cp7ywbvdupmim" path="res://ui/transition_overlay/transition_overlay.gd" id="1_m3ejr"]
+[ext_resource type="Texture2D" uid="uid://861rlfvoqwa2" path="res://ui/transition_overlay/frame0001.png" id="1_ybpvr"]
+[ext_resource type="Texture2D" uid="uid://crhwff8x77sr6" path="res://ui/transition_overlay/frame0002.png" id="2_pwwr4"]
+[ext_resource type="Texture2D" uid="uid://4rxlu17ut61x" path="res://ui/transition_overlay/frame0003.png" id="3_upgo4"]
+[ext_resource type="Texture2D" uid="uid://cpwsrmihwjxn4" path="res://ui/transition_overlay/frame0004.png" id="4_ki8yn"]
+[ext_resource type="Texture2D" uid="uid://dmrgt6h28456y" path="res://ui/transition_overlay/frame0005.png" id="5_6xkjd"]
+[ext_resource type="Texture2D" uid="uid://effiqfc6oi1d" path="res://ui/transition_overlay/frame0006.png" id="6_hpfyu"]
+[ext_resource type="Texture2D" uid="uid://cbd6nqbca5ryd" path="res://ui/transition_overlay/frame0007.png" id="7_00tk4"]
+[ext_resource type="Texture2D" uid="uid://islya61c3ngw" path="res://ui/transition_overlay/frame0008.png" id="8_kg2y0"]
+[ext_resource type="Texture2D" uid="uid://dnotqcch30o87" path="res://ui/transition_overlay/frame0024.png" id="9_4vkld"]
+[ext_resource type="Texture2D" uid="uid://cnbggtiwq7i2k" path="res://ui/transition_overlay/frame0025.png" id="10_nwto4"]
+[ext_resource type="Texture2D" uid="uid://b8tmnntm3ufyq" path="res://ui/transition_overlay/frame0026.png" id="11_y1b2u"]
+[ext_resource type="Texture2D" uid="uid://c3ckqhpk50l6d" path="res://ui/transition_overlay/frame0027.png" id="12_3rem7"]
+[ext_resource type="Texture2D" uid="uid://ofqips67xo1b" path="res://ui/transition_overlay/frame0028.png" id="13_s7nye"]
+[ext_resource type="Texture2D" uid="uid://bvtvlbnx1dsa" path="res://ui/transition_overlay/frame0029.png" id="14_aavwj"]
+[ext_resource type="Texture2D" uid="uid://btncjgb1ne167" path="res://ui/transition_overlay/frame0030.png" id="15_aukph"]
+
+[sub_resource type="Animation" id="Animation_omy8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_i5wg5"]
+resource_name = "transition"
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.5666667, 0.6, 0.63333344),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("1_ybpvr"), ExtResource("2_pwwr4"), ExtResource("3_upgo4"), ExtResource("4_ki8yn"), ExtResource("5_6xkjd"), ExtResource("6_hpfyu"), ExtResource("7_00tk4"), ExtResource("8_kg2y0"), ExtResource("9_4vkld"), ExtResource("10_nwto4"), ExtResource("11_y1b2u"), ExtResource("12_3rem7"), ExtResource("13_s7nye"), ExtResource("14_aavwj"), ExtResource("15_aukph"), null]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_halfway"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3c04x"]
+_data = {
+&"RESET": SubResource("Animation_omy8q"),
+&"transition": SubResource("Animation_i5wg5")
+}
+
+[node name="TransitionOverlay" type="MarginContainer" unique_id=1081610188]
+z_index = 999
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m3ejr")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1483218435]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=48473831]
+libraries/ = SubResource("AnimationLibrary_3c04x")
+speed_scale = 0.7

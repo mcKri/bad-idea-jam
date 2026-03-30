@@ -3,21 +3,6 @@
 [ext_resource type="Script" uid="uid://c2oaovx8850qi" path="res://ui/main_menu/main_menu.gd" id="1_t7e0r"]
 [ext_resource type="Script" uid="uid://bh41kxldf2bht" path="res://ui/main_menu/volume_slider.gd" id="2_mu8pm"]
 [ext_resource type="Texture2D" uid="uid://brwvuntgokqhu" path="res://ui/main_menu/image.png" id="2_omy8q"]
-[ext_resource type="Texture2D" uid="uid://861rlfvoqwa2" path="res://ui/main_menu/transition/frame0001.png" id="4_i5wg5"]
-[ext_resource type="Texture2D" uid="uid://crhwff8x77sr6" path="res://ui/main_menu/transition/frame0002.png" id="5_tf5ef"]
-[ext_resource type="Texture2D" uid="uid://4rxlu17ut61x" path="res://ui/main_menu/transition/frame0003.png" id="6_qao3l"]
-[ext_resource type="Texture2D" uid="uid://cpwsrmihwjxn4" path="res://ui/main_menu/transition/frame0004.png" id="7_lknku"]
-[ext_resource type="Texture2D" uid="uid://dmrgt6h28456y" path="res://ui/main_menu/transition/frame0005.png" id="8_u2jyo"]
-[ext_resource type="Texture2D" uid="uid://effiqfc6oi1d" path="res://ui/main_menu/transition/frame0006.png" id="9_bpbph"]
-[ext_resource type="Texture2D" uid="uid://cbd6nqbca5ryd" path="res://ui/main_menu/transition/frame0007.png" id="10_qewnw"]
-[ext_resource type="Texture2D" uid="uid://islya61c3ngw" path="res://ui/main_menu/transition/frame0008.png" id="11_db6af"]
-[ext_resource type="Texture2D" uid="uid://cnbggtiwq7i2k" path="res://ui/main_menu/transition/frame0025.png" id="13_qewnw"]
-[ext_resource type="Texture2D" uid="uid://b8tmnntm3ufyq" path="res://ui/main_menu/transition/frame0026.png" id="14_db6af"]
-[ext_resource type="Texture2D" uid="uid://dnotqcch30o87" path="res://ui/main_menu/transition/frame0024.png" id="14_qao3l"]
-[ext_resource type="Texture2D" uid="uid://c3ckqhpk50l6d" path="res://ui/main_menu/transition/frame0027.png" id="15_rkggs"]
-[ext_resource type="Texture2D" uid="uid://ofqips67xo1b" path="res://ui/main_menu/transition/frame0028.png" id="16_1bnxd"]
-[ext_resource type="Texture2D" uid="uid://bvtvlbnx1dsa" path="res://ui/main_menu/transition/frame0029.png" id="17_3xnla"]
-[ext_resource type="Texture2D" uid="uid://btncjgb1ne167" path="res://ui/main_menu/transition/frame0030.png" id="18_ln2ma"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omy8q"]
 
@@ -32,67 +17,6 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_omy8q"]
 font_size = 48
-
-[sub_resource type="Animation" id="Animation_omy8q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MainMenu:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_i5wg5"]
-resource_name = "transition"
-length = 0.6333367
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.5666667, 0.6, 0.63333344),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [null, ExtResource("4_i5wg5"), ExtResource("5_tf5ef"), ExtResource("6_qao3l"), ExtResource("7_lknku"), ExtResource("8_u2jyo"), ExtResource("9_bpbph"), ExtResource("10_qewnw"), ExtResource("11_db6af"), ExtResource("14_qao3l"), ExtResource("13_qewnw"), ExtResource("14_db6af"), ExtResource("15_rkggs"), ExtResource("16_1bnxd"), ExtResource("17_3xnla"), ExtResource("18_ln2ma"), null]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../MainMenu:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3c04x"]
-_data = {
-&"RESET": SubResource("Animation_omy8q"),
-&"transition": SubResource("Animation_i5wg5")
-}
 
 [node name="MainMenu" type="MarginContainer" unique_id=1151179284]
 anchors_preset = 15
@@ -211,18 +135,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Back"
-
-[node name="Transition" type="MarginContainer" parent="." unique_id=1390744934]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Transition" unique_id=1572549358]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=1821292298]
-libraries/ = SubResource("AnimationLibrary_3c04x")
-speed_scale = 0.7
 
 [connection signal="pressed" from="MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_settings_button_pressed"]

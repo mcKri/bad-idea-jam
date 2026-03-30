@@ -4,8 +4,6 @@ extends Control
 @onready var continue_button: Button = %ContinueButton
 @onready var menu_body: Control = $MainMenu
 @onready var settings_menu: Control = $SettingsMenu
-@onready var transition: Control = $Transition
-@onready var transition_ap: AnimationPlayer = $Transition/AnimationPlayer
 
 
 func _ready():
@@ -17,7 +15,7 @@ func _ready():
 
 func _on_new_game_button_pressed():
 	StageLoader.load_stage(0, 0)
-	await play_transition()
+	await transition_to_stage()
 
 	hide()
 
@@ -29,7 +27,7 @@ func _on_continue_button_pressed():
 	print("Loaded save data: world=" + str(world_idx) + ", stage=" + str(stage_idx))
 	
 	StageLoader.load_stage(stage_idx, world_idx)
-	await play_transition()
+	await transition_to_stage()
 	
 	hide()
 
@@ -48,11 +46,13 @@ func _on_back_button_pressed():
 	menu_body.show()
 
 
-func play_transition():
+func transition_to_stage():
 	StageLoader.stage.active = false
-	transition.show()
-	transition_ap.play("transition")
-	await transition_ap.animation_finished
+	UILayer.transition_overlay.trigger()
+	await UILayer.transition_overlay.halfway
+	
+	hide()
+	StageLoader.stage.show()
+	await UILayer.transition_overlay.finished
 
-	transition.hide()
 	StageLoader.stage.active = true

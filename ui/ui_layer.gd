@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var stage_fail_screen: CanvasLayer = $StageFailScreen
 @onready var stage_complete_screen: CanvasLayer = $StageCompleteScreen
 @onready var game_end_screen: GameEndScreen = $GameEndScreen
+@onready var transition_overlay: TransitionOverlay = $TransitionOverlay
 
 
 func _ready():

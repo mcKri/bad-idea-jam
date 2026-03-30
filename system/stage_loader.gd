@@ -95,6 +95,12 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 
 
 func advance_stage():
+	if stage:
+		stage.active = false
+
+	UILayer.transition_overlay.trigger()
+	await UILayer.transition_overlay.halfway
+
 	var world := worlds[world_idx]
 	var next_idx := stage_idx + 1
 	if next_idx >= world.stages.size():
@@ -103,6 +109,10 @@ func advance_stage():
 	
 	_music = pick_random_music()
 	load_stage(next_idx)
+
+	await UILayer.transition_overlay.finished
+	if stage:
+		stage.active = true
 
 
 func advance_world():

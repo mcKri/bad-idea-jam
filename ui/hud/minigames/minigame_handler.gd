@@ -73,3 +73,4 @@ func reset():
 	thermometer_minigame._finish()
 	ball_cup_minigame._finish()
 	phone_minigame._finish()
+	yes_no_minigame._finish()

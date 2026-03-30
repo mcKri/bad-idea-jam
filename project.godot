@@ -17,7 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Bad Idea Jam"
 run/main_scene="uid://bkh6s1nie1owp"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://1a8c4e372drw"
+config/windows_native_icon="res://icon.ico"
 
 [audio]
 

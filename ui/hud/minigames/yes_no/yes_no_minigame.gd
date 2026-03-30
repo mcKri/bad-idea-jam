@@ -35,7 +35,7 @@ func _ready():
 
 
 func start():
-	super ()
+	await super ()
 	
 	button_ap.play("enter")
 	_curr_prompt = _prompt_pool.pick_random()

@@ -30,7 +30,7 @@ var input_step: int = 0
 func start():
 	texture_rect.texture = TEXTURES[ButtonColor.NONE]
 
-	super ()
+	await super ()
 
 	correct_sequence.clear()
 	for i in range(STEP_COUNT):

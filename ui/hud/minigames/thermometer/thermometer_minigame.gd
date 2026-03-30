@@ -32,7 +32,8 @@ func _ready():
 
 
 func start():
-	super ()
+	await super ()
+	
 	temp = 50.0
 	cooling = false
 

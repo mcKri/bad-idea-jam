@@ -1,0 +1,25 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b7mphnsmwiepr"]
+
+[sub_resource type="VisualShaderNodeColorOp" id="VisualShaderNodeColorOp_j18uc"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bug2v"]
+expanded_output_ports = [0]
+parameter_name = "color"
+default_value_enabled = true
+default_value = Color(0, 0, 0, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_j18uc"]
+output_port_for_preview = 0
+input_name = "color"
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(0, 80)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorOp_j18uc")
+nodes/fragment/2/position = Vector2(-260, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_bug2v")
+nodes/fragment/3/position = Vector2(-680, 280)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_j18uc")
+nodes/fragment/8/position = Vector2(-720, -60)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 1, 8, 0, 2, 0, 2, 0, 0, 0)

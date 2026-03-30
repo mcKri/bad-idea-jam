@@ -39,7 +39,7 @@ func _ready():
 
 
 func start():
-	super ()
+	await super ()
 
 	_curr_prompt = _prompt_pool.pick_random()
 	_start_shaking()

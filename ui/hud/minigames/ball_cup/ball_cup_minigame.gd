@@ -15,7 +15,7 @@ const LIFT_SPEED := 0.3
 func start():
 	correct_cup.position = Vector2.ZERO
 
-	super ()
+	await super ()
 	
 	await lift_cup(true)
 

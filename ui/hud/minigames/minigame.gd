@@ -10,10 +10,14 @@ enum Type {
 }
 
 const BASE_COOLDOWN := 5.0
+const FADE_IN_TIME := 1.5
 const IDLE_TIME := 5.0
 const IDLE_FLASH_TIME := 2.0
 const EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tscn")
 const FAILURE_DAMAGE := 120.0
+
+const SILHOUETTE_SHADER: Shader = preload("res://assets/shader/silhouette.tres")
+var _silhouette_material: ShaderMaterial
 
 var _flash_tween: Tween
 var _shaker: Shaker
@@ -27,10 +31,30 @@ var _input_enabled: bool = false:
 
 
 func _ready():
+	_initialize_silhouette()
 	_shaker = Shaker.new(INF, 3.0, 0.02)
 	add_child(_shaker)
 	_shaker.stop()
 	hide()
+
+
+func _initialize_silhouette():
+	_silhouette_material = ShaderMaterial.new()
+	_silhouette_material.shader = SILHOUETTE_SHADER
+
+	var children := _get_all_children(self )
+	for child in children:
+		if child is CanvasItem:
+			child.material = _silhouette_material
+		
+
+func _get_all_children(node: Node) -> Array:
+	var result := []
+	for child in node.get_children():
+		result.append(child)
+		result += _get_all_children(child)
+	
+	return result
 
 
 func _process(delta):
@@ -54,7 +78,12 @@ func modify_difficulty(mod: float):
 func start():
 	enable_input(false)
 	stop_flashing()
+	_silhouette_material.set_shader_parameter("color", Color.WHITE)
 	show()
+	var tween = create_tween()
+	tween.tween_property(_silhouette_material, "shader_parameter/color", Color.BLACK, FADE_IN_TIME)
+	
+	await tween.finished
 
 
 func start_flashing():

@@ -12,6 +12,7 @@ func _ready():
 	continue_button.disabled = !SaveSystem.has_save_data()
 	menu_body.show()
 	settings_menu.hide()
+	AudioManager.play_music(preload("res://assets/music/gj_1.2.mp3"))
 
 
 func _on_new_game_button_pressed():

@@ -9,7 +9,6 @@ extends Node3D
 @onready var timer := time_limit
 
 @export var enabled_minigames: Array[Minigame.Type]
-@export var music: AudioStream
 @export var terrain: Node3D
 
 var delivery_points: Array[DeliveryPoint] = []

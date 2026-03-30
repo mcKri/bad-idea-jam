@@ -2,6 +2,11 @@ extends Node
 
 const PLAYER_PACKED := preload("res://entities/player/player.tscn")
 const CAR_PACKED := preload("res://entities/car/car.tscn")
+const MUSIC_POOL := [
+	preload("res://assets/music/gj_1.2.mp3"),
+	preload("res://assets/music/gj_3.mp3"),
+	preload("res://assets/music/gj_4.1.mp3"),
+]
 
 @onready var game_world: Node3D = get_node("/root/GameWorld")
 
@@ -14,6 +19,7 @@ var stage_idx := -1
 var stage: Stage
 var player: Player
 var car: Car
+@onready var _music: AudioStream = pick_random_music()
 
 
 func _ready():
@@ -79,7 +85,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	for box in boxes:
 		car.box_anchor.add_box(box)
 	
-	AudioManager.play_music(stage.music)
+	AudioManager.play_music(_music)
 	UILayer.hud.minigame_handler.reset()
 	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
 	UILayer.hud.show()
@@ -94,6 +100,7 @@ func advance_stage():
 		advance_world()
 		return
 	
+	_music = pick_random_music()
 	load_stage(next_idx)
 
 
@@ -105,6 +112,7 @@ func advance_world():
 		UILayer.game_end_screen.show()
 		return
 	
+	_music = pick_random_music()
 	load_stage(0, next_idx)
 
 
@@ -128,6 +136,14 @@ func complete_stage():
 	car.queue_free()
 	UILayer.hud.hide()
 	stage.active = false
+
+
+func pick_random_music() -> AudioStream:
+	var new_music: AudioStream = MUSIC_POOL.pick_random()
+	while new_music == _music:
+		new_music = MUSIC_POOL.pick_random()
+	
+	return new_music
 
 
 func _on_save_started():

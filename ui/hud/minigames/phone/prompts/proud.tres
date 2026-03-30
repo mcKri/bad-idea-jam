@@ -6,4 +6,5 @@
 script = ExtResource("1_1wexs")
 message = "Hey champ, I'm proud of you..."
 message_2 = "...for getting scammed!"
+enabled = false
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

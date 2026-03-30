@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://tlyopmuom1iy"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_181vk"]
+[ext_resource type="AudioStream" uid="uid://cu0olksbuqai3" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FYouuuu.ogg" id="1_hr8hi"]
+[ext_resource type="AudioStream" uid="uid://dxd45r6ib0a2g" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fis%20the%2019th%20letter%20of%20the%20alphabet.ogg" id="2_uqpk7"]
 
 [resource]
 script = ExtResource("1_181vk")
 message = "YOUUUUU!"
+audio = ExtResource("1_hr8hi")
 message_2 = "is the 19th letter of the alphabet."
+audio_2 = ExtResource("2_uqpk7")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

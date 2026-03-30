@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://do4qqglwdth5c"]
 
+[ext_resource type="AudioStream" uid="uid://dkqwf7rglmrxb" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHot%20babes%20in%20your%20nearby%20area.ogg" id="1_mai3d"]
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_w2bfp"]
+[ext_resource type="AudioStream" uid="uid://cbfe2pfrn283a" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fdude%20what%20is%20wrong%20with%20you.ogg" id="2_tv3cb"]
 
 [resource]
 script = ExtResource("1_w2bfp")
 message = "Hot babes in your nearby area!"
+audio = ExtResource("1_mai3d")
 message_2 = "Dude what is wrong with you..."
+audio_2 = ExtResource("2_tv3cb")
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

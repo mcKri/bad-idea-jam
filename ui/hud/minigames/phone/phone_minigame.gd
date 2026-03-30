@@ -4,7 +4,7 @@ extends Minigame
 @export_dir var prompt_dir: String
 
 const SCROLL_WAIT_TIME := 0.5
-const SCROLL_SPEED := 75.0
+const SCROLL_SPEED := 100.0
 
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var label: RichTextLabel = $ScrollContainer/RichTextLabel
@@ -44,6 +44,7 @@ func start():
 	_curr_prompt = _prompt_pool.pick_random()
 	_start_shaking()
 	enable_input()
+	AudioManager.play_sound(_curr_prompt.audio)
 	display_text(_curr_prompt.message)
 
 
@@ -117,7 +118,9 @@ func _on_texture_button_pressed():
 	_stop_shaking()
 	enable_input(false)
 	
+	AudioManager.play_sound(_curr_prompt.audio_2)
 	await display_text(_curr_prompt.message_2)
+
 	if _curr_prompt.should_answer:
 		complete()
 	else:

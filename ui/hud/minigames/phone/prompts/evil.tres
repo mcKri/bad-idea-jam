@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://cg7qru53ts2ta"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_8crb6"]
+[ext_resource type="AudioStream" uid="uid://codwdek7b8kpv" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FNyehehe%20hey%20Im%20your%20pal%20and%20definitely%20not%20evil.ogg" id="1_unoy8"]
+[ext_resource type="AudioStream" uid="uid://c5m5v8ikehop5" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fthanks%20again%20for%20suggesting%20that%20voice%20changing%20surgery%20I%20have%20my%20appointment%20on%20Thursday.ogg" id="2_l6onh"]
 
 [resource]
 script = ExtResource("1_8crb6")
 message = "Nyeheheh, hey! I'm your pal and definitely not evil!"
+audio = ExtResource("1_unoy8")
 message_2 = "Thanks again for suggesting that voice changing surgery, I have my appointment on thursday!"
+audio_2 = ExtResource("2_l6onh")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

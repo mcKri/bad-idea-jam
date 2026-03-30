@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://dkbfjbxar4l0k"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_1noo0"]
+[ext_resource type="AudioStream" uid="uid://bl85iaa7wcvg5" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FOh%20my%20god%20I%20hate%20you.ogg" id="1_ky1iw"]
+[ext_resource type="AudioStream" uid="uid://cw5ceerkqb76h" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Foh%20wait%20no%20I%20dont.ogg" id="2_n1sgb"]
 
 [resource]
 script = ExtResource("1_1noo0")
 message = "Oh my god I hate you!"
+audio = ExtResource("1_ky1iw")
 message_2 = "Oh wait, no I don't."
+audio_2 = ExtResource("2_n1sgb")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

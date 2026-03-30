@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://b2lgnmog4dtug"]
 
+[ext_resource type="AudioStream" uid="uid://ck1jdh74m4k8t" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHey%20can%20you%20pick%20up%20the%20phone.ogg" id="1_1c18c"]
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_mgr65"]
+[ext_resource type="AudioStream" uid="uid://b8rhpcj4nno2r" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FI%20asked%20if%20you%20can%20pick%20it%20up%20I%20didnt%20tell%20you%20to%20do%20it.ogg" id="2_whgny"]
 
 [resource]
 script = ExtResource("1_mgr65")
 message = "Hey, can you pick up the phone?"
+audio = ExtResource("1_1c18c")
 message_2 = "I asked if you can pick it up, I didn't tell you to do it."
+audio_2 = ExtResource("2_whgny")
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

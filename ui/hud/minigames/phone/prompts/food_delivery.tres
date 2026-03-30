@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://dei6dgsumf1u4"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_2j018"]
+[ext_resource type="AudioStream" uid="uid://cjm7clge2d5gj" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHey%20food%20delivery.ogg" id="1_sktu8"]
+[ext_resource type="AudioStream" uid="uid://ck7axo6mrralj" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Flooks%20like%20someone%20ordered%20a%20knuckle%20sendwhich.ogg" id="2_gp3bp"]
 
 [resource]
 script = ExtResource("1_2j018")
 message = "Hey, food delivery!"
+audio = ExtResource("1_sktu8")
 message_2 = "Looks like someone ordered a knuckle sandwich..."
+audio_2 = ExtResource("2_gp3bp")
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

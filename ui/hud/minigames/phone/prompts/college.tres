@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://cn8snnss5lnrx"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_j7nrv"]
+[ext_resource type="AudioStream" uid="uid://cd12a64vge6ng" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHey%20Im%20going%20to%20kill%20you.ogg" id="1_oph3i"]
+[ext_resource type="AudioStream" uid="uid://d1k1c6pnhdd68" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fwith%20these%20good%20news%2C%20I%20got%20accepted%20into%20college.ogg" id="2_qrtq1"]
 
 [resource]
 script = ExtResource("1_j7nrv")
 message = "Hey, I'm going to kill you..."
+audio = ExtResource("1_oph3i")
 message_2 = "...with this good news! I got accepted into college!"
+audio_2 = ExtResource("2_qrtq1")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

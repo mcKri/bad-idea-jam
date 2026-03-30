@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://darx1y8b8yyok"]
 
+[ext_resource type="AudioStream" uid="uid://qa36s62vmrim" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHey%20uhm%20can%20you%20help%20me%20where%20am%20I.ogg" id="1_3pwjf"]
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_w6gww"]
+[ext_resource type="AudioStream" uid="uid://dtq8yltd4shmj" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Foh%20thats%20right%20in%20your%20bank%20account.ogg" id="2_ao24u"]
 
 [resource]
 script = ExtResource("1_w6gww")
 message = "Hey uhm, can you help me? Where am I?"
+audio = ExtResource("1_3pwjf")
 message_2 = "Oh, that's right, in your bank account!"
+audio_2 = ExtResource("2_ao24u")
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

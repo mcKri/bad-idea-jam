@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://dst1jedjmminr"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_lce52"]
+[ext_resource type="AudioStream" uid="uid://dshob344i0oml" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FWeve%20kidnapped%20your%20brother%20you%20should%20come%20pretty%20quickly.ogg" id="1_lfn30"]
+[ext_resource type="AudioStream" uid="uid://dfo0461b4ncpr" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fbest%20boys%20night%20eveeer.ogg" id="2_tnovk"]
 
 [resource]
 script = ExtResource("1_lce52")
 message = "We've kidnapped your brother, you should come pretty quickly..."
+audio = ExtResource("1_lfn30")
 message_2 = "Best boys' night eveeer!"
+audio_2 = ExtResource("2_tnovk")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

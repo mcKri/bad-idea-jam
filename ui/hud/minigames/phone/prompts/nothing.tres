@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://dmwjkpwdkotp2"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_fqkiu"]
+[ext_resource type="AudioStream" uid="uid://cq4htsjr7wgga" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FHey%20guess%20what%20you%20just%20wooon.ogg" id="1_lew2d"]
+[ext_resource type="AudioStream" uid="uid://cdrjwnh0pjl5e" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Fnothing.ogg" id="2_g3wq5"]
 
 [resource]
 script = ExtResource("1_fqkiu")
 message = "Hey, guess what you just wooon!"
+audio = ExtResource("1_lew2d")
 message_2 = "Nothing!"
+audio_2 = ExtResource("2_g3wq5")
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="PhonePrompt" format=3 uid="uid://cur0b2hhgmqhe"]
 
 [ext_resource type="Script" uid="uid://cm4qnxcfg1ngu" path="res://ui/hud/minigames/phone/prompts/phone_prompt.gd" id="1_6sled"]
+[ext_resource type="AudioStream" uid="uid://vpdyuuim5mjn" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2FYour%20days%20are%20numbered.ogg" id="1_vph27"]
+[ext_resource type="AudioStream" uid="uid://rvkee6pg1vjn" path="res://ui/hud/minigames/phone/prompts/audio/primary%3ADownload%2Fbalatro%2Ftoday%20is%20the%204th%20of%20August.ogg" id="2_o8q22"]
 
 [resource]
 script = ExtResource("1_6sled")
 message = "Your days are numbered..."
+audio = ExtResource("1_vph27")
 message_2 = "Today is the 4th of August..."
+audio_2 = ExtResource("2_o8q22")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

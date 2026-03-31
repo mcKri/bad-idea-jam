@@ -64,7 +64,7 @@ func _handle_option_select(correct: bool):
 	if correct:
 		complete()
 	else:
-		fail()
+		fail("You lost the ball! Better luck next time!")
 
 
 func _on_correct_button_pressed():

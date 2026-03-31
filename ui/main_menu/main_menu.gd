@@ -13,6 +13,11 @@ func _ready():
 	AudioManager.play_music(preload("res://assets/music/gj_1.2.mp3"))
 
 
+func open():
+	menu_body.show()
+	settings_menu.hide()
+
+
 func _on_new_game_button_pressed():
 	StageLoader.load_stage(0, 0)
 	await transition_to_stage()

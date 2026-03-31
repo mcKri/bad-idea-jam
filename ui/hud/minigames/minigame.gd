@@ -108,18 +108,20 @@ func stop_flashing():
 	modulate = Color(1, 1, 1, 1)
 
 
-func fail():
-	AudioManager.play_sound(preload("res://assets/sfx/minigame_fail.ogg"))
+func fail(message: String = "You failed the minigame!"):
+	# AudioManager.play_sound(preload("res://assets/sfx/minigame_fail.ogg"))
 	_finish()
-	if is_instance_valid(StageLoader.car):
-		var explosion: Explosion = EXPLOSION_SCENE.instantiate()
-		explosion.start(StageLoader.car)
-		
-		if StageLoader.car.box_anchor.boxes.size() > 0:
-			if not StageLoader.car.god_mode:
-				StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
-		else:
-			StageLoader.car.damage(FAILURE_DAMAGE)
+	StageLoader.fail_stage(message)
+
+	# if is_instance_valid(StageLoader.car):
+	# 	var explosion: Explosion = EXPLOSION_SCENE.instantiate()
+	# 	explosion.start(StageLoader.car)
+
+	# 	if StageLoader.car.box_anchor.boxes.size() > 0:
+	# 		if not StageLoader.car.god_mode:
+	# 			StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))
+	# 	else:
+	# 		StageLoader.car.damage(FAILURE_DAMAGE)	
 
 
 func complete():

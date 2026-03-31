@@ -90,6 +90,7 @@ func load_stage(idx: int, new_world_idx: int = max(world_idx, 0)):
 	UILayer.hud.minigame_handler.reset()
 	UILayer.hud.stage_timer.set_max_time(stage.time_limit)
 	UILayer.hud.show()
+	UILayer.hud.stage_indicator.display(world_idx, worlds.size(), stage_idx, worlds[world_idx].stages.size())
 
 	stage.active = true
 
@@ -134,6 +135,7 @@ func restart_stage():
 func fail_stage(reason: String = ""):
 	player.input_enabled = false
 	car.driving = false
+	car.destroy()
 	UILayer.stage_fail_screen.open(reason)
 	UILayer.hud.minigame_handler.set_paused(true)
 	AudioManager.play_music(preload("res://assets/music/game_over.mp3"))

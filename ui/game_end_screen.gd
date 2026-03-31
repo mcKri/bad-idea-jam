@@ -8,5 +8,4 @@ func _ready():
 
 func _on_button_pressed():
 	hide()
-	UILayer.main_menu.show()
-	UILayer.main_menu.menu_body.show()
+	UILayer.main_menu.open()

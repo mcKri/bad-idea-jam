@@ -69,11 +69,11 @@ func light_up_button(color: ButtonColor):
 	# TODO: Play sound
 
 
-func fail():
+func fail(message: String = "You entered the wrong sequence! Simon says you lose!"):
 	modulate = Color(1, 0, 0, 1)
 	await get_tree().create_timer(0.5).timeout
 
-	super ()
+	super (message)
 
 
 func _on_red_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):

@@ -58,8 +58,10 @@ func _process(delta):
 		stop_flashing()
 
 	# Failure check
-	if temp >= MAX_TEMP + FAIL_MARGIN || temp <= MIN_TEMP - FAIL_MARGIN:
-		fail()
+	if temp >= MAX_TEMP + FAIL_MARGIN:
+		fail("You overheated! Keep an eye on the thermometer next time!")
+	elif temp <= MIN_TEMP - FAIL_MARGIN:
+		fail("You froze! Keep an eye on the thermometer next time!")
 
 
 func _toggle_cooling():

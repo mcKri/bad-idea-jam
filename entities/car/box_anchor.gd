@@ -47,11 +47,11 @@ func impact_box(force: Vector3):
 	
 	impact_cooldown = IMPACT_COOLDOWN_LENGTH
 	
-	var launch_chance := (force.length() - MIN_LAUNCH_FORCE) / (MAX_LAUNCH_FORCE - MIN_LAUNCH_FORCE)
-	print("Impact force: ", force.length(), " Launch chance: ", launch_chance)
-	if randf() < launch_chance:
-		launch_box(force)
-		return
+	# var launch_chance := (force.length() - MIN_LAUNCH_FORCE) / (MAX_LAUNCH_FORCE - MIN_LAUNCH_FORCE)
+	# print("Impact force: ", force.length(), " Launch chance: ", launch_chance)
+	# if randf() < launch_chance:
+	# 	launch_box(force)
+	# 	return
 	
 	for box in boxes:
 		var shaker := Shaker.new(0.04 * force.length(), 0.05 * force.length())

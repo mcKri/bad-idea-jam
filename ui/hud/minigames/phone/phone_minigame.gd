@@ -124,11 +124,11 @@ func _on_texture_button_pressed():
 	if _curr_prompt.should_answer:
 		complete()
 	else:
-		fail()
+		fail("You answered the wrong call! Don't get scammed!")
 
 
 func handle_idle_timeout():
 	if _curr_prompt.should_answer:
-		fail()
+		fail("You didn't answer the phone in time!")
 	else:
 		complete()

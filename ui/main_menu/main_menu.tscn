@@ -33,14 +33,15 @@ expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu" unique_id=969756507]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 627.00006
-offset_right = 1090.0
-offset_bottom = 719.00006
-rotation = -0.33493698
+offset_left = -76.0
+offset_top = 185.0
+offset_right = 827.0
+offset_bottom = 323.0
+rotation = -0.20552659
 theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
-text = "Cool Car Game"
+text = "John Delivery's
+Last dance"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

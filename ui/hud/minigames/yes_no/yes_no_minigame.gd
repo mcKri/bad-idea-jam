@@ -84,7 +84,7 @@ func _answer(is_yes: bool):
 	if is_yes == _curr_prompt.should_answer_yes:
 		complete()
 	else:
-		fail()
+		fail("Wrong answer! Pay closer attention to the prompt next time!")
 
 
 func _finish():

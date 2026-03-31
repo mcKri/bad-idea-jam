@@ -178,11 +178,10 @@ func damage(amount: float):
 	health_bar.update(health)
 	if health <= 0.0:
 		if not god_mode:
-			destroy()
+			StageLoader.fail_stage("Your car was destroyed!")
 
 
 func destroy():
-	StageLoader.fail_stage("Your car was destroyed!")
 	var explosion: Explosion = DESTROY_EXPLOSION_SCENE.instantiate()
 	explosion.start(self )
 	

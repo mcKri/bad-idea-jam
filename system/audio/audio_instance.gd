@@ -32,6 +32,12 @@ func set_volume(volume: float) -> AudioInstance:
 	return self
 
 
+func set_position(pos: Vector3) -> AudioInstance:
+	if _audio_player and is_instance_valid(_audio_player) and _audio_player is AudioStreamPlayer3D:
+		_audio_player.position = pos
+	return self
+
+
 func tween_volume(target_volume_db: float, duration: float, play_if_stopped: bool = false, stop_when_silent: bool = false) -> AudioInstance:
 	if _audio_player and is_instance_valid(_audio_player):
 		# Start playing if requested
@@ -46,7 +52,17 @@ func tween_volume(target_volume_db: float, duration: float, play_if_stopped: boo
 		if stop_when_silent and target_volume_db <= -60.0:
 			tween.tween_callback(_audio_player.stop)
 	return self
-	
+
+
+func attach_to_node(node: Node) -> AudioInstance:
+	if _audio_player and is_instance_valid(_audio_player):
+		node.tree_exited.connect(func():
+			print("AudioInstance: Node exited tree, stopping audio.")
+			if is_instance_valid(_audio_player):
+				_audio_player.stop()
+		)
+	return self
+
 	
 # Convenience methods using tween_volume
 func fade_in(duration: float, target_volume_db: float = 0.0) -> AudioInstance:

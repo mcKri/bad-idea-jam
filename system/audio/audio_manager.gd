@@ -1,6 +1,7 @@
 extends Node
 
 const POOL_SIZE: int = 64
+const INTERNAL_COOLDOWN_TIME: float = 0.05
 
 var sfx_pool: AudioPlayerPool
 var sfx_3d_pool: AudioPlayerPool
@@ -12,9 +13,20 @@ var ui_pool: AudioPlayerPool
 var _music_position: float = 0.0
 var _music_volume_linear: float = 1.0
 
+var _sounds_on_cooldown: Dictionary[AudioStream, float] = {}
+
 
 func _ready() -> void:
 	_initialize_audio_pools()
+
+
+func _process(delta: float):
+	# Update cooldowns
+	var keys := _sounds_on_cooldown.keys()
+	for sound in keys:
+		_sounds_on_cooldown[sound] -= delta
+		if _sounds_on_cooldown[sound] <= 0.0:
+			_sounds_on_cooldown.erase(sound)
 
 
 func _initialize_audio_pools() -> void:
@@ -24,17 +36,34 @@ func _initialize_audio_pools() -> void:
 
 
 func play_sound(sound: AudioStream, volume: float = 0.0) -> AudioInstance:
+	if _sounds_on_cooldown.has(sound):
+		return null
+	
 	var player = sfx_pool.play_sound(sound, volume) as AudioStreamPlayer
+	_sounds_on_cooldown[sound] = INTERNAL_COOLDOWN_TIME
+	
 	return AudioInstance.new(player)
 
 
 func play_sound_3d(sound: AudioStream, pos: Vector3, volume: float = 0.0) -> AudioInstance:
+	if _sounds_on_cooldown.has(sound):
+		print("SKIPPING")
+		return null
+	
 	var player = sfx_3d_pool.play_sound(sound, volume, 1.0, pos) as AudioStreamPlayer3D
+	_sounds_on_cooldown[sound] = INTERNAL_COOLDOWN_TIME
+	print("PLAYING")
+	
 	return AudioInstance.new(player)
 
 
 func play_ui_sound(sound: AudioStream, volume: float = 0.0) -> AudioInstance:
+	if _sounds_on_cooldown.has(sound):
+		return null
+	
 	var player = ui_pool.play_sound(sound, volume) as AudioStreamPlayer
+	_sounds_on_cooldown[sound] = INTERNAL_COOLDOWN_TIME
+	
 	return AudioInstance.new(player)
 
 

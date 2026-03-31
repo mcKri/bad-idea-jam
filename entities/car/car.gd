@@ -11,8 +11,6 @@ const DESTROY_EXPLOSION_SCENE := preload("res://entities/explosion/explosion.tsc
 
 @export var steer_speed_curve: Curve
 
-#I am making some of these regular variables so I can edit them with the garage upgrade menu, please switch back if anything breaks
-
 const SPHERE_OFFSET := Vector3(0, -0.4, 0) # Where to place mesh relative to sphere center
 const FRONT_AXLE_OFFSET := Vector3(0, 0, -0.15)
 
@@ -37,8 +35,12 @@ var speed_input := 0.0
 var steer_input := 0.0
 var handbrake := false
 
+const ENGINE_SOUND: AudioStream = preload("res://assets/sfx/car_loop.ogg")
+var engine_sound: AudioInstance
+
 const MAX_HEALTH := 280.0
 const COLLISION_DAMAGE_SCALE := 5.0
+const COLLISION_SOUND: AudioStream = preload("res://assets/sfx/building_hit.ogg")
 
 @onready var health_bar: HealthBar = $Mesh/HealthBar
 
@@ -126,6 +128,16 @@ func _process(_delta):
 	steer_input = (Input.get_action_strength("steer_left") - Input.get_action_strength("steer_right")) * STEERING
 	handbrake = Input.is_action_pressed("handbrake")
 
+	if !engine_sound:
+		engine_sound = AudioManager.play_sound_3d(ENGINE_SOUND, global_position) \
+			.loop() \
+			.attach_to_node(self )
+	else:
+		engine_sound.set_position(mesh.global_position)
+		var speed_factor := linear_velocity.length() / CarStats.max_speed
+		engine_sound.set_volume(5.0 + 10.0 * speed_factor)
+		engine_sound.set_pitch(0.9 + 0.3 * speed_factor)
+
 
 func _integrate_forces(state: PhysicsDirectBodyState3D):
 	for i in state.get_contact_count():
@@ -141,6 +153,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		var impulse := state.get_contact_impulse(i)
 		var vel := state.get_contact_local_velocity_at_position(i)
 		var shake_strength := vel.length() * 0.02
+
+		AudioManager.play_sound_3d(COLLISION_SOUND, global_position, min(0.0, 0.0 + shake_strength * 2.0))
 
 		# Bounce off terrain
 		if other.get_collision_layer_value(3):
@@ -191,6 +205,8 @@ func destroy():
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body is GunEnemy:
+		AudioManager.play_sound_3d(COLLISION_SOUND, global_position)
+
 		var direction := (body.global_position - global_position).normalized()
 		body.launch(direction * linear_velocity.length() * 2.5)
 

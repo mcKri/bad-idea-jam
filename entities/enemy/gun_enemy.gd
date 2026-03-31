@@ -143,6 +143,7 @@ func _check_target_visible() -> bool:
 func _shoot() -> void:
 	if not bullet_scene:
 		return
+	
 	var bullet: Bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = sight_cast.global_position + sight_cast.global_transform.basis.z * 1.5
@@ -219,6 +220,9 @@ func _on_launched_state_state_physics_processing(delta: float):
 		if other is CSGBox3D || other is Car || other is Player:
 			continue
 		
+		if other is Enemy:
+			other.die()
+
 		die()
 		return
 

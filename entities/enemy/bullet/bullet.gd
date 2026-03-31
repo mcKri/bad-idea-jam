@@ -15,6 +15,7 @@ func fire(direction: Vector3, damage: float = _damage):
 	look_at(global_transform.origin + direction, Vector3.UP)
 	monitoring = true
 	visible = true
+	AudioManager.play_sound_3d(preload("res://assets/sfx/gun.ogg"), global_position, 6.0)
 
 
 func _physics_process(delta: float):

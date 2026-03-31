@@ -66,6 +66,7 @@ func _process(delta):
 
 func _toggle_cooling():
 	cooling = !cooling
+	AudioManager.play_sound(preload("res://assets/sfx/click.ogg"))
 
 
 func _update_texture():

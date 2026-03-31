@@ -44,7 +44,7 @@ func start():
 	_curr_prompt = _prompt_pool.pick_random()
 	_start_shaking()
 	enable_input()
-	AudioManager.play_sound(_curr_prompt.audio)
+	AudioManager.play_sound(_curr_prompt.audio, 6.0)
 	display_text(_curr_prompt.message, _curr_prompt.audio.get_length())
 
 
@@ -125,7 +125,7 @@ func _on_texture_button_pressed():
 	_stop_shaking()
 	enable_input(false)
 	
-	AudioManager.play_sound(_curr_prompt.audio_2)
+	AudioManager.play_sound(_curr_prompt.audio_2, 6.0)
 	await display_text(_curr_prompt.message_2, _curr_prompt.audio_2.get_length())
 
 	if _curr_prompt.should_answer:

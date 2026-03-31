@@ -40,7 +40,7 @@ func start():
 	await super ()
 	
 	_curr_prompt = _prompt_pool.pick_random()
-	AudioManager.play_sound(_curr_prompt.audio)
+	AudioManager.play_sound(_curr_prompt.audio, 3.0)
 	await display_text(_curr_prompt.message, _curr_prompt.audio.get_length())
 	
 	button_ap.play("enter")

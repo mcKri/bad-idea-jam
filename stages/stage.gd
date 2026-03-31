@@ -49,7 +49,7 @@ func activate_next_delivery_point():
 func complete_delivery():
 	var curr_point := delivery_points[curr_delivery_idx]
 	UILayer.hud.screen_pointer.remove_target(curr_point)
-	AudioManager.play_sound(preload("res://assets/sfx/orchestra_hit.mp3"), -0.5).set_pitch(1.0 + float(curr_delivery_idx) * 0.1)
+	AudioManager.play_sound(preload("res://assets/sfx/orchestra_hit.mp3"), -8.0).set_pitch(1.0 + float(curr_delivery_idx) * 0.1)
 
 	if curr_delivery_idx + 1 >= delivery_points.size():
 		garage.set_active()

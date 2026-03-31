@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="World" format=3 uid="uid://bxwpsus4eu3jn"]
-
-[ext_resource type="Script" uid="uid://dtd4v50845w8b" path="res://stages/world.gd" id="1_5m1lx"]
-[ext_resource type="PackedScene" uid="uid://dweq1naht4loy" path="res://stages/test_world/test_stage.tscn" id="2_whopg"]
-
-[resource]
-script = ExtResource("1_5m1lx")
-stages = Array[PackedScene]([ExtResource("2_whopg"), ExtResource("2_whopg")])
-metadata/_custom_type_script = "uid://dtd4v50845w8b"

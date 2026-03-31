@@ -78,6 +78,7 @@ func modify_difficulty(mod: float):
 func start():
 	enable_input(false)
 	stop_flashing()
+	AudioManager.play_sound(preload("res://assets/sfx/minigame_appear.mp3"))
 	_silhouette_material.set_shader_parameter("color", Color.WHITE)
 	show()
 	var tween = create_tween()
@@ -111,9 +112,9 @@ func fail():
 	AudioManager.play_sound(preload("res://assets/sfx/minigame_fail.ogg"))
 	_finish()
 	if is_instance_valid(StageLoader.car):
-		var explosion = EXPLOSION_SCENE.instantiate()
-		StageLoader.stage.add_child(explosion)
-		explosion.global_position = StageLoader.car.global_position
+		var explosion: Explosion = EXPLOSION_SCENE.instantiate()
+		explosion.start(StageLoader.car)
+		
 		if StageLoader.car.box_anchor.boxes.size() > 0:
 			if not StageLoader.car.god_mode:
 				StageLoader.car.box_anchor.launch_box(Vector3(0, 0, -10))

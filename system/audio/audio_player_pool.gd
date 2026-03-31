@@ -53,7 +53,7 @@ func play_sound(sound: AudioStream, volume: float = 0.0, pitch: float = 1.0, pos
 		player.volume_db = volume
 		player.pitch_scale = pitch
 		
-		if player is AudioStreamPlayer2D:
+		if player is AudioStreamPlayer3D:
 			player.position = position
 		
 		player.play()

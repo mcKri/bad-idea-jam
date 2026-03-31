@@ -4,7 +4,7 @@ const PLAYER_PACKED := preload("res://entities/player/player.tscn")
 const CAR_PACKED := preload("res://entities/car/car.tscn")
 const MUSIC_POOL := [
 	preload("res://assets/music/gj_1.2.mp3"),
-	preload("res://assets/music/gj_3.mp3"),
+	preload("res://assets/music/gj_3.2.mp3"),
 	preload("res://assets/music/gj_4.1.mp3"),
 ]
 

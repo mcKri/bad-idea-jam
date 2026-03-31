@@ -29,7 +29,6 @@ func on_triggered():
 
 
 func die():
-	var explosion = DEATH_EXPLOSION_SCENE.instantiate()
-	add_sibling(explosion)
-	explosion.global_position = global_position
+	var explosion: Explosion = DEATH_EXPLOSION_SCENE.instantiate()
+	explosion.start(self )
 	queue_free()

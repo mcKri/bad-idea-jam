@@ -183,9 +183,9 @@ func damage(amount: float):
 
 func destroy():
 	StageLoader.fail_stage("Your car was destroyed!")
-	var explosion = DESTROY_EXPLOSION_SCENE.instantiate()
-	add_sibling(explosion)
-	explosion.global_position = global_position
+	var explosion: Explosion = DESTROY_EXPLOSION_SCENE.instantiate()
+	explosion.start(self )
+	
 	hide()
 	queue_free()
 

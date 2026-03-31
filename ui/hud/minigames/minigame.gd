@@ -136,8 +136,7 @@ func complete():
 
 func _finish(with_cooldown: bool = true):
 	hide()
-	if with_cooldown:
-		_cooldown = BASE_COOLDOWN
+	_cooldown = BASE_COOLDOWN if with_cooldown else 0.0
 	_input_enabled = false
 
 

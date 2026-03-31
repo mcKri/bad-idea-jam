@@ -4,6 +4,7 @@ extends RefCounted
 var players: Array
 var player_type: String
 var bus_name: StringName
+var _reserved: Array # players claimed but possibly not yet playing
 
 
 func _init(count: int, type: String, bus: StringName, parent: Node = AudioManager):
@@ -25,13 +26,21 @@ func _init(count: int, type: String, bus: StringName, parent: Node = AudioManage
 		player.bus = bus
 		players.append(player)
 		parent.add_child(player)
+		player.finished.connect(_on_player_finished.bind(player))
+
+
+func _on_player_finished(player) -> void:
+	_reserved.erase(player)
 
 
 func get_available_player():
 	for player in players:
-		if not player.playing:
+		if not player.playing and not _reserved.has(player):
+			_reserved.append(player)
 			return player
 	
+	print("Warning: All audio players in pool are currently in use. Consider increasing the pool size.")
+
 	# If no free players, recycle the oldest one
 	var oldest_player = players[0]
 	var oldest_position = oldest_player.get_playback_position()

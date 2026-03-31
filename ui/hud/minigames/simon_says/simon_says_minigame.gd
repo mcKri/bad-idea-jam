@@ -19,10 +19,10 @@ const TEXTURES: Dictionary = {
 
 const SOUND: AudioStream = preload("res://assets/sfx/minigame_ss_2.ogg")
 const PITCHES: Dictionary = {
-	ButtonColor.RED: 1.0,
-	ButtonColor.PURPLE: 1.2,
-	ButtonColor.GREEN: 0.8,
-	ButtonColor.BLUE: 1.5
+	ButtonColor.RED: 0.8,
+	ButtonColor.PURPLE: 1.0,
+	ButtonColor.GREEN: 1.2,
+	ButtonColor.BLUE: 1.4
 }
 
 @onready var texture_rect: TextureRect = $TextureRect
@@ -82,7 +82,7 @@ func light_up_button(color: ButtonColor):
 		AudioManager.play_sound(SOUND).set_pitch(PITCHES.get(color, 1.0))
 
 
-func fail(message: String = "You entered the wrong sequence! Simon says you lose!"):
+func fail(message: String = "Simon's patience ran out! Repeat the sequence faster next time!"):
 	modulate = Color(1, 0, 0, 1)
 	await get_tree().create_timer(0.5).timeout
 
@@ -119,5 +119,4 @@ func _handle_button_input_event(button_color: ButtonColor, event: InputEvent):
 			if input_step >= correct_sequence.size():
 				complete()
 		else:
-			# TODO: Play failure sound
-			fail()
+			fail("You entered the wrong sequence! Simon says you lose!")

@@ -150,6 +150,7 @@ func complete_stage():
 	car.hide()
 	car.queue_free()
 	UILayer.hud.hide()
+	UILayer.hud.minigame_handler.set_paused(true)
 	stage.active = false
 
 

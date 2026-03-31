@@ -17,7 +17,7 @@ func set_active(active: bool = true):
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Car:
+	if body is Car && StageLoader.stage.active:
 		AudioManager.play_music(preload("res://assets/music/asleep.mp3"))
 		upgrade_panel.set_time_left(StageLoader.stage.timer)
 

@@ -87,8 +87,8 @@ func _answer(is_yes: bool):
 		fail("Wrong answer! Pay closer attention to the prompt next time!")
 
 
-func _finish():
-	super ()
+func _finish(with_cooldown: bool = true):
+	super (with_cooldown)
 
 	label.text = ""
 	_reset_scroll()

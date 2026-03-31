@@ -17,11 +17,18 @@ const TEXTURES: Dictionary = {
 	ButtonColor.BLUE: preload("res://ui/hud/minigames/simon_says/ss_blue.png")
 }
 
+const SOUND: AudioStream = preload("res://assets/sfx/minigame_ss_2.ogg")
+const PITCHES: Dictionary = {
+	ButtonColor.RED: 1.0,
+	ButtonColor.PURPLE: 1.2,
+	ButtonColor.GREEN: 0.8,
+	ButtonColor.BLUE: 1.5
+}
+
 @onready var texture_rect: TextureRect = $TextureRect
 
 var correct_sequence: Array[ButtonColor] = []
 const PLAYBACK_INTERVAL := 1.0
-const STEP_COUNT := 3
 var playback_idx: int = 0
 
 var input_step: int = 0
@@ -33,7 +40,8 @@ func start():
 	await super ()
 
 	correct_sequence.clear()
-	for i in range(STEP_COUNT):
+	var step_count := randi_range(4, 5)
+	for i in range(step_count):
 		var random_color = ButtonColor.values()[randi_range(1, 4)]
 		correct_sequence.append(random_color)
 	
@@ -58,15 +66,22 @@ func play_sequence():
 	for color in correct_sequence:
 		await get_tree().create_timer(PLAYBACK_INTERVAL * 0.5).timeout
 		
+		if !is_visible_in_tree():
+			return
+		
 		light_up_button(color)
 		await get_tree().create_timer(PLAYBACK_INTERVAL).timeout
 
+		if !is_visible_in_tree():
+			return
+		
 		light_up_button(ButtonColor.NONE)
 		
 
 func light_up_button(color: ButtonColor):
 	texture_rect.texture = TEXTURES.get(color, TEXTURES[ButtonColor.NONE])
-	# TODO: Play sound
+	if color != ButtonColor.NONE:
+		AudioManager.play_sound(SOUND).set_pitch(PITCHES.get(color, 1.0))
 
 
 func fail(message: String = "You entered the wrong sequence! Simon says you lose!"):

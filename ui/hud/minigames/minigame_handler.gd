@@ -8,15 +8,16 @@ extends Control
 @onready var yes_no_minigame: YesNoMinigame = %YesNoMinigame
 
 const BASE_TRIGGER_INTERVAL := 9.0
-var trigger_timer := BASE_TRIGGER_INTERVAL * 0.5
+var trigger_timer := BASE_TRIGGER_INTERVAL * 0.3
 var enabled_types: Array[Minigame.Type]
 
 
 func _process(delta):
-	if trigger_timer > 0:
-		trigger_timer -= delta
-	else:
-		trigger_random_minigame()
+	if StageLoader.stage && StageLoader.stage.active:
+		if trigger_timer > 0:
+			trigger_timer -= delta
+		else:
+			trigger_random_minigame()
 
 
 func set_enabled_types(types: Array[Minigame.Type]):
@@ -40,6 +41,7 @@ func trigger_random_minigame():
 	shuffled_types.shuffle()
 	for minigame_type in shuffled_types:
 		var minigame_node = _get_minigame_node(minigame_type)
+		print("Trying to trigger minigame: ", minigame_type, " Node: ", minigame_node)
 		if !minigame_node \
 		|| minigame_node.is_visible_in_tree() \
 		|| minigame_node.is_on_cooldown():
@@ -68,9 +70,9 @@ func _get_minigame_node(minigame_type: Minigame.Type) -> Minigame:
 
 
 func reset():
-	trigger_timer = BASE_TRIGGER_INTERVAL * 0.5
-	simon_says_minigame._finish()
-	thermometer_minigame._finish()
-	ball_cup_minigame._finish()
-	phone_minigame._finish()
-	yes_no_minigame._finish()
+	trigger_timer = BASE_TRIGGER_INTERVAL * 0.3
+	simon_says_minigame._finish(false)
+	thermometer_minigame._finish(false)
+	ball_cup_minigame._finish(false)
+	phone_minigame._finish(false)
+	yes_no_minigame._finish(false)

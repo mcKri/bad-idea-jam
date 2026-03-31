@@ -104,8 +104,8 @@ func _stop_shaking():
 	_phone_shaker.stop()
 
 
-func _finish():
-	super ()
+func _finish(with_cooldown: bool = true):
+	super (with_cooldown)
 
 	label.text = ""
 	_reset_scroll()

@@ -19,6 +19,8 @@ const FAILURE_DAMAGE := 120.0
 const SILHOUETTE_SHADER: Shader = preload("res://assets/shader/silhouette.tres")
 var _silhouette_material: ShaderMaterial
 
+const WARNING_SOUND: AudioStream = preload("res://assets/sfx/minigame_almost_fail_2.ogg")
+var _warning_sound: AudioInstance
 var _flash_tween: Tween
 var _shaker: Shaker
 var _cooldown := 0.0
@@ -96,13 +98,16 @@ func start_flashing():
 	_flash_tween.set_trans(Tween.TRANS_SINE)
 	_flash_tween.tween_property(self , "modulate", Color(1, 0, 0, 1), 0.5)
 	_flash_tween.tween_property(self , "modulate", Color(1, 1, 1, 1), 0.5)
-
+	_warning_sound = AudioManager.play_sound(WARNING_SOUND).loop()
 	_shaker.start()
 
 
 func stop_flashing():
 	if _flash_tween:
 		_flash_tween.kill()
+	
+	if _warning_sound:
+		_warning_sound.stop()
 	
 	_shaker.stop()
 	modulate = Color(1, 1, 1, 1)
@@ -129,13 +134,15 @@ func complete():
 	_finish()
 
 
-func _finish():
+func _finish(with_cooldown: bool = true):
 	hide()
-	_cooldown = BASE_COOLDOWN
+	if with_cooldown:
+		_cooldown = BASE_COOLDOWN
 	_input_enabled = false
 
 
 func is_on_cooldown() -> bool:
+	print("Minigame: Checking cooldown: ", _cooldown)
 	return _cooldown > 0.0
 
 

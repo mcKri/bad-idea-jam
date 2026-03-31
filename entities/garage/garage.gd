@@ -2,12 +2,14 @@ class_name Garage
 extends Node3D
 
 @onready var area: Area3D = $Area3D
+@onready var car: Node3D = $Car
 @onready var sprite: Sprite3D = $Area3D/CollisionShape3D/Sprite3D
 @onready var upgrade_panel: UpgradePanel = $UpgradeMenu/SubViewport/UpgradePanel
 
 
 func _ready():
 	set_active(false)
+	car.hide()
 
 
 func set_active(active: bool = true):
@@ -24,5 +26,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		UILayer.transition_overlay.trigger()
 		await UILayer.transition_overlay.halfway
 		
+		car.show()
 		$GarageCam.make_current()
 		StageLoader.complete_stage()

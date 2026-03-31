@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bh7hxc7y7lxxv"]
 
 [ext_resource type="Script" uid="uid://cvno21b3rvgct" path="res://ui/ui_layer.gd" id="1_3otji"]
+[ext_resource type="PackedScene" uid="uid://brqrjoxovmvri" path="res://ui/splash_screen.tscn" id="2_8fbwa"]
 [ext_resource type="PackedScene" uid="uid://d1g81bspctb8t" path="res://ui/hud/hud.tscn" id="2_gjtyb"]
 [ext_resource type="PackedScene" uid="uid://dtulmmv3577jc" path="res://ui/stage_fail_screen.tscn" id="2_xqqt7"]
 [ext_resource type="PackedScene" uid="uid://bqs0wjcm8ovtc" path="res://ui/stage_complete_screen.tscn" id="3_00rn6"]
@@ -10,6 +11,8 @@
 
 [node name="UILayer" type="CanvasLayer" unique_id=1128583004]
 script = ExtResource("1_3otji")
+
+[node name="SplashScreen" parent="." unique_id=813815323 instance=ExtResource("2_8fbwa")]
 
 [node name="HUD" parent="." unique_id=741828762 instance=ExtResource("2_gjtyb")]
 

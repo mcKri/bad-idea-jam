@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var splash_screen: SplashScreen = $SplashScreen
 @onready var main_menu: MainMenu = $MainMenu
 @onready var hud: HUD = $HUD
 @onready var stage_fail_screen: CanvasLayer = $StageFailScreen

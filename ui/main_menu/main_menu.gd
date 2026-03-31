@@ -7,15 +7,15 @@ extends Control
 
 
 func _ready():
+	hide()
 	continue_button.disabled = !SaveSystem.has_save_data()
-	menu_body.show()
-	settings_menu.hide()
-	AudioManager.play_music(preload("res://assets/music/gj_1.2.mp3"))
 
 
 func open():
+	AudioManager.play_music(preload("res://assets/music/gj_1.2.mp3"))
 	menu_body.show()
 	settings_menu.hide()
+	show()
 
 
 func _on_new_game_button_pressed():

@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dghar8x1xyokj"
+uid="uid://cg327p43gtxae"
 path="res://.godot/imported/game_over.mp3-14e1bdfaf9ee9a4574ec3c72671656d8.mp3str"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/game_over.mp3-14e1bdfaf9ee9a4574ec3c72671656d
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

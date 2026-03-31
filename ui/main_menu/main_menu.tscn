@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c2oaovx8850qi" path="res://ui/main_menu/main_menu.gd" id="1_t7e0r"]
 [ext_resource type="Script" uid="uid://bh41kxldf2bht" path="res://ui/main_menu/volume_slider.gd" id="2_mu8pm"]
 [ext_resource type="Texture2D" uid="uid://brwvuntgokqhu" path="res://ui/main_menu/image.png" id="2_omy8q"]
+[ext_resource type="Texture2D" uid="uid://ci5ekb2x518im" path="res://ui/main_menu/Controls.png" id="4_i5wg5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omy8q"]
 
@@ -17,6 +18,27 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_omy8q"]
 font_size = 48
+
+[sub_resource type="FontFile" id="FontFile_i5wg5"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
 
 [node name="MainMenu" type="MarginContainer" unique_id=1151179284]
 anchors_preset = 15
@@ -33,15 +55,19 @@ expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu" unique_id=969756507]
 layout_mode = 0
-offset_left = -76.0
-offset_top = 185.0
-offset_right = 827.0
-offset_bottom = 323.0
-rotation = -0.20552659
+offset_left = -59.000008
+offset_top = 165.0
+offset_right = 844.0
+offset_bottom = 303.0
+rotation = -0.17879362
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/normal_font_size = 68
 bbcode_enabled = true
-text = "John Delivery's
-Last dance"
+text = "[wave]John Delivery's[/wave]
+[shake level=10]Last dance"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -85,6 +111,40 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxEmpty_omy8q")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i5wg5")
+
+[node name="ControlsButton" type="Button" parent="MainMenu" unique_id=2128081295]
+layout_mode = 0
+offset_left = 518.99994
+offset_top = 547.0
+offset_right = 769.99994
+offset_bottom = 592.0
+rotation = -0.36193386
+theme_override_font_sizes/font_size = 28
+text = "Controls"
+
+[node name="CreditsButton" type="Button" parent="MainMenu" unique_id=239643873]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 703.0
+offset_right = 1262.0
+offset_bottom = 753.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/CreditsButton" unique_id=1951940421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[rainbow]Credits"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SettingsMenu" type="CenterContainer" parent="." unique_id=1173579239]
 visible = false
@@ -137,7 +197,196 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Back"
 
+[node name="ControlsScreen" type="TextureRect" parent="." unique_id=1461136165]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_i5wg5")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CreditsScreen" type="CenterContainer" parent="." unique_id=1001286092]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsScreen" unique_id=1593537271]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsScreen/MarginContainer" unique_id=1434281457]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer" unique_id=1747231456]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Credits"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CreditsScreen/MarginContainer/VBoxContainer" unique_id=1995369383]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="Name" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=387464028]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Kri"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Role" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1863153113]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Programming, SFX"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Link" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=762133209]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[url=https://www.kri.boats/]kri.boats"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Name2" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1443770608]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Tibi"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Role2" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1572331090]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "2D Art, 3D Art,
+SFX, Voice Acting,
+Writing"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Link2" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1093170759]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[url=https://youtube.com/@socoolish?si=GBj4Zdb0GPOOlMAet]youtube.com/@socoolish"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Name3" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1208243588]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "KURLYwithaK"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Role3" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=216998951]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "3D Art"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Link3" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=548485597]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[url=https://bsky.app/profile/kurlywithak.bsky.social]@kurlywithak"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Name4" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1463985758]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Zaro"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Role4" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=653826703]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Programming"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Link4" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1171555172]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="Name5" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1066120427]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "John Delivery"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Role5" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=963664239]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Driving, Fighting,
+Delivering"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Link5" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer/GridContainer" unique_id=1567555411]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="LinkCopiedLabel" type="RichTextLabel" parent="CreditsScreen/MarginContainer/VBoxContainer" unique_id=1449462798]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontFile_i5wg5")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Link copied to clipboard!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CreditsScreen/MarginContainer/VBoxContainer" unique_id=1524425366]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
 [connection signal="pressed" from="MainMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="MainMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MainMenu/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="MainMenu/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="gui_input" from="ControlsScreen" to="." method="_on_controls_screen_gui_input"]
+[connection signal="meta_clicked" from="CreditsScreen/MarginContainer/VBoxContainer/GridContainer/Link" to="." method="_on_link_meta_clicked"]
+[connection signal="meta_clicked" from="CreditsScreen/MarginContainer/VBoxContainer/GridContainer/Link2" to="." method="_on_link_meta_clicked"]
+[connection signal="meta_clicked" from="CreditsScreen/MarginContainer/VBoxContainer/GridContainer/Link3" to="." method="_on_link_meta_clicked"]
+[connection signal="pressed" from="CreditsScreen/MarginContainer/VBoxContainer/BackButton" to="." method="_on_credits_back_button_pressed"]

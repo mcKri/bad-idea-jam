@@ -154,7 +154,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D):
 		var vel := state.get_contact_local_velocity_at_position(i)
 		var shake_strength := vel.length() * 0.02
 
-		AudioManager.play_sound_3d(COLLISION_SOUND, global_position, min(0.0, 0.0 + shake_strength * 2.0))
+		AudioManager.play_sound_3d(COLLISION_SOUND, global_position, min(0.0, 4.0 + shake_strength * 2.0)).set_pitch(0.5)
 
 		# Bounce off terrain
 		if other.get_collision_layer_value(3):
@@ -205,7 +205,7 @@ func destroy():
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body is GunEnemy:
-		AudioManager.play_sound_3d(COLLISION_SOUND, global_position)
+		AudioManager.play_sound_3d(COLLISION_SOUND, global_position).set_pitch(0.5)
 
 		var direction := (body.global_position - global_position).normalized()
 		body.launch(direction * linear_velocity.length() * 2.5)

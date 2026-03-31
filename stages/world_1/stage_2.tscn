@@ -35,4 +35,4 @@ fov = 37.849285
 [node name="GunEnemy" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="0" unique_id=170973106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.187527, 0, 26.90418)
 
-[editable path="Terrain/level 1_sf"]
+[editable path="Terrain/world1_buildings"]

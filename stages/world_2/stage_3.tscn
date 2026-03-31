@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://70wv2xto7cds" path="res://entities/enemy/gun_enemy.tscn" id="3_6snr0"]
 
 [node name="BaseStage" unique_id=1930302754 instance=ExtResource("1_y0t0x")]
-time_limit = 54.0
+time_limit = 55.0
 enabled_minigames = Array[int]([0, 1, 2, 3])
 
 [node name="DeliveryPoint" parent="DeliveryPoints" parent_id_path=PackedInt32Array(1372647028) index="0" unique_id=746821022]

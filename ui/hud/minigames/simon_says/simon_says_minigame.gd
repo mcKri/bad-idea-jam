@@ -40,7 +40,7 @@ func start():
 	await super ()
 
 	correct_sequence.clear()
-	var step_count := randi_range(4, 5)
+	var step_count := 4
 	for i in range(step_count):
 		var random_color = ButtonColor.values()[randi_range(1, 4)]
 		correct_sequence.append(random_color)

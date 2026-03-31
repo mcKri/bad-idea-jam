@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dalbiokrdtpcf"]
 
 [ext_resource type="Script" uid="uid://c05ynxyiltbg8" path="res://entities/garage/garage.gd" id="1_ntkc6"]
-[ext_resource type="PackedScene" uid="uid://bsx7t23q2a1w8" path="res://entities/garage/garage_building.glb" id="2_48lg1"]
+[ext_resource type="PackedScene" uid="uid://cf0uvr4svvcmi" path="res://entities/garage/garage _textured.glb" id="2_jwssi"]
 [ext_resource type="PackedScene" uid="uid://c2jnpowkgbear" path="res://entities/car/tray car 001.glb" id="3_8wnem"]
 [ext_resource type="Script" uid="uid://c4ultig5isck1" path="res://entities/delivery_point/nine_patch_viewport.gd" id="4_8wnem"]
 [ext_resource type="Script" uid="uid://didlhp3x5vrhc" path="res://ui/spatial_ui.gd" id="4_kxsr7"]
@@ -23,8 +23,8 @@ viewport_path = NodePath("Area3D/CollisionShape3D/Sprite3D/SubViewport")
 [node name="Garage" type="Node3D" unique_id=1723478353]
 script = ExtResource("1_ntkc6")
 
-[node name="garage_building" parent="." unique_id=703455527 instance=ExtResource("2_48lg1")]
-transform = Transform3D(0.14999996, 9.175833e-05, -4.520383e-06, -9.175691e-05, 0.14999996, 4.4551896e-05, 4.5492784e-06, -4.454896e-05, 0.14999999, 0, 0, 0)
+[node name="garage _textured" parent="." unique_id=1421978220 instance=ExtResource("2_jwssi")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 
 [node name="Car" parent="." unique_id=237136765 instance=ExtResource("3_8wnem")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -1.1646175, 0.18356204, -0.7363566)

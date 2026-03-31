@@ -144,4 +144,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -293.5693, 0, -116.68541)
 [node name="GunEnemy38" parent="Enemies" parent_id_path=PackedInt32Array(491556290) index="37" unique_id=1037523817 instance=ExtResource("3_knljl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -293.5693, 0, -116.68541)
 
-[editable path="Terrain/level 2_sf"]
+[editable path="Terrain/world2_buildings"]

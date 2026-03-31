@@ -25,7 +25,6 @@ func display(world_idx: int, world_count: int, stage_idx: int, stage_count: int)
 
 	await get_tree().create_timer(DISPLAY_TIME).timeout
 
-
 	_tween = create_tween()
 	_tween.tween_property(self , "modulate:a", 0.0, FADE_TIME)
 	await _tween.finished

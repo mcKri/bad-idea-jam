@@ -49,6 +49,7 @@ func get_available_player():
 func play_sound(sound: AudioStream, volume: float = 0.0, pitch: float = 1.0, position: Vector3 = Vector3.ZERO):
 	var player = get_available_player()
 	if player:
+		player.stop()
 		player.stream = sound
 		player.volume_db = volume
 		player.pitch_scale = pitch

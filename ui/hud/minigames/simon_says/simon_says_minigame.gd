@@ -45,8 +45,6 @@ func start():
 		var random_color = ButtonColor.values()[randi_range(1, 4)]
 		correct_sequence.append(random_color)
 	
-	print("Correct sequence: ", correct_sequence)
-
 	await play_sequence()
 	
 	input_step = 0

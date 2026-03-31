@@ -3,8 +3,8 @@ extends Minigame
 
 @export_dir var prompt_dir: String
 
-const SCROLL_WAIT_TIME := 0.5
-const SCROLL_SPEED := 100.0
+const SCROLL_WAIT_TIME := 0.3
+const SCROLL_SPEED := 150.0
 
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var label: RichTextLabel = $ScrollContainer/RichTextLabel
@@ -45,24 +45,31 @@ func start():
 	_start_shaking()
 	enable_input()
 	AudioManager.play_sound(_curr_prompt.audio)
-	display_text(_curr_prompt.message)
+	display_text(_curr_prompt.message, _curr_prompt.audio.get_length())
 
 
-func display_text(text: String):
+func display_text(text: String, audio_length: float = 0.0):
 	_reset_scroll()
 	label.text = text
 	await get_tree().process_frame
+	
+	_idle_timer += SCROLL_WAIT_TIME
+	await get_tree().create_timer(SCROLL_WAIT_TIME).timeout
 
 	var text_width := label.get_content_width()
 	var scroll_width := scroll_container.size.x
 	if text_width <= scroll_width:
+		if audio_length > 0.0:
+			_idle_timer += audio_length
+			await get_tree().create_timer(audio_length).timeout
 		return
-
-	_idle_timer += SCROLL_WAIT_TIME
-	await get_tree().create_timer(SCROLL_WAIT_TIME).timeout
 	
 	var max_scroll := text_width - scroll_width
-	var scroll_time := max_scroll / SCROLL_SPEED
+	var scroll_time: float
+	if audio_length > 0.0:
+		scroll_time = maxf(audio_length - SCROLL_WAIT_TIME * 2, 0.0)
+	else:
+		scroll_time = max_scroll / SCROLL_SPEED
 	_idle_timer += scroll_time
 	_scroll_tween = create_tween()
 	_scroll_tween.tween_property(scroll_container, "scroll_horizontal", max_scroll, scroll_time)
@@ -119,7 +126,7 @@ func _on_texture_button_pressed():
 	enable_input(false)
 	
 	AudioManager.play_sound(_curr_prompt.audio_2)
-	await display_text(_curr_prompt.message_2)
+	await display_text(_curr_prompt.message_2, _curr_prompt.audio_2.get_length())
 
 	if _curr_prompt.should_answer:
 		complete()

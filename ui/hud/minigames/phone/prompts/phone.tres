@@ -8,7 +8,7 @@
 script = ExtResource("1_g11mv")
 message = "You took EVERYTHING from me!"
 audio = ExtResource("1_xyysf")
-message_2 = "Oh wait no, I still have my phone haha"
+message_2 = "Oh wait no, I still have my phone!"
 audio_2 = ExtResource("2_3fv5h")
 should_answer = true
 metadata/_custom_type_script = "uid://cm4qnxcfg1ngu"

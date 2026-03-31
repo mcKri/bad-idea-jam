@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://c071dsspw37d7"]
 
+[ext_resource type="AudioStream" uid="uid://dwartiwvh2mo7" path="res://ui/hud/minigames/yes_no/prompts/audio/primary%3ADownload%2FT%2FWould%20you%20slice%20a%20knot%20with%20a%20machete.ogg" id="1_1fi7p"]
 [ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_1islw"]
 
 [resource]
 script = ExtResource("1_1islw")
 message = "Would you slice a knot with a machete?"
+audio = ExtResource("1_1fi7p")
 should_answer_yes = true
 metadata/_custom_type_script = "uid://c028y8gs7piyn"

@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://boq2jd4k0jqj"]
 
+[ext_resource type="AudioStream" uid="uid://cfib1p40d3ma4" path="res://ui/hud/minigames/yes_no/prompts/audio/primary%3ADownload%2FT%2FYou%20burned%20my%20house%20to%20the%20ground.ogg" id="1_c286u"]
 [ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_mspk8"]
 
 [resource]
 script = ExtResource("1_mspk8")
 message = "You burned my house to the ground!"
+audio = ExtResource("1_c286u")
 metadata/_custom_type_script = "uid://c028y8gs7piyn"

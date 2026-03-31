@@ -9,8 +9,11 @@ func _init(audio_player: Variant) -> void:
 
 
 func loop(should_loop: bool = true) -> AudioInstance:
-	if _audio_player and is_instance_valid(_audio_player):
-		_audio_player.stream.loop = should_loop
+	if _audio_player and is_instance_valid(_audio_player) and _audio_player.stream:
+		# Duplicate the stream to avoid mutating the shared preloaded resource
+		if _audio_player.stream.loop != should_loop:
+			_audio_player.stream = _audio_player.stream.duplicate()
+			_audio_player.stream.loop = should_loop
 	return self
 
 

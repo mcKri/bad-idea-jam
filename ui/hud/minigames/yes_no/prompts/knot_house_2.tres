@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://pbmi70nd0eg5"]
 
 [ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_2emuq"]
+[ext_resource type="AudioStream" uid="uid://crk02tj7b7ews" path="res://ui/hud/minigames/yes_no/prompts/audio/primary%3ADownload%2FT%2FWould%20you%20knot%20knot%20and%20burn%20down%20a%20wooden%20house.ogg" id="1_dbng6"]
 
 [resource]
 script = ExtResource("1_2emuq")
 message = "Would you knot knot and burn down a wooden house?"
+audio = ExtResource("1_dbng6")
 metadata/_custom_type_script = "uid://c028y8gs7piyn"

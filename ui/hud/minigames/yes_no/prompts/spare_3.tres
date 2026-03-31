@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="YesNoPrompt" format=3 uid="uid://5b7qtmw8bkad"]
 
 [ext_resource type="Script" uid="uid://c028y8gs7piyn" path="res://ui/hud/minigames/yes_no/yes_no_prompt.gd" id="1_alee5"]
+[ext_resource type="AudioStream" uid="uid://c75blw5p58qcu" path="res://ui/hud/minigames/yes_no/prompts/audio/primary%3ADownload%2FT%2FWould%20you%20spare%20a%20pair%20whos%20Johnatan%20and%20Claire.ogg" id="1_gcqpu"]
 
 [resource]
 script = ExtResource("1_alee5")
 message = "Would you spare a pair who's Johnathan and Claire?"
+audio = ExtResource("1_gcqpu")
 should_answer_yes = true
 metadata/_custom_type_script = "uid://c028y8gs7piyn"

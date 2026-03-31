@@ -133,9 +133,11 @@ func restart_stage():
 
 
 func fail_stage(reason: String = ""):
-	player.input_enabled = false
-	car.driving = false
-	car.destroy()
+	if is_instance_valid(player):
+		player.input_enabled = false
+	if is_instance_valid(car):
+		car.driving = false
+		car.destroy()
 	UILayer.stage_fail_screen.open(reason)
 	UILayer.hud.minigame_handler.set_paused(true)
 	AudioManager.play_music(preload("res://assets/music/game_over.mp3"))

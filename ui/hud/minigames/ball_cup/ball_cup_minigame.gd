@@ -11,8 +11,18 @@ const LIFT_SPEED := 0.3
 @onready var wrong_button_1: TextureButton = $WrongButton1
 @onready var wrong_button_2: TextureButton = $WrongButton2
 
+@onready var correct_anchor: Vector2 = correct_button.position
+@onready var wrong_anchor_1: Vector2 = wrong_button_1.position
+@onready var wrong_anchor_2: Vector2 = wrong_button_2.position
+var _shuffle_tween: Tween
+
 
 func start():
+	if _shuffle_tween and _shuffle_tween.is_valid():
+		_shuffle_tween.kill()
+	correct_button.position = correct_anchor
+	wrong_button_1.position = wrong_anchor_1
+	wrong_button_2.position = wrong_anchor_2
 	correct_cup.position = Vector2.ZERO
 
 	await super ()
@@ -27,12 +37,12 @@ func start():
 		buttons.erase(btn_a)
 		var btn_b = buttons.pick_random()
 
-		var tween := create_tween()
-		tween.tween_property(btn_a, "position", btn_b.position, SHUFFLE_SPEED)
-		tween.set_parallel()
-		tween.tween_property(btn_b, "position", btn_a.position, SHUFFLE_SPEED)
+		_shuffle_tween = create_tween()
+		_shuffle_tween.tween_property(btn_a, "position", btn_b.position, SHUFFLE_SPEED)
+		_shuffle_tween.set_parallel()
+		_shuffle_tween.tween_property(btn_b, "position", btn_a.position, SHUFFLE_SPEED)
 		
-		await tween.finished
+		await _shuffle_tween.finished
 	
 	enable_input()
 
